@@ -1,0 +1,61 @@
+<div class="container page-break">
+	<div class="step-title">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step3sub4.productivity_goals" extensionName="RkwWepstra" /></h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step3sub4.productivity_goals_realization" extensionName="RkwWepstra" />
+	</p>
+
+	<div class="main-table-container">
+		<div class="fake-table secondary no-border long-input">
+
+			<div class="table-head">
+				<div class="table-row">
+					<div class="table-cell no-border-bottom">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company" extensionName='RkwWepstra' />
+						</p>
+					</div>
+					<f:for each="{wepstra.productivity}" as="productivity">
+						<div class="table-cell">
+							<p class="field">
+								<label><f:translate key="tx_rkwwepstra_fluid_step3sub4.in_percent" extensionName="RkwWepstra" /></label>
+								<br>{productivity.title}
+							</p>
+						</div>
+					</f:for>
+					<p class="table-cell">&nbsp;</p>
+				</div>
+			</div>
+
+			<div class="table-body">
+				<div class="table-row">
+					<div class="table-cell border-top radio-button-align">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company_part" extensionName="RkwWepstra" />
+						</p>
+					</div>
+					<p class="table-cell border-top">&nbsp;</p>
+					<p class="table-cell border-top">&nbsp;</p>
+				</div>
+
+				<f:for each="{wepstra.costSaving}" as="costSaving" >
+					<div class="table-row">
+						<div class="table-cell">
+							<p class="field">
+								<label><f:translate key="tx_rkwwepstra_fluid_step3sub4.company_devision" extensionName="RkwWepstra" /></label>
+								<br>{costSaving.title}
+							</p>
+						</div>
+						<div class="table-cell">
+							<p class="field">
+								<label><f:translate key="tx_rkwwepstra_fluid_step3sub4.in_percent" extensionName="RkwWepstra" /></label>
+								<br>{costSaving.value}
+							</p>
+						</div>
+					</div>
+				</f:for>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container page-break">
+	<div class="step-title">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step1.building_jobfamily" extensionName="RkwWepstra" /></h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step1.concat_jobfamily" extensionName="RkwWepstra" />
+	</p>
+	<div class="grid">
+		<div class="full-width">
+			<h2 class="fields-name">
+				<f:translate key="tx_rkwwepstra_fluid_print.your_jobfamilies" extensionName="RkwWepstra" />
+			</h2>
+			<ul class="element-list siblings" id="test">
+				<f:for each="{wepstra.jobFamily}" as="jobFamily">
+					<li>
+						<p>{jobFamily.title}</p>
+					</li>
+				</f:for>
+			</ul>
+		</div>
+	</div>
+</div>

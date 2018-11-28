@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-11-11T13:43:13Z" product-name="rkw_wepstra">
+		<header/>
+		<body>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra">
+				<source>RKW WePstra: Project</source>
+				<target>RKW WePstra: Projekt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_mode">
+				<source>Guided Mode</source>
+				<target>Hilfemodus</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_asked">
+				<source>Asked to use Guided Mode</source>
+				<target>Wurde nach benutzung des Hilfemodus gefragt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.knowledge">
+				<source>Knowledge</source>
+				<target>Vorhandenes Wissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development_percentage">
+				<source>Technical Development Percentage</source>
+				<target>Beeinflussende (technische) Entwicklung in Prozent</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.reason_why">
+				<source>Reason Why</source>
+				<target>Gründe für strategische Personalplanung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.sales_trend">
+				<source>Sales Trend</source>
+				<target>Umsatzentwicklung insgesamt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.geographical_sector">
+				<source>Geographical Sector</source>
+				<target>Umsatzentwicklung auf einzelnen regionalen Märkten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.product_sector">
+				<source>Product Sector</source>
+				<target>Umsatzentwicklung in einzelnen Produktbereichen / Geschäftsfeldern</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.performance">
+				<source>Performance</source>
+				<target>Leistungen / Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development">
+				<source>Technical Development</source>
+				<target>Beeinflussende (technische) Entwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.productivity">
+				<source>Productivity</source>
+				<target>Kosteneinsparungen im Unternehmen insgesamt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.cost_saving">
+				<source>Cost Saving</source>
+				<target>Kosteneinsparungen in bestimmten Unternehmensbereichen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.participants">
+				<source>Participants</source>
+				<target>Teilnehmer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.job_family">
+				<source>Job Family</source>
+				<target>Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.step_control">
+				<source>Step Control</source>
+				<target>Schritt-Kontrolle eines Projektes</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.frontend_user">
+				<source>Frontend User</source>
+				<target>Frontend-Nutzer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.anonymous_user">
+				<source>Anonymous User</source>
+				<target>Anonymer-Nutzer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.last_update">
+				<source>Last Update</source>
+				<target>Letzte Aktualisierung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.disabled">
+				<source>Disabled</source>
+				<target>Deaktiviert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.target_date">
+				<source>Target Date</source>
+				<target>Zieldatum (des Planungshorizont)</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.update_task">
+				<source>Update task</source>
+				<target>Aktualisierte Aufgabe</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_item">
+				<source>RKW WePstra: Item</source>
+				<target>RKW WePstra: Element (zum abstrahieren für innere programmier-Logik)</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra.tx_extbase_type">
+				<source>Record Type</source>
+				<target>Deaktiviert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra.tx_extbase_type.0">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_Item">
+				<source>RKW Wepstra Item</source>
+				<target>RkwWepstra Element</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily">
+				<source>RKW WePstra: Job Family</source>
+				<target>RKW WePstra: Jobfamilie</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.strategic_relevance_market">
+				<source>Strategic Relevance Market</source>
+				<target>Strategische Marktrelevanz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.strategic_relevance_innovation">
+				<source>Strategic Relevance Innovation</source>
+				<target>Strategische Innovationsrelevanz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.strategic_relevance_productivity">
+				<source>Strategic Relevance Productivity</source>
+				<target>Strategische Produktivitätsrelevanz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.age_risk">
+				<source>Age Risk</source>
+				<target>Altersrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.capacity_risk">
+				<source>Capacity Risk</source>
+				<target>Kapazitätsrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.competence_risk">
+				<source>Competence Risk</source>
+				<target>Kompetenzrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.provision_risk">
+				<source>Provision Risk</source>
+				<target>Bestimmungsrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_marketing">
+				<source>Task Marketing</source>
+				<target>Personalmarketing</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_sourcing">
+				<source>Task Sourcing</source>
+				<target>Personalbeschaffung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_integration">
+				<source>Task Integration</source>
+				<target>Integration / Einarbeitung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_loyalty">
+				<source>Task Loyalty</source>
+				<target>Mitarbeiterbindung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_trend">
+				<source>Task Trend</source>
+				<target>Personalentwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.task_ending_employment">
+				<source>Task Ending Employment</source>
+				<target>Beendingung von Arbeitsverhältnissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.priority">
+				<source>Priority</source>
+				<target>Priorität</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.graph">
+				<source>Graph</source>
+				<target>Graoh</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_priority">
+				<source>RKW WePstra: Priority</source>
+				<target>RKW WePstra: Priorität</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.job_family">
+				<source>Job Family</source>
+				<target>Jobfamilie</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.participant">
+				<source>Participant</source>
+				<target>Teilnehmer</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_graph">
+				<source>RKW WePstra: Graph</source>
+				<target>RKW WePstra: Graph</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.x_axis">
+				<source>X Axis</source>
+				<target>X-Achse</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.y_axis">
+				<source>Y Axis</source>
+				<target>Y-Achse</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_participant">
+				<source>RKW WePstra: Participant</source>
+				<target>RKW WePstra: Teilnehmer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.first_name">
+				<source>First Name</source>
+				<target>Vorname</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.last_name">
+				<source>Last Name</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.username">
+				<source>Username</source>
+				<target>Nutzername / E-Mail-Adresse</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer">
+				<source>RKW WePstra: Anonymous User</source>
+				<target>RKW WePstra: Anonymer Nutzer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.tx_rkwwepstra_is_anonymous">
+				<source>Anonymous User</source>
+				<target>Anonymer Nutzer</target>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_extbase_type.Tx_RkwWepstra_AnonymousUser">
+				<source>RKW Wepstra AnonymousUser</source>
+				<target>Rkw Wepstra Anonymer Nutzer</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy">
+				<source>RKW WePstra: Reason Why</source>
+				<target>RKW WePstra: Gründe für strategische Personalplanung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_ReasonWhy">
+				<source>RKW Wepstra ReasonWhy</source>
+				<target>RKW Wepstra Gründe für strategische Personalplanung</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend">
+				<source>RKW WePstra: Sales Trend</source>
+				<target>RKW WePstra: Umsatzentwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.percentage">
+				<source>Percentage</source>
+				<target>Prozent</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.current_sales">
+				<source>Current Sales</source>
+				<target>Aktueller Umsatz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend.future_sales">
+				<source>Future Sales</source>
+				<target>Künftiger Umsatz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_SalesTrend">
+				<source>RKW Wepstra SalesTrend</source>
+				<target>RKW Wepstra Umsatzentwicklung</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector">
+				<source>RKW WePstra: Geographical Sector</source>
+				<target>RKW WePstra: Regionale Märkte</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_GeographicalSector">
+				<source>RKW Wepstra GeographicalSector</source>
+				<target>RKW Wepstra Regionale Märkte</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector">
+				<source>RKW WePstra: Product Sector</source>
+				<target>RKW WePstra: Produktbereich</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_ProductSector">
+				<source>RKW Wepstra ProductSector</source>
+				<target>RKW Wepstra Produktsektor</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_performance">
+				<source>RKW WePstra: Performance</source>
+				<target>RKW WePstra: Umsatzentwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.influence">
+				<source>Influence</source>
+				<target>Einfluss</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.knowledge">
+				<source>Knowledge</source>
+				<target>Wissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance.type">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_Performance">
+				<source>RKW Wepstra Performance</source>
+				<target>RKW Wepstra Umsatzentwicklung</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment">
+				<source>RKW WePstra: Technical Development</source>
+				<target>RKW WePstra: Beeinflussende (technische) Entwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_TechnicalDevelopment">
+				<source>RKW Wepstra TechnicalDevelopment</source>
+				<target>RKW Wepstra Beinflussende (technische) Entwicklung</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity">
+				<source>RKW WePstra: Productivity</source>
+				<target>RKW WePstra: Produktivität</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_Productivity">
+				<source>RKW Wepstra Productivity</source>
+				<target>RKW Wepstra Produktivität</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving">
+				<source>RKW WePstra: Cost Saving</source>
+				<target>RKW WePstra: Kosteneinsparungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving.value">
+				<source>Value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.tx_extbase_type.Tx_RkwWepstra_CostSaving">
+				<source>RKW Wepstra CostSaving</source>
+				<target>RKW Wepstra Kosteneinsparungen</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol">
+				<source>RKW WePstra: Step Control</source>
+				<target>RKW WePstra: Schrittkontrolle</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step0">
+				<source>Step 0 / Preparation</source>
+				<target>Schritt 0 / Vorbereitung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step1">
+				<source>Step 1</source>
+				<target>Schritt 1</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step2">
+				<source>Step 2</source>
+				<target>Schritt 2</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step2sub2">
+				<source>Step 2 sub 2</source>
+				<target>Schritt 2.2</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step3">
+				<source>Step 3</source>
+				<target>Schritt 3</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step3sub2">
+				<source>Step 3 sub 2</source>
+				<target>Schritt 3.2</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step3sub3">
+				<source>Step 3 sub 3</source>
+				<target>Schritt 3.3</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step3sub4">
+				<source>Step 3 sub 4</source>
+				<target>Schritt 3.4</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step4">
+				<source>Step 4</source>
+				<target>Schritt 4</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step5">
+				<source>Step 5</source>
+				<target>Schritt 5</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step5sub2">
+				<source>Step 5 sub 2</source>
+				<target>Schritt 5.2</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step5sub3">
+				<source>Step 5 sub 3</source>
+				<target>Schritt 5.3</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step5sub4">
+				<source>Step 5 sub 4</source>
+				<target>Schritt 5.4</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step5sub5">
+				<source>Step 5 sub 5</source>
+				<target>Schritt 5.5</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_stepcontrol.step6">
+				<source>Step 6</source>
+				<target>Schritt 6</target>
+			</trans-unit>
+
+
+		</body>
+	</file>
+</xliff>

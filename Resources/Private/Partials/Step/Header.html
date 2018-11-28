@@ -1,0 +1,58 @@
+<header class="page-header">
+	<div class="container">
+		<p class="header-logo">
+			<a href="https://www.rkw-kompetenzzentrum.de" target="_blank">
+				<img src="fileadmin/templates/wepstra/images/logo.svg" alt="Logo" width="195" height="35">
+			</a>
+		</p>
+		<nav class="menu">
+			<p class="menu-opener icon-burger">
+				<f:translate key="tx_rkwwepstra_fluid_header.menu" extensionName="RkwWepstra" />
+			</p>
+			<ul>
+
+				<!-- Not seen in html-template - so not here ;-)
+				<li>
+					<a href="">
+						<f:translate key="tx_rkwwepstra_fluid_header.home" extensionName="RkwWepstra" />
+					</a>
+				</li>
+				-->
+
+				<li>
+					<f:link.action class="ajax" action="projectList" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+						<f:translate key="tx_rkwwepstra_fluid_header.open" extensionName="RkwWepstra" />
+					</f:link.action>
+				</li>
+
+				<li>
+					<f:link.action action="printAll" target="_blank" format="print" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+						<f:translate key="tx_rkwwepstra_fluid_header.print_all" extensionName="RkwWepstra" />
+					</f:link.action>
+				</li>
+
+
+				<li>
+					<f:if condition="{wepstra.guidedMode} == 1">
+						<f:then>
+							<f:link.action action="guided" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" arguments="{switchMode: 0}">Normalmodus</f:link.action>
+						</f:then>
+						<f:else>
+							<f:link.action action="guided" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" arguments="{switchMode: 1}"><f:translate key="tx_rkwwepstra_fluid_header.guided_mode" extensionName="RkwWepstra" /></f:link.action>
+						</f:else>
+					</f:if>
+				</li>
+
+				<!-- get rest of menu here -->
+				<f:cObject typoscriptObjectPath="lib.txRkwWepstraMenu" />
+
+				<li class="small">
+					<f:link.action action="logoutUser" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+						&gt; <f:translate key="tx_rkwwepstra_fluid_header.logout" extensionName="RkwWepstra" />
+					</f:link.action>
+				</li>
+
+			</ul>
+		</nav>
+	</div>
+</header>

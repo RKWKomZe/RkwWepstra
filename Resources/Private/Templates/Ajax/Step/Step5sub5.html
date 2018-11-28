@@ -1,0 +1,73 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+
+<div>
+	<f:form action="step6" method="post" id="main-form" class="ajax" >
+		<f:form.hidden class="wepstra-identifier" value="{wepstra.uid}" />
+		<f:form.hidden class="step-number" value="{step}" />
+
+		<div class="step-title  {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step5sub5_guided.header' extensionName='RkwWepstra' />" data-step="1" >
+			<h1><f:translate key="tx_rkwwepstra_fluid_step5sub5.riskprofiles_jobfamilies" extensionName="RkwWepstra" /></h1>
+		</div>
+		<p class="step-subtitle" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step5sub5_tooltip.results' extensionName='RkwWepstra' />"><f:translate key="tx_rkwwepstra_fluid_step5sub5.riskprofiles_create" extensionName="RkwWepstra" /></p>
+
+
+		<div class="participants-ratings wide step-title">
+			<div class="participant-ratings-container" data-intro="<f:translate key='tx_rkwwepstra_fluid_step5sub5_guided.graph' extensionName='RkwWepstra' />" data-step="2">
+				<div class="participant-ratings">
+
+					<f:for each="{jobFamiliesSelected}" as="jobFamily" iteration="jobFamilyIteration">
+						<div class="participant-rating" data-for="radar-{jobFamilyIteration.cycle}">
+							<div class="radar-chart-container">
+								<canvas class="radar-chart" data-label="Radar chart" data-axes-labels="<f:translate key='tx_rkwwepstra_fluid_step5.age_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.competence_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.procurement_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.capacity_risk' extensionName='RkwWepstra' />" data-points="<vh:jobFamilyResult jobFamily='{jobFamily}' />"></canvas>
+							</div>
+						</div>
+					</f:for>
+
+
+				</div>
+
+			</div>
+
+			<!-- @TODO: In den vorigen Seiten hat sich diese Liste durch übergebene Daten automatisch ergeben. Prüfen!-->
+
+			<ul class="participants-list small" data-intro="<f:translate key='tx_rkwwepstra_fluid_step5sub5_guided.list' extensionName='RkwWepstra' />" data-step="3">
+				<li class="title"><f:translate key="tx_rkwwepstra_fluid_step6.jobfamilies" extensionName="RkwWepstra" /></li>
+
+				<f:for each="{jobFamiliesSelected}" as="jobFamily" iteration="jobFamilyIteration">
+					<f:if condition="{jobFamilyIteration.index} == 0">
+						<f:then>
+							<li id="radar-{jobFamilyIteration.cycle}" class="participant active">
+								<span>{jobFamily.title}</span>
+							</li>
+						</f:then>
+						<f:else>
+							<li id="radar-{jobFamilyIteration.cycle}" class="participant">
+								<span>{jobFamily.title}</span>
+							</li>
+						</f:else>
+					</f:if>
+				</f:for>
+
+			</ul>
+		</div>
+
+	</f:form>
+
+	<div class="step-buttons">
+		<p>
+			<f:link.action action="step5sub4" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.back" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p>
+			<f:link.action class="print-button icon-print" noCacheHash="true" arguments="{printPart: 'step5sub5'}" action="printAll" target="_blank" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_general_guided.button_forward' extensionName='RkwWepstra' />" data-step="4">
+			<f:link.action action="step6" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button secondary ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.forward" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+</div>

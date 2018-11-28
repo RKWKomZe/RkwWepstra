@@ -1,0 +1,64 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div class="container page-break">
+	<div class="step-title with-button space-bottom">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step4.strategical_consternation" extensionName="RkwWepstra" /></h1>
+
+	</div>
+
+	<div class="main-table-container padding">
+		<h2 class="fields-name">
+			<f:translate key="tx_rkwwepstra_fluid_step4.strategical_effects" extensionName="RkwWepstra" />
+		</h2>
+		<div class="fake-table tertiary">
+			<div class="table-head">
+				<div class="table-row">
+					<p class="table-cell">&nbsp;</p>
+					<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.market" extensionName="RkwWepstra" /></p>
+					<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.innovation" extensionName="RkwWepstra" /></p>
+					<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.productivity" extensionName="RkwWepstra" /></p>
+					<p class="table-cell sum-column text-center"><strong>Σ</strong></p>
+				</div>
+			</div>
+			<div class="table-body">
+
+				<f:for each="{wepstra.jobFamily}" as="jobFamily">
+
+					<div class="table-row">
+						<p class="table-cell">{jobFamily.title}</p>
+						<p class="table-cell text-center">
+							{jobFamily.strategicRelevanceMarket}
+						</p>
+						<p class="table-cell text-center">
+							{jobFamily.strategicRelevanceInnovation}
+						</p>
+						<p class="table-cell text-center">
+							{jobFamily.strategicRelevanceProductivity}
+						</p>
+						<p class="table-cell sum-cell text-center">
+							<strong>
+								<vh:sum values="{0: '{jobFamily.strategicRelevanceMarket}', 1: '{jobFamily.strategicRelevanceInnovation}', 2: '{jobFamily.strategicRelevanceProductivity}'}" />
+							</strong>
+						</p>
+					</div>
+
+				</f:for>
+
+			</div>
+		</div>
+
+		<div class="table-legend">
+			<p>
+				0 = <f:translate key="tx_rkwwepstra_fluid_step4.no_consternation" extensionName="RkwWepstra" />
+			</p>
+			<p>
+				1 = <f:translate key="tx_rkwwepstra_fluid_step4.low_consternation" extensionName="RkwWepstra" />
+			</p>
+			<p>
+				2 = <f:translate key="tx_rkwwepstra_fluid_step4.middle_consternation" extensionName="RkwWepstra" />
+			</p>
+			<p>
+				3 = <f:translate key="tx_rkwwepstra_fluid_step4.high_consternation" extensionName="RkwWepstra" />
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container page-break">
+	<div class="print-step">
+		<div class="step-title">
+			<h1><f:translate key="tx_rkwwepstra_fluid_preparation.preparation" extensionName="RkwWepstra" /></h1>
+		</div>
+		<div class="grid">
+			<div class="agenda">
+				<h2><f:translate key="tx_rkwwepstra_fluid_preparation.whyplanning" extensionName="RkwWepstra" /></h2>
+				<ul class="element-list big">
+					<f:for each="{wepstra.reasonWhy}" as="reasonWhy">
+						<li>
+							<div class="element-container">
+								<f:form.textarea value="{reasonWhy.description}" />
+							</div>
+						</li>
+					</f:for>
+			</ul>
+			</div>
+			<div class="participants">
+				<h2><f:translate key="tx_rkwwepstra_fluid_preparation.participants" /></h2>
+				<div class="participants-list">
+					<ul class="element-list">
+						<f:for each="{wepstra.participants}" as="participant" iteration="participantNumber">
+							<li>
+								<f:form.textfield type="text" name="participants_{participantNumber.cycle}" value="{participant.username}" readonly="true" />
+							</li>
+						</f:for>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

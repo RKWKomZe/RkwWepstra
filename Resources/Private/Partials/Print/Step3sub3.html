@@ -1,0 +1,161 @@
+<div class="container page-break">
+	<div class="step-title">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step3sub3.innovation_goals" extensionName="RkwWepstra" /></h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step3sub3.innovation_goals_positioning" extensionName="RkwWepstra" />
+	</p>
+
+	<div class="main-table-container">
+		<div class="fake-table secondary">
+			<div class="table-head">
+				<div class="table-row">
+					<div class="table-cell no-border-bottom">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub3.services_products" extensionName="RkwWepstra" />
+						</p>
+					</div>
+					<p class="table-cell column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub3.influence_market_goals" extensionName="RkwWepstra" />
+					</p>
+					<p class="table-cell column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub3.knowledge_available" extensionName="RkwWepstra" />
+					</p>
+				</div>
+			</div>
+			<div class="table-body">
+
+				<f:for each="{wepstra.performance}" as="performance" iteration="performanceIter">
+
+					<f:if condition="{performance.type} == 0">
+
+
+						<div class="table-row">
+							<p class="table-cell">
+								<f:form.checkbox checked="{performance.value} == 1" value="1" id="value-{performanceIter.cycle}" property="value"/>
+								<label for="gleichbleibend">
+									<f:translate key="tx_rkwwepstra_fluid_step3sub3.performance.label" extensionName="RkwWepstra" />
+								</label>
+							</p>
+							<p class="table-cell"> </p>
+							<p class="table-cell"> </p>
+						</div>
+					</f:if>
+				</f:for>
+
+				<f:for each="{wepstra.performance}" as="performance">
+
+					<f:if condition="{performance.value}">
+
+						<div class="table-row">
+							<div class="table-cell">
+								<div class="checkbox-input">
+
+									<div class="input-container field">
+										<f:if condition="{performance.type} == 1">
+											<label>
+												<f:translate key="tx_rkwwepstra_helper_basicdata.minor_adjustments" extensionName="RkwWepstra" />
+											</label>
+										</f:if>
+										<f:if condition="{performance.type} == 2">
+											<label>
+												<f:translate key="tx_rkwwepstra_helper_basicdata.greater_adjustments" extensionName="RkwWepstra" />
+											</label>
+										</f:if>
+										<f:if condition="{performance.type} == 3">
+											<label>
+												<f:translate key="tx_rkwwepstra_helper_basicdata.complete_novelty" extensionName="RkwWepstra" />
+											</label>
+										</f:if>
+										<p>{performance.description}</p>
+									</div>
+
+
+								</div>
+							</div>
+							<p class="table-cell text-center">
+								<f:if condition="{performance.influence} == 1">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" /></td>
+								</f:if>
+								<f:if condition="{performance.influence} == 2">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.middle" extensionName="RkwWepstra" /></td>
+								</f:if>
+								<f:if condition="{performance.influence} == 3">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" /></td>
+								</f:if>
+							</p>
+							<p class="table-cell text-center">
+								<f:if condition="{performance.knowledge} == 1">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.yes" extensionName="RkwWepstra" /></td>
+								</f:if>
+								<f:if condition="{performance.knowledge} == 2">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.partial" extensionName="RkwWepstra" /></td>
+								</f:if>
+								<f:if condition="{performance.knowledge} == 3">
+									<td><f:translate key="tx_rkwwepstra_fluid_general.no" extensionName="RkwWepstra" /></td>
+								</f:if>
+							</p>
+						</div>
+					</f:if>
+
+				</f:for>
+
+
+			</div>
+		</div>
+
+		<div class="fake-table secondary border-top">
+			<div class="table-head">
+				<div class="table-row">
+					<div class="table-cell">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub3.influence" extensionName="RkwWepstra" />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="table-body">
+				<div class="table-row">
+					<div class="table-cell no-padding">
+						<div class="fake-table secondary with-checkbox">
+							<div class="table-body">
+
+								<f:for each="{wepstra.technicalDevelopment}" as="techdev">
+									<div class="table-row">
+										<div class="table-cell">
+											<p class="field">
+												<label><f:translate key="tx_rkwwepstra_fluid_step4results.development" extensionName="RkwWepstra" /></label>
+												<br>{techdev.description}
+											</p>
+										</div>
+										<p class="table-cell">
+											<br>
+											<f:if condition="{techdev.value} == 0">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.none" extensionName="RkwWepstra" />
+											</f:if>
+											<f:if condition="{techdev.value} == 1">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.low" extensionName="RkwWepstra" />
+											</f:if>
+											<f:if condition="{techdev.value} == 2">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.middle" extensionName="RkwWepstra" />
+											</f:if>
+											<f:if condition="{techdev.value} == 3">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.serious" extensionName="RkwWepstra" />
+											</f:if>
+											<f:if condition="{techdev.value} == 4">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.uncertain" extensionName="RkwWepstra" />
+											</f:if>
+											<f:if condition="{techdev.value} == 5">
+												<f:translate key="tx_rkwwepstra_fluid_step3sub3.developments" extensionName="RkwWepstra" />
+											</f:if>
+										</p>
+									</div>
+								</f:for>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

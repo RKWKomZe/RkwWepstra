@@ -1,0 +1,50 @@
+<!-- header -->
+<div id="tx-rkwwepstra-main-container">
+
+	<f:render partial="Step/Header" arguments="{_all}" />
+
+	<main class="{f:if(condition: wepstra.guidedMode, then: 'introjs-fixParent')}">
+
+		<!-- ask user one time (per project) for activating the guided mode -->
+		<!-- disable asking for guided mode with impossible number 99 instead of 0 -->
+		<f:if condition="{wepstra.guidedAsked} == 99">
+			<div class="overlay">
+				<div class="overlay-background" style="opacity: 0.8;"></div>
+				<div class="overlay-content">
+					<div class="box-modal" style="opacity: 1; display: block;">
+						<div class="modal-content">
+							<div class="validate-modal">
+								<h3>
+									<f:translate key="tx_rkwwepstra_fluid_index.guided_header" extensionName="RkwWepstra" />
+								</h3>
+								<p>
+									<f:translate key="tx_rkwwepstra_fluid_index.guided_text" extensionName="RkwWepstra" />
+								</p>
+								<div class="button-container">
+									<f:link.action controller="Step" action="guided" arguments="{switchMode: 1}" class="ajax button secondary" >
+										<f:translate key="tx_rkwwepstra_fluid_general.yes" extensionName="RkwWepstra" />
+									</f:link.action>
+									&nbsp;&nbsp;&nbsp;
+									<f:link.action controller="Step" action="guided" arguments="{switchMode: 0}" class="ajax button">
+										<f:translate key="tx_rkwwepstra_fluid_general.no" extensionName="RkwWepstra" />
+									</f:link.action>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:if>
+
+		<!-- steps -->
+		<div id="tx-rkwwepstra-navigation" class="navigation">
+			<f:render partial="Step/Navigation" arguments="{_all}" />
+		</div>
+		<section>
+			<div class="container" id="tx-rkwwepstra-main-content">
+				<f:flashMessages renderMode="div" />
+				<f:format.raw>{content}</f:format.raw>
+			</div>
+		</section>
+	</main>
+</div>

@@ -1,0 +1,42 @@
+{namespace rkwRegistration=RKW\RkwRegistration\ViewHelpers}
+<h2 data-tooltip="<f:translate key='tx_rkwwepstra_fluid_login_tooltip.register' extensionName='RkwWepstra' />">
+	<f:translate key="tx_rkwwepstra_fluid_login.create_account" extensionName='RkwWepstra' />
+</h2>
+
+<f:if condition="{errorMessage}">
+	<p class="error">{errorMessage}</p>
+</f:if>
+
+<f:form name="registerData" action="loginRegisterUser" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" class="ajax">
+	<p class="field">
+		<label>
+			<f:translate key="tx_rkwwepstra_fluid_login.email" extensionName='RkwWepstra' />
+		</label>
+		<f:form.textfield property="email" value="{registerData.email}" />
+	</p>
+	<p class="field">
+		<f:form.checkbox id="terms" property="terms" value="1" />
+		<label for="terms">
+			<span>
+				<f:link.page class="link" pageUid="{termsPid}" target="_blank">
+					<f:translate key="tx_rkwwepstra_fluid_login.terms1" extensionName='RkwWepstra' />
+					&nbsp;
+					<f:translate key="tx_rkwwepstra_fluid_login.terms2" extensionName='RkwWepstra' />
+				</f:link.page>
+			</span>
+		</label>
+	</p>
+	<p class="field">
+		<f:form.checkbox id="privacy2" name="privacy" value="1" />
+		<label for="privacy2">
+			<span>
+				<rkwRegistration:privacyText textVersion="registration" />
+			</span>
+		</label>
+	</p>
+	<p class="button-container">
+		<f:form.button class="button secondary">
+			<f:translate key="tx_rkwwepstra_fluid_login.submit" extensionName='RkwWepstra' />
+		</f:form.button>
+	</p>
+</f:form>

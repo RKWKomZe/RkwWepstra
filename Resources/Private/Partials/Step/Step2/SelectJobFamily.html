@@ -1,0 +1,30 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+
+<div>
+	<div class="jobs-accumulated">
+		<ul class="element-list bottom-separator">
+			<f:for each="<vh:jobFamilySortNormal wepstra='{wepstra}' />" as="jobFamily">
+				<li>
+					<f:form action="selectjobfamily" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+
+						<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+						<!-- if checkbox is not checked the value of the hidden field is submitted, otherwise it is overwritten by the checkbox -->
+						<f:form.hidden property="selected" value="0" />
+						<f:form.checkbox property="selected" checked="{f:if(condition:'{jobFamily.selected} == 1',then:'true',else:'')}" value="1" id="jobfamily-{jobFamily.uid}" class="ajax-send" />
+
+						<label for="jobfamily-{jobFamily.uid}">
+							<span>{jobFamily.title}</span>
+							<span class="separator">-</span>
+							<span>
+								<span class="rating">{jobFamily.priorityAverage}</span>
+								&nbsp;<f:translate key="tx_rkwwepstra_fluid_step2sub2.points" extensionName="RkwWepstra" />
+							</span>
+						</label>
+					</f:form>
+				</li>
+			</f:for>
+		</ul>
+
+	</div>
+</div>

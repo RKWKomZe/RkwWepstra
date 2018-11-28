@@ -1,0 +1,32 @@
+<ul class="element-list">
+	<!-- participant list -->
+	<f:for each="{wepstra.participants}" as="participant" iteration="participantNumber">
+		<li>
+			<f:form action="deleteparticipant" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="participant" object="{participant}" class="ajax">
+				<div class="element-container">
+					<f:form.textfield property="username" readonly="true" />
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+				</div>
+				<div class="field-action">
+					<button type="submit" class="remove-button no-text" title="<f:translate key='tx_rkwwepstra_fluid_general.remove' extensionName='RkwWepstra' />">-</button>
+				</div>
+			</f:form>
+		</li>
+	</f:for>
+
+	<li>
+		<!-- participant create form -->
+		<f:form action="createparticipant" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newParticipant" object="{newParticipant}" class="ajax">
+			<div class="element-container">
+				<f:form.textfield property="username" placeholder='<f:translate key="tx_rkwwepstra_fluid_step0.placeholder_participant" extensionName="RkwWepstra" />' class="add-text"/>
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+			</div>
+			<div class="field-action">
+				<button class="add-button" type="submit" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+			</div>
+		</f:form>
+	</li>
+</ul>
+
+
+

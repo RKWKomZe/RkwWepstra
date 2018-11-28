@@ -1,0 +1,17 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+
+<div>
+	<!-- ========================================================= -->
+	<!-- Graph 3 -->
+	<div class="bubble-graph" data-legend-name="<f:translate key='tx_rkwwepstra_fluid_step5sub5.jobfamilies' extensionName='RkwWepstra' />" data-title="<f:translate key='tx_rkwwepstra_fluid_step5.competence_risk' extensionName='RkwWepstra' />" data-axis-x-label="<f:translate key='tx_rkwwepstra_fluid_step5_axis.low' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5_axis.high' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.strategical_consternation' extensionName='RkwWepstra' />" data-axis-y-label="<f:translate key='tx_rkwwepstra_fluid_step5_axis.low' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5_axis.high' extensionName='RkwWepstra' />" data-squares="<f:translate key='tx_rkwwepstra_fluid_step5_axis.latent_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5_axis.existential_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5_axis.low_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5_axis.latent_risk' extensionName='RkwWepstra' />">
+		<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyIteration">
+			<f:if condition="{jobFamily.selected}">
+				<f:form action="updategraph" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+					<f:form.hidden name="graph" value="3" />
+					<f:form.hidden property="competenceRisk" class="topic" id="bubble-3-{jobFamily.uid}" additionalAttributes="{data-axis-x :'{vh:jobFamilyStrategicRelevanceSum(jobFamily:\'{jobFamily}\')}', data-name: '{jobFamily.title}'}" />
+				</f:form>
+			</f:if>
+		</f:for>
+	</div>
+</div>

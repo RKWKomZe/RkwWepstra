@@ -1,0 +1,50 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div>
+	<div class="step-title with-button space-bottom {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step0_guided.header' extensionName='RkwWepstra' />" data-step="1">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_preparation.preparation" extensionName="RkwWepstra" />
+		</h1>
+
+		<p>
+			<f:link.page pageUid="{importantInformationPid}" class="button" target="_blank" ><f:translate id="tx_rkwwepstra_fluid_preparation.important_informations" extensionName="RkwWepstra" /></f:link.page>
+		</p>
+	</div>
+
+	<div class="grid">
+
+		<!-- why planning? / Warum strategische Personalplanung? -->
+		<div class="agenda width-1-of-2" data-intro="<f:translate key='tx_rkwwepstra_fluid_step0_guided.reasonwhy' extensionName='RkwWepstra' />" data-step="2">
+			<h2 class="fields-name" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step0_tooltip.whyplanning' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_preparation.whyplanning" extensionName="RkwWepstra" />
+			</h2>
+
+			<div id="reasonwhy-list">
+				<!-- list elements (including create-part) -->
+				<f:render partial="Step/Step0/ReasonWhy" arguments="{_all}"/>
+			</div>
+		</div>
+
+		<!-- participants / Teilnehmer -->
+		<div class="participants width-1-of-2" data-intro="<f:translate key='tx_rkwwepstra_fluid_step0_guided.participants' extensionName='RkwWepstra' />" data-step="3">
+			<h2 class="fields-name" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step0_tooltip.participants' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_preparation.participants" extensionName="RkwWepstra" />
+			</h2>
+
+			<div id="participants-list">
+				<f:render partial="Step/Step0/Participants" arguments="{_all}"/>
+			</div>
+		</div>
+	</div>
+	<div class="step-buttons buttons-right">
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_step0_guided.print' extensionName='RkwWepstra' />" data-step="4">
+			<f:link.action class="print-button icon-print" noCacheHash="true" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" action="printAll" arguments="{printPart: 'step0'}" target="_blank"  >
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_general_guided.button_forward' extensionName='RkwWepstra' />" data-step="5">
+			<f:link.action action="step1" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button secondary ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.forward" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+</div>

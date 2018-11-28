@@ -1,0 +1,39 @@
+<div>
+	<div class="step-title {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3_guided.headline' extensionName='RkwWepstra' />" data-step="1">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step3.planning_horizon" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+	<div class="grid" >
+		<div class="datepicker" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3_tooltip.horizon' extensionName='RkwWepstra' />" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3_guided.planning_horizont' extensionName='RkwWepstra' />" data-step="2">
+			<f:form action="updateplanninghorizon" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="wepstra" object="{wepstra}" class="ajax">
+				<p class="datepicker-field icon-calendar">
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+					<f:form.textfield style="width: 145px" value="<f:format.date format='d.m.Y'>@{wepstra.crdate}</f:format.date>" property="crdate" readonly="true" />
+					&nbsp;-&nbsp;
+					<f:form.textfield class="datepicker-input" value="<f:if condition='{wepstra.targetDate}'> <f:format.date format='d.m.Y'>@{wepstra.targetDate}</f:format.date> </f:if>" property="targetDate" readonly="true" />
+				</p>
+			</f:form>
+		</div>
+	</div>
+
+
+	<div class="step-buttons">
+		<p>
+			<f:link.action action="step2sub2" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.back" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p>
+			<f:link.action class="print-button icon-print" noCacheHash="true" arguments="{printPart: 'step3'}" action="printAll" target="_blank" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_general_guided.button_forward' extensionName='RkwWepstra' />" data-step="3">
+			<f:link.action action="step3sub2" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button secondary ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.forward" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+<div>

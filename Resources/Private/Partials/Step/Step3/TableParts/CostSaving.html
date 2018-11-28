@@ -1,0 +1,77 @@
+
+<div class="table-body" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3sub4_guided.costsaving' extensionName='RkwWepstra' />" data-step="3">
+
+	<div class="table-row">
+		<div class="table-cell border-top radio-button-align">
+			<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub4_tooltip.costsaving' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company_part" extensionName="RkwWepstra" />
+			</p>
+		</div>
+		<p class="table-cell border-top"> </p>
+		<p class="table-cell border-top"> </p>
+	</div>
+
+	<f:for each="{wepstra.costSaving}" as="costSaving" iteration="csIter">
+
+			<f:form action="updatecostsaving" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="costSaving" object="{costSaving}" class="table-row ajax">
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+				<div class="table-cell">
+					<p class="field">
+						<label>
+							<f:translate key="tx_rkwwepstra_fluid_step3sub4.company_devision" extensionName="RkwWepstra" />
+						</label>
+						<f:form.textfield class="edit-text" property="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub4.placeholder_costsaving' extensionName='RkwWepstra' />" />
+					</p>
+				</div>
+
+				<div class="table-cell">
+					<p class="field">
+						<label>
+							<f:translate key="tx_rkwwepstra_fluid_step3sub4.in_percent" extensionName="RkwWepstra" />
+						</label>
+						<f:form.textfield class="edit-text" property="value" />
+					</p>
+				</div>
+
+				<p class="table-cell radio-button-align text-center">
+					<f:link.action title="<f:translate key='tx_rkwwepstra_fluid_general.remove' extensionName='RkwWepstra' />" action="deletecostsaving" controller="Data" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" class="remove-button no-text ajax-override" >
+						-
+					</f:link.action>
+				</p>
+
+			</f:form>
+
+	</f:for>
+
+
+	<!-- add new element -->
+	<f:form action="createcostsaving" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newCostSaving" object="{newCostSaving}" class="table-row ajax">
+		<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+		<div class="table-cell">
+			<p class="field">
+				<label>
+					<f:translate key="tx_rkwwepstra_fluid_step3sub4.company_devision" extensionName="RkwWepstra" />
+				</label>
+
+				<f:form.textfield property="title" name="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub4.placeholder_costsaving' extensionName='RkwWepstra' />" />
+
+			</p>
+		</div>
+
+
+
+		<div class="table-cell">
+			<p class="field">
+				<label>
+					<f:translate key="tx_rkwwepstra_fluid_step3sub4.in_percent" extensionName="RkwWepstra" />
+				</label>
+				<f:form.textfield property="value" class="add-text" value="0" />
+			</p>
+		</div>
+
+		<p class="table-cell radio-button-align text-center"">
+			<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+		</p>
+
+	</f:form>
+</div>

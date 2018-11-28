@@ -1,0 +1,29 @@
+config.tx_extbase.persistence {
+
+    classes {
+
+
+        RKW\RkwRegistration\Domain\Model\FrontendUser {
+            subclasses {
+                Tx_RkwWepstra_FrontendUser = RKW\RkwWepstra\Domain\Model\FrontendUser
+
+            }
+        }
+
+
+        RKW\RkwWepstra\Domain\Model\FrontendUser {
+            mapping {
+
+                # tablename
+                tableName = fe_users
+
+                # if we set an value, we filter by it
+                # if do not set anything, all records are found
+                recordType =
+
+            }
+
+        }
+
+    }
+}

@@ -1,0 +1,82 @@
+
+	<div class="table-body" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3sub2_guided.geographical_sector' extensionName='RkwWepstra' />" data-step="3">
+
+		<!-- row 2.1 -->
+		<div class="table-row">
+
+			<div class="table-cell">
+				<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.geographical' extensionName='RkwWepstra' />">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.salestrend_individual_markets" extensionName="RkwWepstra" />
+				</p>
+			</div>
+
+			<p class="table-cell"> </p>
+			<p class="table-cell"> </p>
+			<p class="table-cell"> </p>
+			<p class="table-cell"> </p>
+		</div>
+
+		<!-- further rows -->
+		<f:for each="{wepstra.geographicalSector}" as="geographicalSector" iteration="geoIter">
+
+			<!-- item list -->
+			<f:form action="updategeographicalsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="geographicalSector" object="{geographicalSector}" class="table-row ajax">
+
+				<p class="table-cell">
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+					<f:form.textfield type="text" property="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub2.placeholder_geographical' extensionName='RkwWepstra' />" class="edit-text headline" />
+				</p>
+
+				<p class="table-cell column-info">
+					<!-- add SalesTrend currentSales -->
+					<f:form.textfield property="currentSales" class="edit-text" />
+				</p>
+				<p class="table-cell column-info">
+					<!-- add SalesTrend futureSales -->
+					<f:form.textfield property="futureSales" class="edit-text" />
+				</p>
+				<p class="table-cell column-info">
+					<!-- add SalesTrend percentage -->
+					<f:form.textfield property="percentage" class="edit-text" />
+				</p>
+
+
+				<p class="table-cell">
+					<f:link.action action="deletegeographicalsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" class="remove-button no-text ajax-override">-</f:link.action>
+				</p>
+
+
+			</f:form>
+
+		</f:for>
+
+		<!-- create new form -->
+		<f:form action="creategeographicalsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newGeographicalSector" object="{newGeographicalSector}" class="table-row ajax">
+
+			<p class="table-cell">
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+				<f:form.textfield property="title" name="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub2.placeholder_geographical' extensionName='RkwWepstra' />" class="add-text" />
+			</p>
+
+			<p class="table-cell column-info">
+				<!-- add SalesTrend currentSales -->
+				<f:form.textfield property="currentSales" value="0" class="add-text"/>
+			</p>
+			<p class="table-cell column-info">
+				<!-- add SalesTrend futureSales -->
+				<f:form.textfield property="futureSales" value="0" class="add-text"/>
+			</p>
+			<p class="table-cell column-info">
+				<!-- add SalesTrend percentage -->
+				<f:form.textfield property="percentage" value="0" class="add-text"/>
+			</p>
+
+
+			<p class="table-cell">
+				<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+			</p>
+
+		</f:form>
+	</div>
+

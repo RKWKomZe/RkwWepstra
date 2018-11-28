@@ -1,0 +1,39 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div class="container page-break">
+	<div class="step-title">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_result" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_order_select" extensionName="RkwWepstra" />
+	</p>
+	<div class="grid">
+		<div class="full-width">
+			<h2 class="fields-name">
+				<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_select" extensionName="RkwWepstra" />
+			</h2>
+			<div class="jobs-accumulated">
+				<ul class="element-list bottom-separator">
+
+					<f:for each="<vh:jobFamilySortNormal wepstra='{wepstra}' />" as="jobFamily">
+
+						<li>
+							<f:form.checkbox property="selected" checked="{f:if(condition:'{jobFamily.selected} == 1',then:'true',else:'')}" value="1" id="jobfamily-{jobFamily.uid}" class="ajax-send" />
+							<label for="{jobFamily.title}"><span>{jobFamily.title}</span>
+								<span class="separator">-</span>
+							<span>
+								<span class="rating">{jobFamily.priorityAverage}</span>
+								&nbsp;<f:translate key="tx_rkwwepstra_fluid_step2sub2.points" extensionName="RkwWepstra" />
+							</span>
+							</label>
+						</li>
+
+					</f:for>
+
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>

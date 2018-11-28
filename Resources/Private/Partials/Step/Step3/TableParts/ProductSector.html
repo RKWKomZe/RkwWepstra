@@ -1,0 +1,81 @@
+
+<div class="table-body" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3sub2_guided.product_sector' extensionName='RkwWepstra' />" data-step="4">
+	<!-- row 3.1 -->
+	<div class="table-row">
+
+		<div class="table-cell">
+			<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.product' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step3sub2.product_sector" extensionName="RkwWepstra" />
+			</p>
+		</div>
+		<p class="table-cell"> </p>
+		<p class="table-cell"> </p>
+		<p class="table-cell"> </p>
+		<p class="table-cell"> </p>
+
+	</div>
+
+
+	<!-- further rows -->
+	<f:for each="{wepstra.productSector}" as="productSector" iteration="proIter">
+
+		<f:form action="updateproductsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="productSector" object="{productSector}" class="table-row ajax">
+
+			<p class="table-cell">
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+				<f:form.textfield type="text" property="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub2.placeholder_productsector' extensionName='RkwWepstra' />" class="edit-text headline" />
+
+			</p>
+
+			<p class="table-cell column-info">
+				<!-- add SalesTrend currentSales -->
+				<f:form.textfield property="currentSales" class="edit-text" />
+			</p>
+			<p class="table-cell column-info">
+				<!-- add SalesTrend futureSales -->
+				<f:form.textfield property="futureSales" class="edit-text" />
+			</p>
+			<p class="table-cell column-info">
+				<!-- add SalesTrend percentage -->
+				<f:form.textfield property="percentage" class="edit-text" />
+			</p>
+
+
+			<p class="table-cell">
+				<f:link.action action="deleteproductsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" class="remove-button no-text ajax-override">-</f:link.action>
+			</p>
+
+
+		</f:form>
+
+	</f:for>
+
+	<!-- create -->
+	<f:form action="createproductsector" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newProductSector" object="{newProductSector}" class="table-row ajax">
+
+		<p class="table-cell">
+			<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+			<f:form.textfield class="headline add-text" property="title" name="title" placeholder="<f:translate key='tx_rkwwepstra_fluid_step3sub2.placeholder_productsector' extensionName='RkwWepstra' />" />
+		</p>
+
+		<p class="table-cell column-info">
+			<!-- add SalesTrend currentSales -->
+			<f:form.textfield property="currentSales" value="0" class="add-text"/>
+		</p>
+		<p class="table-cell column-info">
+			<!-- add SalesTrend futureSales -->
+			<f:form.textfield property="futureSales" value="0" class="add-text"/>
+		</p>
+		<p class="table-cell column-info">
+			<!-- add SalesTrend percentage -->
+			<f:form.textfield property="percentage" value="0" class="add-text"/>
+		</p>
+
+
+		<p class="table-cell">
+			<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+		</p>
+
+	</f:form>
+</div>

@@ -1,0 +1,56 @@
+<div class="containerk">
+	<div class="step-title space-bottom">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step6.activities_intend" extensionName="RkwWepstra" /></h1>
+	</div>
+	<div class="accordions">
+		<dl>
+
+			<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyIter">
+
+				<dt class="open">{jobFamily.title}</dt>
+				<dd>
+					<h2><f:translate key="tx_rkwwepstra_fluid_step6.phases" extensionName="RkwWepstra" /></h2>
+					<ul class="element-list siblings">
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_marketing" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskMarketing}</p>
+						</li>
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_acquisition" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskSourcing}</p>
+						</li>
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.integration_training" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskIntegration}</p>
+						</li>
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_retention" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskLoyalty}</p>
+						</li>
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_development" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskTrend}</p>
+						</li>
+						<li class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.end_of_employment_relationship" extensionName="RkwWepstra" />
+							</label>
+							<p>{jobFamily.taskEndingEmployment}</p>
+						</li>
+					</ul>
+				</dd>
+
+			</f:for>
+		</dl>
+	</div>
+</div>

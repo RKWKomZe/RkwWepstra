@@ -1,0 +1,260 @@
+
+<div class="container">
+	<div class="tabs">
+
+		<!-- 1. Zeithorizont -->
+		<ul class="tabs-list">
+			<li class="tab-item active" data-tab="zeithorizont">
+				<span>1. <f:translate key="tx_rkwwepstra_fluid_step4results.time_horizon" extensionName="RkwWepstra" /></span>
+			</li>
+			<li class="tab-item" data-tab="marktziele">
+				<span>2. <f:translate key="tx_rkwwepstra_fluid_step4results.market_goals" extensionName="RkwWepstra" /></span>
+			</li>
+			<li class="tab-item" data-tab="innovationsziele">
+				<span>3. <f:translate key="tx_rkwwepstra_fluid_step4results.innovation_goals" extensionName="RkwWepstra" /></span>
+			</li>
+			<li class="tab-item" data-tab="produktivitatsziele">
+				<span>4. <f:translate key="tx_rkwwepstra_fluid_step4results.productivity_goals" extensionName="RkwWepstra" /></span>
+			</li>
+		</ul>
+		<div id="zeithorizont" class="tab-content active">
+			<p class="tab-date" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3_tooltip.horizon' extensionName='RkwWepstra' />">
+				<f:format.date format='d.m.Y'>@{wepstra.crdate}</f:format.date>
+				–
+				<f:if condition='{wepstra.targetDate}'> <f:format.date format='d.m.Y'>@{wepstra.targetDate}</f:format.date> </f:if>
+			</p>
+		</div>
+
+		<!-- 2. Marktziele -->
+		<div id="marktziele" class="tab-content">
+			<table class="styled no-external-border space-top">
+				<thead>
+				<tr>
+					<td class="no-border-bottom"> </td>
+					<td class="column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.currently" extensionName="RkwWepstra" />
+						<br>
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+					</td>
+					<td class="column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.future" extensionName="RkwWepstra" />
+						<br>
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+					</td>
+					<td class="column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.development" extensionName="RkwWepstra" />
+						<br>
+						(<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> %)
+					</td>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="rows-info no-border-top">
+							<p data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.salestrend' extensionName='RkwWepstra' />">
+								<f:translate key="tx_rkwwepstra_fluid_step3sub2.salestrend_total" extensionName="RkwWepstra" />
+							</p>
+						</td>
+						<f:for each="{wepstra.salesTrend}" as="salesTrend">
+							<td>{salesTrend.currentSales}</td>
+							<td>{salesTrend.futureSales}</td>
+							<td>{salesTrend.percentage} %</td>
+						</f:for>
+					</tr>
+
+					<tr>
+						<td class="rows-info">
+							<p data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.geographical' extensionName='RkwWepstra' />">
+								<f:translate key="tx_rkwwepstra_fluid_step4results.sales_regional" extensionName="RkwWepstra" />
+							</p>
+						</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+					</tr>
+
+					<f:if condition="{wepstra.geographicalSector}">
+
+						<f:for each="{wepstra.geographicalSector}" as="geographicalSector">
+							<tr>
+								<td>{geographicalSector.title}</td>
+								<td>{geographicalSector.currentSales}</td>
+								<td>{geographicalSector.futureSales}</td>
+								<td>{geographicalSector.percentage} %</td>
+							</tr>
+						</f:for>
+					</f:if>
+
+					<tr>
+						<td class="rows-info">
+							<p data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.product' extensionName='RkwWepstra' />">
+								<f:translate key="tx_rkwwepstra_fluid_step3sub2.product_sector" extensionName="RkwWepstra" />
+							</p>
+						</td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
+					</tr>
+
+					<f:if condition="{wepstra.productSector}">
+
+						<f:for each="{wepstra.productSector}" as="productSector">
+							<tr>
+								<td>{productSector.title}</td>
+								<td>{productSector.currentSales}</td>
+								<td>{productSector.futureSales}</td>
+								<td>{productSector.percentage} %</td>
+							</tr>
+						</f:for>
+					</f:if>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 3. Innovationsziele -->
+		<div id="innovationsziele" class="tab-content">
+			<table class="styled no-external-border space-top space-bottom">
+				<thead>
+				<tr>
+					<td class="rows-info">
+						<p data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub3_tooltip.performance' extensionName='RkwWepstra' />">
+							<f:translate key="tx_rkwwepstra_fluid_step4results.table_header" extensionName="RkwWepstra" />
+						</p>
+					</td>
+					<td class="column-info"><f:translate key="tx_rkwwepstra_fluid_step3sub3.influence_market_goals" extensionName="RkwWepstra" /></td>
+					<td class="column-info"><f:translate key="tx_rkwwepstra_fluid_step3sub3.knowledge_available" extensionName="RkwWepstra" /></td>
+				</tr>
+				</thead>
+				<tbody>
+
+					<f:for each="{wepstra.performance}" as="performance">
+						<!-- show only if user has selected the row -->
+						<f:if condition="{performance.value} == 1">
+							<f:if condition="{performance.type} > 0">
+								<f:then>
+									<tr>
+										<td>
+											<p class="column-info">{performance.title}</p>
+											{performance.description}
+										</td>
+
+										<f:if condition="{performance.influence} == 1">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" /></td>
+										</f:if>
+										<f:if condition="{performance.influence} == 2">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.middle" extensionName="RkwWepstra" /></td>
+										</f:if>
+										<f:if condition="{performance.influence} == 3">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" /></td>
+										</f:if>
+
+
+										<f:if condition="{performance.knowledge} == 1">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.yes" extensionName="RkwWepstra" /></td>
+										</f:if>
+										<f:if condition="{performance.knowledge} == 2">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.partial" extensionName="RkwWepstra" /></td>
+										</f:if>
+										<f:if condition="{performance.knowledge} == 3">
+											<td><f:translate key="tx_rkwwepstra_fluid_general.no" extensionName="RkwWepstra" /></td>
+										</f:if>
+									</tr>
+								</f:then>
+								<f:else>
+
+									<tr>
+										<td>
+											<p class="column-info"><f:translate key="tx_rkwwepstra_fluid_step3sub3.performance.label" extensionName="RkwWepstra" /></p>
+										</td>
+										<td></td>
+										<td></td>
+									</tr>
+
+								</f:else>
+							</f:if>
+						</f:if>
+					</f:for>
+
+				</tbody>
+
+
+				<f:if condition="{wepstra.technicalDevelopment}">
+					<tfoot>
+						<tr>
+							<td class="rows-info no-border space-top" colspan="3">
+								<p data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub3_tooltip.techdev' extensionName='RkwWepstra' />">
+									<f:translate key="tx_rkwwepstra_fluid_step3sub3.influence" extensionName="RkwWepstra" />
+								</p>
+							</td>
+						</tr>
+
+						<f:for each="{wepstra.technicalDevelopment}" as="techdev">
+							<tr>
+								<td class="no-border no-padding-top">
+									<p class="column-info"><f:translate key="tx_rkwwepstra_fluid_step4results.development" extensionName="RkwWepstra" /></p>
+									{techdev.description}
+								</td>
+								<td class="no-border no-padding-top">
+									<p class="column-info"><f:translate key="tx_rkwwepstra_fluid_step4results.influence" extensionName="RkwWepstra" /></p>
+
+									<f:if condition="{techdev.value} == 0">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.none" extensionName="RkwWepstra" />
+									</f:if>
+									<f:if condition="{techdev.value} == 1">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.low" extensionName="RkwWepstra" />
+									</f:if>
+									<f:if condition="{techdev.value} == 2">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.middle" extensionName="RkwWepstra" />
+									</f:if>
+									<f:if condition="{techdev.value} == 3">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.serious" extensionName="RkwWepstra" />
+									</f:if>
+									<f:if condition="{techdev.value} == 4">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.uncertain" extensionName="RkwWepstra" />
+									</f:if>
+									<f:if condition="{techdev.value} == 5">
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.developments" extensionName="RkwWepstra" />
+									</f:if>
+
+								</td>
+								<td class="no-border no-padding-top"> </td>
+							</tr>
+						</f:for>
+
+					</tfoot>
+
+				</f:if>
+
+			</table>
+		</div>
+
+		<!-- 4. Produktivitätsziele -->
+		<div id="produktivitatsziele" class="tab-content">
+			<f:for each="{wepstra.productivity}" as="productivity">
+				<div class="productivity">
+					<p>
+						<span class="info name" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub4_tooltip.productivity' extensionName='RkwWepstra' />">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company" extensionName="RkwWepstra" />
+						</span>
+						<span class="separator">–</span>
+						<span class="rating">{productivity.value} %</span>
+					</p>
+				</div>
+			</f:for>
+			<div class="productivity">
+				<p class="info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub4_tooltip.costsaving' extensionName='RkwWepstra' />">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company_part" extensionName="RkwWepstra" />
+				</p>
+
+				<f:for each="{wepstra.costSaving}" as="costSaving">
+					<p>
+						<span class="name">{costSaving.title}</span>
+						<span class="separator">–</span>
+						<span class="rating">{costSaving.value} %</span>
+					</p>
+				</f:for>
+
+			</div>
+		</div>
+	</div>
+</div>

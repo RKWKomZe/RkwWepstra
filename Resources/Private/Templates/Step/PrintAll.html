@@ -1,0 +1,101 @@
+<f:security.ifAuthenticated>
+	<f:then>
+		<!-- regular print partials -->
+		<div class="page-wrap">
+			<f:render partial="Print/Header" arguments="{_all}"/>
+			<main>
+				<div id="tx-rkwwepstra-main-content" class="container">
+
+					<f:if condition="{printPart}">
+
+						<!-- print some partial -->
+						<f:then>
+
+							<f:if condition="{printPart} == 'step0'">
+								<f:render partial="Print/Step0" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step1'">
+								<f:render partial="Print/Step1" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step2'">
+								<f:render partial="Print/Step2" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step2sub2'">
+								<f:render partial="Print/Step2sub2" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step3'">
+								<f:render partial="Print/Step3" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step3sub2'">
+								<f:render partial="Print/Step3sub2" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step3sub3'">
+								<f:render partial="Print/Step3sub3" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step3sub4'">
+								<f:render partial="Print/Step3sub4" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step4'">
+								<f:render partial="Print/Step4" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step5'">
+								<f:render partial="Print/Step5" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step5sub2'">
+								<f:render partial="Print/Step5sub2" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step5sub3'">
+								<f:render partial="Print/Step5sub3" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step5sub4'">
+								<f:render partial="Print/Step5sub4" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step5sub5'">
+								<f:render partial="Print/Step5sub5" arguments="{_all}"/>
+							</f:if>
+							<f:if condition="{printPart} == 'step6'">
+								<f:render partial="Print/Step6" arguments="{_all}"/>
+							</f:if>
+
+						</f:then>
+
+						<!-- print all -->
+						<f:else>
+
+							<f:render partial="Print/Step0" arguments="{_all}"/>
+							<f:render partial="Print/Step1" arguments="{_all}"/>
+							<f:render partial="Print/Step2" arguments="{_all}"/>
+							<f:render partial="Print/Step2sub2" arguments="{_all}"/>
+							<f:render partial="Print/Step3" arguments="{_all}"/>
+							<f:render partial="Print/Step3sub2" arguments="{_all}"/>
+							<f:render partial="Print/Step3sub3" arguments="{_all}"/>
+							<f:render partial="Print/Step3sub4" arguments="{_all}"/>
+							<f:render partial="Print/Step4" arguments="{_all}"/>
+							<f:render partial="Print/Step5" arguments="{_all}"/>
+							<f:render partial="Print/Step5sub2" arguments="{_all}"/>
+							<f:render partial="Print/Step5sub3" arguments="{_all}"/>
+							<f:render partial="Print/Step5sub4" arguments="{_all}"/>
+							<f:render partial="Print/Step5sub5" arguments="{_all}"/>
+							<f:render partial="Print/Step6" arguments="{_all}"/>
+
+						</f:else>
+
+					</f:if>
+
+				</div>
+			</main>
+		</div>
+
+	</f:then>
+	<f:else>
+
+		<!-- output message if user session is broken -->
+		<h3>
+			<f:translate key="tx_rkwwepstra_fluid_print.session_closed" extensionName="RkwWepstra" />
+		</h3>
+		<a class="button" href="">
+			<f:translate key="tx_rkwwepstra_fluid_print.login" extensionName="RkwWepstra" />
+		</a>
+
+	</f:else>
+</f:security.ifAuthenticated>

@@ -1,0 +1,29 @@
+<f:for each="{wepstra.salesTrend}" as="salesTrend" iteration="csIter">
+
+	<f:form action="updatesalestrend" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="salesTrend" object="{salesTrend}" class="table-row ajax">
+
+		<div class="table-cell no-border-top">
+			<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+			<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub2_tooltip.salestrend' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step3sub2.salestrend_total" extensionName="RkwWepstra" />
+			</p>
+		</div>
+		<p class="table-cell column-info">
+			<!-- add SalesTrend currentSales -->
+			<f:form.textfield property="currentSales" class="edit-text" />
+		</p>
+		<p class="table-cell column-info">
+			<!-- add SalesTrend futureSales -->
+			<f:form.textfield property="futureSales" class="edit-text" />
+		</p>
+		<p class="table-cell column-info">
+			<!-- add SalesTrend percentage -->
+			<f:form.textfield property="percentage" class="edit-text" />
+		</p>
+		<p class="table-cell no-border-top">
+			<!-- empty -->
+		</p>
+
+	</f:form>
+
+</f:for>

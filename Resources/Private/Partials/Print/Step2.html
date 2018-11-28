@@ -1,0 +1,49 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div class="container page-break">
+	<div class="step-title">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step2.jobfamily_prioritise" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_strategical_meaning" extensionName="RkwWepstra" />
+	</p>
+
+	<div class="participants-ratings">
+		<div class="participant-ratings-container">
+			<h2 class="fields-name">
+				<f:translate key="tx_rkwwepstra_fluid_print.jobfamily_prioritise_of_participant" extensionName="RkwWepstra" />
+				(
+				1 = <f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" /> ,
+				10 = <f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" />
+				)
+			</h2>
+
+			<div class="participant-ratings">
+
+				<f:for each="{wepstra.participants}" as="participant" iteration="participantNumber">
+
+					<div class="participant-rating" data-for="participant{participantNumber.cycle}">
+
+						<div class="ratings">
+							<h3><f:format.htmlentities>{participant.username}</f:format.htmlentities></h3>
+							<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyNumber">
+								<form action="ajax/participants.json" method="post" class="ajax" id="participant-{participantNumber.cycle}">
+									<dl class="participant-points">
+										<dt>{jobFamily.title}</dt>
+										<dd>
+											<p class="points">
+												<vh:readArrayIndex array='{priorityList}' index1='{participant.uid}' index2='{jobFamily.uid}' />
+											</p>
+										</dd>
+									</dl>
+								</form>
+							</f:for>
+						</div>
+					</div>
+				</f:for>
+
+			</div>
+		</div>
+	</div>
+</div>

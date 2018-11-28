@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-11-11T13:43:13Z" product-name="rkw_wepstra">
+		<header/>
+		<body>
+
+			<!-- ############################################################# -->
+			<!-- Controller -->
+			<!-- ############################################################# -->
+
+
+			<!-- DataController -->
+
+			<trans-unit id="tx_rkwwepstra_controller_data.error_add">
+				<source>Error: This field cannot be empty</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_update">
+				<source>Error: This field cannot updated</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_detect">
+				<source>Error: Item can't detected</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_deleted">
+				<source>Error: This item cannot deleted</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_unexpected">
+				<source>An unexpected error occurred. Please contact our service team. Error: %s</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.message_enter_text">
+				<source>Please enter text</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_numeric">
+				<source>Please enter a valid number</source>
+			</trans-unit>
+
+
+			<!-- Step Controller -->
+
+			<trans-unit id="tx_rkwwepstra_controller_step.login_error">
+				<source>Wrong username or password</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.login_blocked">
+				<source>Your Login has been blocked.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.login_notfound">
+				<source>User does not exist.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_email">
+				<source>Email address invalid.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_term">
+				<source>Please accept the terms.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.user_already_exists">
+				<source>A user with this email already exist. Do you forget your password?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.something_went_wrong">
+				<source>Sorry, something went wrong!</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_session">
+				<source>Your session has expired. Please log in again.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_token">
+				<source>The given token is invalid or expired. Please create another anonymous login.</source>
+			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_successfull">
+                <source>You have been successfully registered. Your password has been sent to you via e-mail.</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_canceled">
+                <source>Your registration was canceled.</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_error">
+                <source>An error occurred. Please try again</source>
+            </trans-unit>
+
+
+
+			<!-- ############################################################# -->
+			<!-- Helper -->
+			<!-- ############################################################# -->
+
+			<!-- BasicData-Helper -->
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why1">
+				<source>Personal work adjust to business</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why2">
+				<source>Recognize and manage employee risk</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why3">
+				<source>Plan and realize activities</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.regions_germany">
+				<source>Regions in Germany</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.europe">
+				<source>Europe</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.worldwide">
+				<source>Worldwide</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.product_sector_1">
+				<source>Product sector 1</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.constant">
+				<source>Constant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.minor_adjustments">
+				<source>minor adjustments</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.greater_adjustments">
+				<source>greater adjustments</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.complete_novelty">
+				<source>complete novelty</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.order_related">
+				<source>Part of order-related development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.area1">
+				<source>Area 1</source>
+			</trans-unit>
+
+
+
+			<!-- VerifyStep-Helper -->
+
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.step_incomplete">
+				<source>Step %s not complete.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.participant_minimum">
+				<source>At least you have to create minimum one participant.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.priorities">
+				<source>Not all priorities are filled.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_minimum">
+				<source>At least two job jobfamilies have to be selected.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_minimum_create">
+				<source>At least two job jobfamilies have to be created.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_maximum">
+				<source>Only eight jobfamilies can selected at once.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.salestrend_percentage">
+				<source>You have to select a Salestrend percentage.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.salestrend_choose">
+				<source>You have to choose a Sales Trend.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographicalsector_percentage">
+				<source>The percentage values of geographical sector have to sum up to 100%.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographicalsector_create">
+				<source>You have to create Geographical Sectors.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.productsector_percentage">
+				<source>The percentage values of product sector have to sum up to 100%.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.productsector_create">
+				<source>You have to create Geographical Sectors.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.knowledge_create">
+				<source>You have to select a knowledge-field.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_percentage">
+				<source>The percentage values of performance have to sum up to 100%.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.place_element">
+				<source>You have to place every element.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.target_date">
+				<source>You have to set a target date</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographical_sector_set_value">
+				<source>Minimum one value of geographical sector must be set</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.product_sector_set_value">
+				<source>Minimum one value of product sector must be set</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_select_one">
+				<source>Minimum one performance should selected</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_set_value">
+				<source>Minimum one value of geographical sector must be set</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.select_constant_or_other">
+				<source>Please select constant value or nothing</source>
+			</trans-unit>
+
+
+			<!-- ############################################################# -->
+			<!-- Models -->
+			<!-- ############################################################# -->
+
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra">
+				<source>Wepstra</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.tstamp">
+				<source>Timestamp</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.last_update">
+				<source>Last update</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_mode">
+				<source>Guided Mode</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.knowledge">
+				<source>Knowledge</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development_percentage">
+				<source>Technical Development Percentage</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.reason_why">
+				<source>Reason Why</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.sales_trend">
+				<source>Sales Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.geographical_sector">
+				<source>Geographical Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.product_sector">
+				<source>Product Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.performance">
+				<source>Performance</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development">
+				<source>Technical Development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.cost_saving">
+				<source>Cost Saving</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.participants">
+				<source>Participants</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.job_family">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.frontend_user">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.anonymous_user">
+				<source>Anonymous User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item">
+				<source>Item</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.market">
+				<source>Market</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.innovation">
+				<source>Innovation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_marketing">
+				<source>Employee Marketing</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_sourcing">
+				<source>Employee Sourcing</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.integration">
+				<source>Integration</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_loyalty">
+				<source>Employee Loyalty</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_trend">
+				<source>Employee Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.graph">
+				<source>Graph</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.job_family">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.participant">
+				<source>Participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph">
+				<source>Graph</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.x_axis">
+				<source>X Axis</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.y_axis">
+				<source>Y Axis</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant">
+				<source>Participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer">
+				<source>Anonymous User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.token">
+				<source>Token</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy">
+				<source>Reason Why</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend">
+				<source>Sales Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector">
+				<source>Geographical Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector">
+				<source>Product Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance">
+				<source>Performance</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment">
+				<source>Technical Development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving">
+				<source>Cost Saving</source>
+			</trans-unit>
+
+			<!-- ############################################################# -->
+			<!-- FLUID -->
+			<!-- ############################################################# -->
+
+			<!-- layout -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_header.menu">
+				<source>menu</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.home">
+				<source>home</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.new">
+				<source>New</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.open">
+				<source>Open</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.clock">
+				<source>o'clock</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.logout">
+				<source>Logout</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print">
+				<source>Print</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print_all">
+				<source>Print all</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print_result">
+				<source>Print result</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.anonymous_token">
+				<source>Project link</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.guided_mode">
+				<source>Guided Mode</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.faq">
+				<source>FAQs</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.imprint">
+				<source>Imprint</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.disclaimer">
+				<source>Disclaimer</source>
+			</trans-unit>
+
+
+			<!-- navigation -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step0">
+				<source>Preparation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step1">
+				<source><![CDATA[1.&nbsp;Create jobfamilies]]></source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step2">
+				<source><![CDATA[2.&nbsp;Prioritise jobfamilies]]></source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step3">
+				<source><![CDATA[3.&nbsp;Defining goals]]></source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step4">
+				<source><![CDATA[4.&nbsp;Strategical concernment]]></source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step5">
+				<source><![CDATA[5.&nbsp;Risk profiles]]></source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step6">
+				<source><![CDATA[6.&nbsp;Task planning]]></source>
+			</trans-unit>
+
+
+
+			<!-- general -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general.add">
+				<source>add</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.remove">
+				<source>remove</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.edit">
+				<source>edit</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.forward">
+				<source>forward</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.back">
+				<source>back</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.low">
+				<source>low</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.high">
+				<source>high</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.middle">
+				<source>middle</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.yes">
+				<source>Yes</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.no">
+				<source>No</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.partial">
+				<source>Partial</source>
+			</trans-unit>
+
+
+			<!-- placeholder -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_textarea">
+				<source>please type in here</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_textfield">
+				<source>please type in here</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_participant">
+				<source>further participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_measures">
+				<source>enter measures</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0.placeholder_reasonwhy">
+				<source>Reason why</source>
+				<target>Hier ggf. Gründe ergänzen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0.placeholder_participant">
+				<source>Participant</source>
+				<target>Bitte Namen eintragen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1.placeholder_jobfamilies">
+				<source>enter measures</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.placeholder_geographical">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.placeholder_productsector">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.placeholder_costsaving">
+				<source>enter measures</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_marketing">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_acquisition">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_integration_training">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_retention">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_development">
+				<source>enter measures</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_end_of_employment_relationship">
+				<source>enter measures</source>
+			</trans-unit>
+
+
+
+			<!-- print -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.your_jobfamilies">
+				<source>Your Jobfamilies</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.jobfamily_prioritise_of_participant">
+				<source>Prioritise of participant</source>
+			</trans-unit>
+
+
+
+			<!-- loginChoice -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous">
+				<source>Onward anonymous</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.login">
+				<source>Onward with login</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.login_with_account">
+				<source>Login with account</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.sign_in">
+				<source>Sign in</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.create_account">
+				<source>Create account</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.register">
+				<source>Register</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.without_login">
+				<source>Onward without login</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.submit">
+				<source>Submit</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.email">
+				<source>E-Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.terms1">
+				<source>Terms</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.terms2">
+				<source>Terms</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.password_forgotten">
+				<source>Forget password?</source>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_register.almost_finished">
+				<source>Almost finished!</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_register.please_confirm">
+				<source>Please confirm:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_index.guided_header">
+				<source>Do you want to activate the guided mode?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_index.guided_text">
+				<source>You can change your settings in the menu.</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_anonymous.understand">
+				<source>Understand</source>
+			</trans-unit>
+
+
+			<!-- particular html-files: headlines, several hints, small text -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous_hint_text1">
+				<source>Your link:</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous_hint_text2">
+				<source>Show the link through menu.</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_open.headline">
+				<source>Edit or create projects</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.loaded">
+				<source>(loaded)</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.from">
+				<source>Project from</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.error">
+				<source>Project open error</source>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.preparation">
+				<source>Preparation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.whyplanning">
+				<source>Why strategical planning?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.participants">
+				<source>Participants</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.important_informations">
+				<source>Important informations for preparation!</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1.building_jobfamily">
+				<source>1. Building job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step1.concat_jobfamily">
+				<source>Concat job families</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise">
+				<source>Prioritise job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_strategical_meaning">
+				<source>Prioritise job families in relation of stategical meaning.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_of_participant">
+				<source>Prioritise of participant</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_result">
+				<source>Result of prioritising</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_order_select">
+				<source>Prioritise of participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_select">
+				<source>Prioritise of participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.points">
+				<source>Points</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3.planning_horizon">
+				<source>1. Planning horizon</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3.planning_horizon_header">
+				<source>Planning horizon:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.define_goals">
+				<source>3. Define goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.market_goals">
+				<source>Market goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.market_grow">
+				<source>In which markets we want to grow?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.salestrend_total">
+				<source>Sales trend total</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.growth">
+				<source>Growth</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.shrinking">
+				<source>Shrinking</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.consolidation">
+				<source>Consolidation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.salestrend_individual_markets">
+				<source>Sales trend in individual markets</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.geographical_sector">
+				<source>Geographical sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.product_sector">
+				<source>Product sector</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.currently">
+				<source>Currently</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.future">
+				<source>Future</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.revenue">
+				<source>Revenue</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.development">
+				<source>Development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.in">
+				<source>in</source>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.innovation_goals">
+				<source>Innovation goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.innovation_goals_positioning">
+				<source>With which innovation we want to positioning?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.services_products">
+				<source>Services / Products</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.influence_market_goals">
+				<source>Influence market goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.knowledge_available">
+				<source>Knowledge available?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.known_knowledge">
+				<source>with known knowledge</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.new_knowledge">
+				<source>with new knowledge</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.influence">
+				<source>Influential technical effect</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.none">
+				<source>none</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.low">
+				<source>low</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.middle">
+				<source>middle</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.serious">
+				<source>serious</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.uncertain">
+				<source>uncertain</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.developments">
+				<source>developments</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.productivity_goals">
+				<source>Productivity goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.productivity_goals_realization">
+				<source>Which productivity goals should realized?</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.costsaving_company">
+				<source>Cost savings in company</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.costsaving_company_part">
+				<source>Cost saving in subparts of company</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.in_percent">
+				<source>Per pecent</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.company_devision">
+				<source>Company division</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4.strategical_consternation">
+				<source>4. Strategical consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.strategical_effects">
+				<source>Strategical effects in case of job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.proof_jobfamilies">
+				<source>Proof job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.defined_goals">
+				<source>Defined goals</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.jobfamilies">
+				<source>Job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.market">
+				<source>Market</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.innovation">
+				<source>Innovation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.results">
+				<source>Results</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.no_consternation">
+				<source>no consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.low_consternation">
+				<source>low consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.middle_consternation">
+				<source>middle consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.high_consternation">
+				<source>high consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.change_jobfamily">
+				<source>Change job families</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_profile">
+				<source>5. Risk profile</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_profile_create">
+				<source>Create risk profile</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.strategical_consternation">
+				<source>Strategical consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_capacity_risk">
+				<source>Risk of competence-capacitiy</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.capacity_competence_risk">
+				<source>Strategical consternation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.age_risk">
+				<source>Risk of age</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.capacity_risk">
+				<source>Risk of capacity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_risk">
+				<source>Risk of competence</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.procurement_risk">
+				<source>Risk of procurement</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_of_job_families">
+				<source>Capacy risk job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_text">
+				<source>Competence risk job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.procurement_text">
+				<source>Procurement risk job families</source>
+			</trans-unit>
+
+			<!-- graph axis -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.low">
+				<source>low</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.high">
+				<source>high</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.jobfamilies">
+				<source>Job families</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.latent_risk">
+				<source>latent risk</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.existential_risk">
+				<source>existential risk</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.low_risk">
+				<source>low risk</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_jobfamilies">
+				<source>Riskprofiles</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_create">
+				<source>Created automatical</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.jobfamilies">
+				<source>Job families</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_jobfamilies">
+				<source>Riskprofiles</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_create">
+				<source>Created automatical</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.jobfamily">
+				<source>Job family</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.activities_intend">
+				<source>6. Intend activities</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.phases">
+				<source>Phases</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.jobfamilies">
+				<source>Job families</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_marketing">
+				<source>Employee marketing</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_acquisition">
+				<source>Employee acquisition</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.integration_training">
+				<source>Integration/Training</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_retention">
+				<source>Employee retention</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_development">
+				<source>Employee development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.end_of_employment_relationship">
+				<source>End of eployee relationship</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.planning_finished">
+				<source>Planning finished</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.more_infos">
+				<source>More infos</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.session_closed">
+				<source>Session closed</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_print.login">
+				<source>Login</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_finish.header">
+				<source>Header</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text1">
+				<source>Text1</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text1_link">
+				<source>Text1 link</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text2">
+				<source>Text2</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text2_link">
+				<source>Text2 link</source>
+			</trans-unit>
+
+
+
+			<!-- #################################################################### -->
+			<!-- Tooltips -->
+			<!-- #################################################################### -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.login">
+				<source>Login with existing RKW account.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.register">
+				<source>Register as a new user.</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.anonymous">
+				<source>Login as a anonymous user.</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0_tooltip.whyplanning">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_tooltip.participants">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1_tooltip.jobfamily">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2_tooltip.prioritize">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_tooltip.select">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3_tooltip.horizon">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.salestrend">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.geographical">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.product">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_tooltip.performance">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_tooltip.techdev">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_tooltip.productivity">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_tooltip.costsaving">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4_tooltip.strategical_effects">
+				<source>### Please insert a real tooltip ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_tooltip.results">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+			</trans-unit>
+
+
+
+			<!-- #################################################################### -->
+			<!-- Guided mode  -->
+			<!-- #################################################################### -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general_guided.button_forward">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.reasonwhy">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.participants">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.print">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_title">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_list">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.jobfamily_priority">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_list">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_priority">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_priority">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_select">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3_guided.headline">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3_guided.planning_horizont">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.defining_objectives">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.market_goals">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.geographical_sector">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.product_sector">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.defining_objectives">
+				<source>### Text Guided Mode en ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.performance">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.techdev">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.goals">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.potential">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.costsaving">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.headline">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.results">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.effects">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.graph">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.graph">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_guided.graph">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.graph">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_guided.header">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.headline">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.tasks">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.finish">
+				<source>### Text Guided Mode ###</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

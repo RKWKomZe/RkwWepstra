@@ -1,0 +1,76 @@
+<div class="container">
+	<ul class="navigation-list">
+
+		<!-- prev
+		<li class="step-arrow"><f:link.action action="step{stepBefore}" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" class="ajax" ><span class="icon-arrow-left no-text">&lt;</span></f:link.action></li>
+		-->
+
+		<!-- step0 -->
+		<li class="{f:if(condition:'{step} == 0',then:'active',else:'')}">
+			<f:link.action action="step0" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step0' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- step1 -->
+		<li class="{f:if(condition:'{step} == 1',then:'active',else:'')}">
+			<f:link.action action="step1" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step1' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!--- step2 -->
+		<li class="{f:if(condition:'{step} == 2',then:'active',else:'')}">
+			<f:link.action action="step2" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step2' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- step3 -->
+		<li class="{f:if(condition:'{step} == 3',then:'active',else:'')}">
+			<f:link.action action="step3" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step3' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- step4 -->
+		<li class="{f:if(condition:'{step} == 4',then:'active',else:'')}">
+			<f:link.action action="step4" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step4' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- step5 -->
+		<li class="{f:if(condition:'{step} == 5',then:'active',else:'')}">
+			<f:link.action action="step5" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step5' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- step6 -->
+		<li class="{f:if(condition:'{step} == 6',then:'active',else:'')}">
+			<f:link.action action="step6" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" >
+				<span>
+					<f:translate key='tx_rkwwepstra_fluid_navigation.step6' extensionName='RkwWepstra' />
+				</span>
+			</f:link.action>
+		</li>
+
+		<!-- next
+		<li class="step-arrow"><f:link.action action="step{stepAfter}" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="ajax" ><span class="icon-arrow-right no-text">&lt;</span></f:link.action></li>
+		-->
+
+	</ul>
+</div>

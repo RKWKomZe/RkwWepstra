@@ -1,0 +1,149 @@
+
+<!-- head -->
+<div class="table-head">
+	<!-- tr -->
+	<div class="table-row">
+		<!-- td -->
+		<div class="table-cell no-border-bottom">
+			<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub3_tooltip.performance' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step3sub3.services_products" extensionName="RkwWepstra" />
+			</p>
+		</div>
+		<!-- td -->
+		<p class="table-cell column-info center">
+			<f:translate key="tx_rkwwepstra_fluid_step3sub3.influence_market_goals" extensionName="RkwWepstra" />
+		</p>
+		<!-- td -->
+		<p class="table-cell column-info center">
+			<f:translate key="tx_rkwwepstra_fluid_step3sub3.knowledge_available" extensionName="RkwWepstra" />
+		</p>
+	</div>
+</div>
+
+<!-- body -->
+<div class="table-body">
+
+	<f:for each="{wepstra.performance}" as="performance" iteration="performanceIter">
+
+		<f:if condition="{performance.type} == 0">
+
+			<div class="table-row">
+				<f:form action="updateperformance" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="performance" object="{performance}" class="ajax">
+					<p class="table-cell">
+						<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+						<f:form.hidden name="uid" value="{uid}" />
+						<f:form.checkbox checked="{f:if(condition:'{performance.value} == 1',then:'true',else:'')}" value="1" id="performance" property="value" class="ajax-send" />
+
+						<label for="performance">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub3.performance.label" extensionName="RkwWepstra" />
+						</label>
+					</p>
+				</f:form>
+				<p class="table-cell"> </p>
+				<p class="table-cell"> </p>
+			</div>
+		</f:if>
+	</f:for>
+
+
+	<f:for each="{wepstra.performance}" as="performance" iteration="performanceIter">
+
+		<f:if condition="{performance.type}">
+
+			<f:form action="updateperformance" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="performance" object="{performance}" class="table-row ajax">
+
+				<div class="table-cell">
+
+					<div class="checkbox-input">
+
+						<p class="checkbox-container">
+							<f:form.hidden value="" property="value" />
+							<f:form.checkbox checked="{performance.value} == 1" value="1" id="value-{performanceIter.cycle}" property="value" class="ajax-send"/>
+							<label for="value-{performanceIter.cycle}"> </label>
+						</p>
+
+
+						<p class="input-container field">
+
+							<f:if condition="{performance.type} == 1">
+								<label>
+									<f:translate key="tx_rkwwepstra_helper_basicdata.minor_adjustments" extensionName="RkwWepstra" />
+								</label>
+							</f:if>
+							<f:if condition="{performance.type} == 2">
+								<label>
+									<f:translate key="tx_rkwwepstra_helper_basicdata.greater_adjustments" extensionName="RkwWepstra" />
+								</label>
+							</f:if>
+							<f:if condition="{performance.type} == 3">
+								<label>
+									<f:translate key="tx_rkwwepstra_helper_basicdata.complete_novelty" extensionName="RkwWepstra" />
+								</label>
+							</f:if>
+
+
+							<f:form.textfield property="description" class="edit-text add-text">
+								{performance.description}
+							</f:form.textfield>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+						</p>
+
+
+					</div>
+				</div>
+
+				<div class="table-cell">
+					<div class="radio-row">
+
+						<p class="radio-container">
+							<f:form.radio checked="{performance.influence} == 1" value="1" id="influence-{performanceIter.cycle}-1" property="influence" class="ajax-send"/>
+							<label class="text-top" for="influence-{performanceIter.cycle}-1">
+								<f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" />
+							</label>
+						</p>
+						<p class="radio-container">
+							<f:form.radio id="influence-{performanceIter.cycle}-2" value="2" property="influence" class="ajax-send"/>
+							<label class="text-top" for="influence-{performanceIter.cycle}-2">
+								<f:translate key="tx_rkwwepstra_fluid_general.middle" extensionName="RkwWepstra" />
+							</label>
+						</p>
+						<p class="radio-container">
+							<f:form.radio id="influence-{performanceIter.cycle}-3" value="3" property="influence" class="ajax-send"/>
+							<label class="text-top" for="influence-{performanceIter.cycle}-3">
+								<f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" />
+							</label>
+						</p>
+
+					</div>
+				</div>
+
+				<div class="table-cell">
+					<div class="radio-row">
+
+						<p class="radio-container">
+							<f:form.radio checked="{performance.knowledge} == 1" value="1" id="knowledge-{performanceIter.cycle}-1" property="knowledge" class="ajax-send"/>
+							<label class="text-top" for="knowledge-{performanceIter.cycle}-1">
+								<f:translate key="tx_rkwwepstra_fluid_general.yes" extensionName="RkwWepstra" />
+							</label>
+						</p>
+						<p class="radio-container">
+							<f:form.radio checked="{performance.knowledge} == 2" value="2" id="knowledge-{performanceIter.cycle}-2" property="knowledge" class="ajax-send"/>
+							<label class="text-top" for="knowledge-{performanceIter.cycle}-2">
+								<f:translate key="tx_rkwwepstra_fluid_general.partial" extensionName="RkwWepstra" />
+							</label>
+						</p>
+						<p class="radio-container">
+							<f:form.radio checked="{performance.knowledge} == 3" value="3" id="knowledge-{performanceIter.cycle}-3" property="knowledge" class="ajax-send"/>
+							<label class="text-top" for="knowledge-{performanceIter.cycle}-3">
+								<f:translate key="tx_rkwwepstra_fluid_general.no" extensionName="RkwWepstra" />
+							</label>
+						</p>
+
+					</div>
+				</div>
+
+			</f:form>
+		</f:if>
+
+	</f:for>
+</div>

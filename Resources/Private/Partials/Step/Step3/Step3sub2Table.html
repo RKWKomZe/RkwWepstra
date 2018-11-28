@@ -1,0 +1,48 @@
+<div>
+	<div class="fake-table">
+
+		<!-- table head -->
+		<div class="table-head" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3sub2_guided.market_goals' extensionName='RkwWepstra' />" data-step="2">
+
+			<!-- row -->
+			<div class="table-row">
+				<p class="table-cell no-border">
+					<!-- empty -->
+				</p>
+				<p class="table-cell column-info">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.currently" extensionName="RkwWepstra" />
+					<br>
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+				</p>
+				<p class="table-cell column-info">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.future" extensionName="RkwWepstra" />
+					<br>
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+				</p>
+				<p class="table-cell column-info">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub2.development" extensionName="RkwWepstra" />
+					<br>
+					(<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> %)
+				</p>
+				<p class="table-cell no-border">
+					<!-- empty -->
+				</p>
+			</div>
+
+			<!-- row -->
+			<f:render partial="Step/Step3/TableParts/SalesTrend" arguments="{_all}"/>
+
+
+		</div>
+
+		<!-- ====================================================================================== -->
+		<!-- table body -->
+
+		<f:render partial="Step/Step3/TableParts/GeographicalSector" arguments="{_all}"/>
+
+
+		<!-- table body -->
+		<f:render partial="Step/Step3/TableParts/ProductSector" arguments="{_all}"/>
+
+	</div>
+</div>

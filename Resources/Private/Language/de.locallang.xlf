@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de"  datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="rkw_registration">
+		<header/>
+		<body>
+
+
+			<!-- ############################################################# -->
+			<!-- Classes/Controller -->
+			<!-- ############################################################# -->
+
+			<!-- DataController -->
+
+			<trans-unit id="tx_rkwwepstra_controller_data.error_add">
+				<source>Error: This field cannot be empty</source>
+				<target>Das Eingabefeld darf leider nicht leer sein. Bitte geben Sie etwas ein.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_update">
+				<source>Error: This field cannot updated</source>
+				<target>Das Aktualisieren des Eintrags ist leider nicht möglich. Möglicherweise liegt ein technisches Problem vor. Bitte kontaktieren Sie unser Service-Team.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_detect">
+				<source>Error: Item can't detected</source>
+				<target>Das Element kann leider nicht gefunden werden. Möglicherweise liegt ein technisches Problem vor. Bitte kontaktieren Sie unser Service-Team.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_deleted">
+				<source>Error: This item cannot deleted</source>
+				<target>Das Löschen ist leider nicht möglich. Möglicherweise liegt ein technisches Problem vor. Bitte kontaktieren Sie unser Service-Team.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_unexpected">
+				<source>An unexpected error occurred. Please contact our service team. Error: %s</source>
+				<target>Es tut uns leid, aber es ist ein Fehler aufgetreten. Bitte kontaktieren Sie unser Service-Team. Fehler: %s</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.message_enter_text">
+				<source>Please enter text</source>
+				<target>Bitte geben Sie etwas in das Textfeld ein.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_data.error_numeric">
+				<source>Please enter a valid number</source>
+				<target>Bitte geben Sie einen gültigen Zahlwert bzw. Prozentwert an.</target>
+			</trans-unit>
+
+
+			<!-- Step Controller -->
+
+			<trans-unit id="tx_rkwwepstra_controller_step.login_error">
+				<source>Wrong username or password.</source>
+				<target>Leider stimmen Nutzername oder Passwort nicht.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.login_blocked">
+				<source>Your Login has been blocked.</source>
+				<target>Ihr Login wurde gesperrt. Bitte wenden Sie sich an den Support unter service@rkw.de</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.login_notfound">
+				<source>User does not exist.</source>
+				<target>Dieser Login existiert leider nicht. Bitte beachten Sie, dass Social Media- Logins hier nicht funktionieren.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_email">
+				<source>Email address invalid.</source>
+				<target>Diese E-Mailadresse ist leider nicht gültig.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_term">
+				<source>Please accept the terms.</source>
+				<target>Bitte akzeptieren Sie die Nutzungsbedingungen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.user_already_exists">
+				<source>A user with this email already exist. Do you forget your password?</source>
+				<target>Ein Nutzer mit dieser E-Mailadresse existiert bereits. Haben Sie das Passwort vergessen?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.something_went_wrong">
+				<source>Sorry, something went wrong!</source>
+				<target>Entschuldigen Sie, etwas ist schief gelaufen. Bitte wenden Sie sich an den Betreiber der Webseite.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_session">
+				<source>Your session has expired. Please log in again.</source>
+				<target>Ihre Session ist abgelaufen. Bitte melden Sie sich erneut an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_controller_step.invalid_token">
+				<source>The given token is invalid or expired. Please create another anonymous login.</source>
+				<target>Ihr anonymer Login ist leider abgelaufen.</target>
+			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_successfull">
+                <source>You have been successfully registered. Your password has been sent to you via e-mail.</source>
+                <target>Woohoo! Sie wurden erfolgreich registriert. Das Passwort für den Login ist per E-Mail auf dem Weg zu Ihnen. Sollten Sie innerhalb der nächsten 2-3 Minuten keine E-Mail von uns erhalten, prüfen Sie bitte Ihren Spam-Filter. Unser Support hilft Ihnen bei Problemen gerne weiter.</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_canceled">
+                <source>Your registration was canceled.</source>
+                <target>Schade... Ihre Registrierung wurde abgebrochen.</target>
+            </trans-unit>
+            <trans-unit id="tx_rkwwepstra_controller_step.registration_error">
+                <source>An error occurred. Please try again</source>
+                <target>Upps, da ist wohl etwas schief gelaufen. Haben Sie Ihre Registrierung vielleicht schon bestätigt?</target>
+            </trans-unit>
+
+
+			<!-- ############################################################# -->
+			<!-- Classes/Helper -->
+			<!-- ############################################################# -->
+
+			<!-- BasicData-Helper -->
+
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why1">
+				<source>Personal work adjust to business</source>
+				<target>Personalarbeit am Geschäft ausrichten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why2">
+				<source>Recognize and manage employee risk</source>
+				<target>personalwirtschaftliche Risiken erkennen und managen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.reason_why3">
+				<source>Plan and realize activities</source>
+				<target>(strategisch begründete) personalwirtschaftliche Maßnahmen planen und umsetzen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.regions_germany">
+				<source>Regions in Germany</source>
+				<target>Regionen in Deutschland</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.europe">
+				<source>Europe</source>
+				<target>Europa</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.worldwide">
+				<source>Worldwide</source>
+				<target>Weltweit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.product_sector_1">
+				<source>Product sector 1</source>
+				<target>Produktbereich/Geschäftsfeld 1</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.constant">
+				<source>Constant</source>
+				<target>gleichbleibend</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.minor_adjustments">
+				<source>minor adjustments</source>
+				<target>kleinere Anpassungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.greater_adjustments">
+				<source>greater adjustments</source>
+				<target>grössere Anpassungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.complete_novelty">
+				<source>complete novelty</source>
+				<target>komplette Neuentwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.order_related">
+				<source>Part of order-related development</source>
+				<target>Anteil auftragsbezogener Entwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_basicdata.area1">
+				<source>Area 1</source>
+				<target>Bereich 1</target>
+			</trans-unit>
+
+
+			<!-- VerifyStep-Helper -->
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.step_incomplete">
+				<source>Step %s not complete.</source>
+				<target>Schritt %s ist leider nicht vollständig. Bitte prüfen Sie Ihre Eingaben</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.participant_minimum">
+				<source>At least you have to create minimum one participant.</source>
+				<target>Bitte geben Sie mindestens einen Teilnehmer an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.priorities">
+				<source>Not all priorities are filled.</source>
+				<target>Nicht alle Teilnehmer haben priorisiert.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_minimum">
+				<source>At least two job jobfamilies have to be selected.</source>
+				<target>Bitte wählen Sie mindestens zwei Jobfamilien aus, die für die weiteren Schritte übernommen werden.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_minimum_create">
+				<source>At least two job jobfamilies have to be created.</source>
+				<target>Bitte erstellen Sie mindestens eine Jobfamilie.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_maximum">
+				<source>Only eight jobfamilies can selected at once.</source>
+				<target>Bitte wählen Sie maximal acht Jobfamilien aus, die für die weiteren Schritte übernommen werden.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.salestrend_percentage">
+				<source>You have to select a Salestrend percentage.</source>
+				<target>Bitte geben Sie eine gültige Prozentzahl zwischen 1 und 100 für die Gesamt-Umsatzentwicklung an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.salestrend_choose">
+				<source>You have to choose a Sales Trend.</source>
+				<target>Bite geben Sie mindestens eine voraussichtliche Umsatzentwicklung sowohl für Ihre regionalen Märkte als auch für Ihre Produktbereiche/Geschäftsfelder an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographicalsector_percentage">
+				<source>The percentage values of geographical sector have to sum up to 100%.</source>
+				<target>Die Prozentzahlen der geographischen Bereiche müssen sich auf exakt 100% summieren.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographicalsector_create">
+				<source>You have to create Geographical Sectors.</source>
+				<target>Bitte geben Sie mindestens eine voraussichtliche Umsatzentwicklung in Ihren regionalen Märkten an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.productsector_percentage">
+				<source>The percentage values of product sector have to sum up to 100%.</source>
+				<target>Die Prozentzahlen der produktbezogenen Bereiche müssen sich auf exakt 100% summieren.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.productsector_create">
+				<source>You have to create Geographical Sectors.</source>
+				<target>Bitte geben Sie mindestens eine voraussichtliche Umsatzentwicklung in Ihren Produktbereichen/Geschäftsfeldern an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.knowledge_create">
+				<source>You have to select a knowledge-field.</source>
+				<target>Wählen Sie entweder "mit bekanntem Wissen" oder "mit neuem Wissen".</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_percentage">
+				<source>The percentage values of performance have to sum up to 100%.</source>
+				<target>Die Prozentzahlen von "Leistungen / Produkte" müssen sich auf exakt 100% summieren.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.place_element">
+				<source>You have to place every element.</source>
+				<target>Sie müssen jedes Element platzieren.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.target_date">
+				<source>You have to set a target date</source>
+				<target>Bitte geben Sie an, für welchen Zeitraum Sie planen möchten.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.geographical_sector_set_value">
+				<source>Minimum one value of geographical sector must be set</source>
+				<target>Bitte geben Sie mindestens einen Wert > 0 für die voraussichtliche Umsatzentwicklung in Ihren regionalen Märkten an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.product_sector_set_value">
+				<source>Minimum one value of products sector must be set</source>
+				<target>Bitte geben Sie mindestens einen Wert > 0 für die voraussichtliche Umsatzentwicklung in Ihren Produktbereichen/Geschäftsfeldern an.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_select_one">
+				<source>Minimum one performance should selected</source>
+				<target>Bitte wählen Sie mindestens einen Eintrag aus dem Bereich "Leistungen/Produkte" aus.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.performance_set_value">
+				<source>Minimum one value of geographical sector must be set</source>
+				<target>Bitte vervollständigen Sie Ihre Angaben für den gewählten Eintrag/die gewählten Einträge aus dem Bereich "Leistungen/Produkte".</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.select_constant_or_other">
+				<source>Please select constant value or nothing</source>
+				<target>Ihre Auswahl im Bereich "Leistungen/Produkte" ist leider widersprüchlich. Bitte wählen Sie ENTWEDER "Gleichbleibend" ODER eine bzw. mehrere der anderen Optionen.</target>
+			</trans-unit>
+
+			<!-- ############################################################# -->
+			<!-- Classes/Domain/Models -->
+			<!-- ############################################################# -->
+
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra">
+				<source>Wepstra</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.tstamp">
+				<source>Timestamp</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.last_update">
+				<source>Last update</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_mode">
+				<source>Guided Mode</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.knowledge">
+				<source>Knowledge</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development_percentage">
+				<source>Technical Development Percentage</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.reason_why">
+				<source>Reason Why</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.sales_trend">
+				<source>Sales Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.geographical_sector">
+				<source>Geographical Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.product_sector">
+				<source>Product Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.performance">
+				<source>Performance</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.technical_development">
+				<source>Technical Development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.cost_saving">
+				<source>Cost Saving</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.participants">
+				<source>Participants</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.job_family">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.frontend_user">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.anonymous_user">
+				<source>Anonymous User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item">
+				<source>Item</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_item.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.market">
+				<source>Market</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.innovation">
+				<source>Innovation</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_marketing">
+				<source>Employee Marketing</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_sourcing">
+				<source>Employee Sourcing</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.integration">
+				<source>Integration</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_loyalty">
+				<source>Employee Loyalty</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.employee_trend">
+				<source>Employee Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_jobfamily.graph">
+				<source>Graph</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority">
+				<source>Priority</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.job_family">
+				<source>Job Family</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.participant">
+				<source>Participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph">
+				<source>Graph</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.x_axis">
+				<source>X Axis</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_graph.y_axis">
+				<source>Y Axis</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant">
+				<source>Participant</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer">
+				<source>Anonymous User</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.token">
+				<source>Token</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_reasonwhy">
+				<source>Reason Why</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_salestrend">
+				<source>Sales Trend</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_geographicalsector">
+				<source>Geographical Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productsector">
+				<source>Product Sector</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_performance">
+				<source>Performance</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_technicaldevelopment">
+				<source>Technical Development</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_productivity">
+				<source>Productivity</source>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_domain_model_costsaving">
+				<source>Cost Saving</source>
+			</trans-unit>
+
+
+			<!-- ############################################################# -->
+			<!-- FLUID -->
+			<!-- ############################################################# -->
+
+			<!-- layout -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_header.menu">
+				<source>menu</source>
+				<target>menu</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.home">
+				<source>home</source>
+				<target>home</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.new">
+				<source>New</source>
+				<target>Neu</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.open">
+				<source>Open</source>
+				<target>Öffnen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.clock">
+				<source>o'clock</source>
+				<target>Uhr</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.logout">
+				<source>Logout</source>
+				<target>Ausloggen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print">
+				<source>Print</source>
+				<target>Drucken</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print_all">
+				<source>Print all</source>
+				<target>drucken</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.print_result">
+				<source>Print result</source>
+				<target>Ergebnisse drucken</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.anonymous_token">
+				<source>Project link</source>
+				<target>Projektlink</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.guided_mode">
+				<source>Guided Mode</source>
+				<target>Hilfemodus</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.faq">
+				<source>FAQs</source>
+				<target>FAQs</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_header.imprint">
+				<source>Imprint</source>
+				<target>Impressum</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_header.disclaimer">
+				<source>Disclaimer</source>
+				<target>Disclaimer</target>
+			</trans-unit>
+
+
+
+			<!-- navigation -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step0">
+				<source>Preparation</source>
+				<target>Vorbereitung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step1">
+				<source><![CDATA[1.&nbsp;Create jobfamilies]]></source>
+				<target><![CDATA[1.&nbsp;Jobfamilien bilden]]></target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step2">
+				<source><![CDATA[2.&nbsp;Prioritise jobfamilies]]></source>
+				<target><![CDATA[2.&nbsp;Jobfamilien priorisieren]]></target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step3">
+				<source><![CDATA[3.&nbsp;Defining goals]]></source>
+				<target><![CDATA[3.&nbsp;Ziele definieren]]></target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step4">
+				<source><![CDATA[4.&nbsp;Strategical concernment]]></source>
+				<target><![CDATA[4.&nbsp;Strategische Betroffenheit]]></target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step5">
+				<source><![CDATA[5.&nbsp;Risk profiles]]></source>
+				<target><![CDATA[5.&nbsp;Risikoprofile]]></target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_navigation.step6">
+				<source><![CDATA[6.&nbsp;Task planning]]></source>
+				<target><![CDATA[6.&nbsp;Maßnahmen planen]]></target>
+			</trans-unit>
+
+
+
+
+
+			<!-- general -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general.add">
+				<source>add</source>
+				<target>hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.remove">
+				<source>remove</source>
+				<target>entfernen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.edit">
+				<source>edit</source>
+				<target>editieren</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.forward">
+				<source>forward</source>
+				<target>weiter</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.back">
+				<source>back</source>
+				<target>zurück</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.low">
+				<source>low</source>
+				<target>niedrig</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.high">
+				<source>high</source>
+				<target>hoch</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.middle">
+				<source>middle</source>
+				<target>mittel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.yes">
+				<source>yes</source>
+				<target>ja</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.no">
+				<source>no</source>
+				<target>nein</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.partial">
+				<source>partial</source>
+				<target>teilweise</target>
+			</trans-unit>
+
+
+			<!-- placeholder -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_textarea">
+				<source>please type in here</source>
+				<target>Bitte Text einfügen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_textfield">
+				<source>please type in here</source>
+				<target>Bitte Text einfügen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_participant">
+				<source>further participant</source>
+				<target>weiterer Teilnehmer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_measures">
+				<source>enter measures</source>
+				<target>Maßnahme eintragen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0.placeholder_reasonwhy">
+				<source>Reason why</source>
+				<target>Hier ggf. Gründe ergänzen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0.placeholder_participant">
+				<source>Participant</source>
+				<target>Bitte Namen eintragen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1.placeholder_jobfamilies">
+				<source>enter measures</source>
+				<target>z.B. Einkäufer, Außendienst,...</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.placeholder_geographical">
+				<source>enter measures</source>
+				<target>z.B. Deutschland, Europa, weltweit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.placeholder_productsector">
+				<source>enter measures</source>
+				<target>z.B. Werkzeugbau, Anlagenbau</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.placeholder_costsaving">
+				<source>enter measures</source>
+				<target>z.B. Raumkosten</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_marketing">
+				<source>enter measures</source>
+				<target>z.B. Markt beobachten, alternative Beschaffungsmöglichkeiten prüfen, Arbeitgebermarke entwickeln, gezieltere Kommunikation und Medienwahl</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_acquisition">
+				<source>enter measures</source>
+				<target>z.B. internen Arbeitsmarkt prüfen, Anforderungsprofile und Ausschreibungen überarbeiten, Bewerbungsprozess optimieren, Headhunter einsetzen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_integration_training">
+				<source>enter measures</source>
+				<target>z.B. Einarbeitungspläne erstellen, Mentoren-Modell entwickeln, Feedbackgespräche einführen, Qualifizierungsangebote, begleitender Service</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_retention">
+				<source>enter measures</source>
+				<target>z.B. Abgänge prüfen, Führungsqualität verbessern, Karrieremodelle entwickeln/anpassen, Mitarbeitergespräche, Angebote zu Work-Life-Balance</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_employee_development">
+				<source>enter measures</source>
+				<target>z.B. Trainee-Programm entwickeln, Laufbahn und Kompetenzmodell prüfen / strategisch eingrenzen, Job Rotation, Tandem- oder Mentoren-Modell entwickeln</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.placeholder_end_of_employment_relationship">
+				<source>enter measures</source>
+				<target>z.B. Leiharbeit prüfen, Outplacement-Maßnahmen prüfen, Aufhebungsverträge entwickeln, Austrittsgespräche einführen</target>
+			</trans-unit>
+
+
+
+			<!-- print -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.your_jobfamilies">
+				<source>Your Jobfamilies</source>
+				<target>Ihre Jobjamilien</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.jobfamily_prioritise_of_participant">
+				<source>Prioritise of participant</source>
+				<target>Priorisierung der Teilnehmer</target>
+			</trans-unit>
+
+
+
+			<!-- loginChoice -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous">
+				<source>Onward anonymous</source>
+				<target>Anonym starten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.login">
+				<source>Onward with login</source>
+				<target>Eingeloggt weiter</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.login_with_account">
+				<source>Login with account</source>
+				<target>Mit bestehendem Account anmelden</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.username">
+				<source>Username</source>
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.password">
+				<source>Password</source>
+				<target>Passwort</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.sign_in">
+				<source>Sign in</source>
+				<target>Anmelden</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.create_account">
+				<source>Create account</source>
+				<target>Account einrichten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.register">
+				<source>Register</source>
+				<target>Registrieren</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.without_login">
+				<source>Onward without login</source>
+				<target>Ohne Anmeldung weitermachen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.submit">
+				<source>Submit</source>
+				<target>Absenden</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.email">
+				<source>E-Mail</source>
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.terms1">
+				<source>Terms</source>
+				<target>Ich akzeptiere die</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.terms2">
+				<source>Terms</source>
+				<target>Nutzungsbedingungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.password_forgotten">
+				<source>Forget password?</source>
+				<target>Passwort vergessen?</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_register.almost_finished">
+				<source>Almost finished!</source>
+				<target>Fast geschafft!</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_register.please_confirm">
+				<source>Please confirm:</source>
+				<target>Wir haben Ihnen gerade eine E-Mail an die angegebene Adresse geschickt. Bitte bestätigen Sie über den Link in der E-Mail Ihre Registrierung.</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_index.guided_header">
+				<source>Do you want to activate the guided mode?</source>
+				<target>Möchten Sie sie mit Tipps und Ratschlägen durch das Projekt geführt werden?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_index.guided_text">
+				<source>You can change your settings in the menu.</source>
+				<target>Sie können den Hilfemodus auch später über die Menüführung ein- und ausschalten.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_anonymous.understand">
+				<source>Understand</source>
+				<target>Habe ich verstanden</target>
+			</trans-unit>
+
+
+
+			<!-- particular html-files: headlines, several hints, small text -->
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous_hint_text1">
+				<source>Your link:</source>
+				<target>Kopieren Sie diesen Link und heben Sie ihn gut auf. Nur mit diesem Link können Sie zu einem späteren Zeitpunkt erneut auf Ihre Ergebnisse zugreifen. Der Link ist 90 Tage gültig, danach können Sie auf Ihre Ergebnisse nicht mehr zugreifen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.anonymous_hint_text2">
+				<source>Show the link through menu.</source>
+				<target>Dieser Link kann später noch einmal über das Menü angezeigt werden, jedoch nur so lange Sie den Browser nicht schließen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_login.authenticate_text1">
+				<source>Login successfull.</source>
+				<target>Sie haben sich erfolgreich eingeloggt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login.authenticate_text2">
+				<source>Go to the project</source>
+				<target>Weiter</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_open.headline">
+				<source>Edit or create projects</source>
+				<target>Projekte erneut bearbeiten oder neu erstellen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.loaded">
+				<source>(loaded)</source>
+				<target>(geladen)</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.from">
+				<source>Project from</source>
+				<target>Projekt vom</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_open.error">
+				<source>Project open error</source>
+				<target>Ein Problem ist aufgetreten: Das von Ihnen ausgewählte Projekt kann Ihnen nicht zugeordnet werden. Wenden Sie sich im Zweifel an den Betreiber der Webseite.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.preparation">
+				<source>Preparation</source>
+				<target>Vorbereitung: Was? Warum? Wer?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.whyplanning">
+				<source>Resons for strategical planning</source>
+				<target>Gründe für strategische Personalplanung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.participants">
+				<source>Participants</source>
+				<target>Teilnehmer</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.important_informations">
+				<source>Important informations for preparation!</source>
+				<target>Informationen zur Vorbereitung</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1.building_jobfamily">
+				<source>Building job families</source>
+				<target>Jobs zu Jobfamilien zusammenfassen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step1.concat_jobfamily">
+				<source>Concat job families</source>
+				<target>Sie fassen Jobs mit gleichen oder sehr ähnlichen Anforderungen zusammen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step1.insert_jobfamily">
+				<source>Inser job families</source>
+				<target>Bitte Jobfamilie eintragen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise">
+				<source>Prioritise job families</source>
+				<target>Jobfamilien priorisieren</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_strategical_meaning">
+				<source>Prioritise job families in relation of stategical meaning.</source>
+				<target>Alle Teilnehmer gewichten bitte nacheinander die Jobfamilien nach ihrer strategischen Bedeutung.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_of_participant">
+				<source>Prioritise of participant</source>
+				<target>Priorisierung dieses Teilnehmers</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_result">
+				<source>Result of prioritising</source>
+				<target>Ergebnis Ihrer Priorisierung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_order_select">
+				<source>Prioritise of participant</source>
+				<target>Folgende Rangfolge ergibt sich aus der Summe Ihrer Bewertungen. Sie können nun die prioritären Jobfamilien festlegen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.jobfamily_select">
+				<source>Prioritise of participant</source>
+				<target>Auswahl der prioritären Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2.points">
+				<source>Points</source>
+				<target>Punkte</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3.planning_horizon">
+				<source>1. Planning horizon</source>
+				<target>1. Planungshorizont festlegen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3.planning_horizon_header">
+				<source>Planning horizon:</source>
+				<target>Planungshorizont:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.define_goals">
+				<source>3. Define goals</source>
+				<target>3. Ziele definieren</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.market_goals">
+				<source>Market goals</source>
+				<target>2. Marktziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.market_grow">
+				<source>In which markets we want to grow?</source>
+				<target>Auf welchen Märkten wollen wir wie stark wachsen?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.salestrend_total">
+				<source>Sales trend total</source>
+				<target>Umsatzentwicklung insgesamt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.growth">
+				<source>Growth</source>
+				<target>Wachstum</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.shrinking">
+				<source>Shrinking</source>
+				<target>Schrumpfung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.consolidation">
+				<source>Consolidation</source>
+				<target>Konsolidierung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.salestrend_individual_markets">
+				<source>Sales trend in individual markets</source>
+				<target>Umsatzentwicklung auf einzelnen regionalen Märkten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.geographical_sector">
+				<source>Geographical sector</source>
+				<target>Geographische Bereiche</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.product_sector">
+				<source>Product sector</source>
+				<target>Umsatzentwicklung in einzelnen Produktbereichen / Geschäftsfeldern</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.currently">
+				<source>Currently</source>
+				<target>Aktueller</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.future">
+				<source>Future</source>
+				<target>Künftiger</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.revenue">
+				<source>Revenue</source>
+				<target>Umsatz</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.development">
+				<source>Development</source>
+				<target>Entwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.in">
+				<source>in</source>
+				<target>in</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.innovation_goals">
+				<source>Innovation goals</source>
+				<target>3. Innovationsziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.innovation_goals_positioning">
+				<source>With which innovation we want to positioning?</source>
+				<target>Mit welcher Innovation wollen Sie Sich in welchen Märkten positionieren?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.services_products">
+				<source>Services / Products</source>
+				<target>Leistungen / Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.influence_market_goals">
+				<source>Influence market goals</source>
+				<target>Einfluss auf Marktziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.knowledge_available">
+				<source>Knowledge available?</source>
+				<target>Wissen vorhanden?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.performance.label">
+				<source>Same</source>
+				<target>Gleichbleibend</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.performance.label2">
+				<source>Small Changes</source>
+				<target>Kleinere Anpassungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.performance.label3">
+				<source>Big Changes</source>
+				<target>Größere Änderungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.performance.label4">
+				<source>Re-Development</source>
+				<target>Komplete Neuentwicklungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.performance.label5">
+				<source>Part of Wanted Developments</source>
+				<target>Anteil auftragsbezogener Entwicklungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.known_knowledge">
+				<source>with known knowledge</source>
+				<target>mit bekanntem Wissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.new_knowledge">
+				<source>with new knowledge</source>
+				<target>mit neuem Wissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.influence">
+				<source>Influential technical effect</source>
+				<target>Beeinflussende (technische) Entwicklungen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.none">
+				<source>none</source>
+				<target>keine</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.low">
+				<source>low</source>
+				<target>gering</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.middle">
+				<source>middle</source>
+				<target>mittel</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.serious">
+				<source>serious</source>
+				<target>gravierend</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.uncertain">
+				<source>uncertain</source>
+				<target>ungewiss</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3.developments">
+				<source>developments</source>
+				<target>Entwicklungen</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.productivity_goals">
+				<source>Productivity goals</source>
+				<target>4. Produktivitätsziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.productivity_goals_realization">
+				<source>Which productivity goals should realized?</source>
+				<target>Welche Produktivitätsverbesserungen wollen Sie realisieren?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.costsaving_company">
+				<source>Cost savings in company</source>
+				<target>Kosteneinsparungen im Unternehmen insgesamt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.costsaving_company_part">
+				<source>Cost saving in subparts of company</source>
+				<target>Kosteneinsparungen in bestimmten Unternehmensbereichen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.in_percent">
+				<source>Per pecent</source>
+				<target>In Prozent</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4.company_devision">
+				<source>Company division</source>
+				<target>Unternehmensbereich</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4.strategical_consternation">
+				<source>4. Strategical consternation</source>
+				<target>Auswirkung strategischer Ziele auf Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.strategical_effects">
+				<source>Strategical effects in case of job families</source>
+				<target>Bewertung der Betroffenheit der Jobfamilie</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.proof_jobfamilies">
+				<source>Proof job families</source>
+				<target>Jobfamilien prüfen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.defined_goals">
+				<source>Defined goals</source>
+				<target>Definierte Ziele</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4.jobfamilies">
+				<source>Job families</source>
+				<target>Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.market">
+				<source>Market</source>
+				<target>Markt</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.innovation">
+				<source>Innovation</source>
+				<target>Innovation</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.productivity">
+				<source>Productivity</source>
+				<target>Produktivität</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.results">
+				<source>Results</source>
+				<target>Ihre Ziele aus Schritt 3</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.no_consternation">
+				<source>no consternation</source>
+				<target>keine Betroffenheit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.low_consternation">
+				<source>low consternation</source>
+				<target>niedrige Betroffenheit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.middle_consternation">
+				<source>middle consternation</source>
+				<target>mittlere Betroffenheit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4.high_consternation">
+				<source>high consternation</source>
+				<target>hohe Betroffenheit</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4.change_jobfamily">
+				<source>Change job families</source>
+				<target>Jobfamilien ändern?</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.time_horizon">
+				<source>Time horizon</source>
+				<target>Zeithorizont</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.market_goals">
+				<source>Market goals</source>
+				<target>Marktziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.innovation_goals">
+				<source>Innovation goals</source>
+				<target>Innovationsziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.productivity_goals">
+				<source>Productivity goals</source>
+				<target>Produktivitätsziele</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.sales_regional">
+				<source>Sales regional</source>
+				<target>Umsatzentwicklung auf einzelnen regionalen Märkten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.table_header">
+				<source>Sales regional</source>
+				<target>Leistungen/Produkte/Prozesse</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.development">
+				<source>development</source>
+				<target>Entwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4results.influence">
+				<source>influence</source>
+				<target>Einfluss</target>
+			</trans-unit>
+
+
+
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_profile">
+				<source>5. Risk profile</source>
+				<target>Risikoprofile erstellen: </target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_profile_create">
+				<source>Create risk profile</source>
+				<target>Bitte bewerten Sie das Altersrisiko der einzelnen Jobfamilien.</target>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.strategical_consternation">
+				<source>Strategical consternation</source>
+				<target>Strategische Betroffenheit</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_capacity_risk">
+				<source>Risk of competence-capacitiy</source>
+				<target>Kompetenz-/Kapazitätsrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.capacity_competence_risk">
+				<source>Strategical consternation</source>
+				<target>Kapazitäts-/Kompetenzrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.age_risk">
+				<source>Risk of age</source>
+				<target>Altersrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.capacity_risk">
+				<source>Risk of capacity</source>
+				<target>Kapazitätsrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_risk">
+				<source>Risk of competence</source>
+				<target>Kompetenzrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.procurement_risk">
+				<source>Risk of procurement</source>
+				<target>Beschaffungsrisiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.risk_of_job_families">
+				<source>Capacy risk job families</source>
+				<target>Bitte bewerten Sie das Kapazitätsrisiko der einzelnen Jobfamilien.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.competence_text">
+				<source>Competence risk job families</source>
+				<target>Bitte bewerten Sie das Kompetenzrisiko der einzelnen Jobfamilien.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5.procurement_text">
+				<source>Procurement risk job families</source>
+				<target>Bitte bewerten Sie das Beschaffungsrisiko der einzelnen Jobfamilien.</target>
+			</trans-unit>
+
+			<!-- graph axis -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.low">
+				<source>low</source>
+				<target>niedrig</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.high">
+				<source>high</source>
+				<target>hoch</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5.jobfamilies">
+				<source>Job families</source>
+				<target>Jobfamilien</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.latent_risk">
+				<source>latent risk</source>
+				<target>Latentes Risiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.existential_risk">
+				<source>existential risk</source>
+				<target>Existenzielles Risiko</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_axis.low_risk">
+				<source>low risk</source>
+				<target>Niedriges Risiko</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_jobfamilies">
+				<source>Riskprofiles</source>
+				<target>Risikoprofile der prioritären Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.riskprofiles_create">
+				<source>Created automatical</source>
+				<target>Diese Profile wurden automatisch, aufgrund der vorherigen Einstellungen erstellt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5.jobfamilies">
+				<source>Job families</source>
+				<target>Jobfamilien</target>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.activities_intend">
+				<source>Intend activities</source>
+				<target>Strategische Maßnahmen für die Jobfamilien planen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.subtitle">
+				<source>Subtitle</source>
+				<target>Hier können Sie nun die (strategisch begründeten) personalwirtschaftlichen Maßnahmen für Ihre prioritären Jobfamilien eintragen: durch Klick in das jeweilige Textfeld.</target>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6.phases">
+				<source>Phases</source>
+				<target>Phasen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.jobfamilies">
+				<source>Job families</source>
+				<target>Jobfamilien</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_marketing">
+				<source>Employee marketing</source>
+				<target>1) Personalmarketing</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_acquisition">
+				<source>Employee acquisition</source>
+				<target>2) Personalbeschaffung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.integration_training">
+				<source>Integration / Training</source>
+				<target>3) Integration / Einarbeitung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_retention">
+				<source>Employee retention</source>
+				<target>4) Mitarbeiterbindung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_development">
+				<source>Employee development</source>
+				<target>5) Personalentwicklung</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.end_of_employment_relationship">
+				<source>End of eployee relationship</source>
+				<target>6) Beendigung von Arbeitsverhältnissen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.planning_finished">
+				<source>Planning finished</source>
+				<target>Planung der Maßnahmen abgeschlossen</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6.more_infos">
+				<source>More infos</source>
+				<target>Mehr Infos</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_print.session_closed">
+				<source>Session closed</source>
+				<target>Session abgelaufen. Die erstellte Druckansicht ist nicht länger verfügbar.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_print.login">
+				<source>Login</source>
+				<target>Neu einloggen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_finish.header">
+				<source>Header</source>
+				<target>Herzlichen Glückwunsch zu Ihrer abgeschlossenen strategischen Personalplanung!</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text1">
+				<source>Text1</source>
+				<target>Sie können Ihre Ergebnisse jetzt per E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text1_link">
+				<source>Text1 link</source>
+				<target>weiterleiten</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text2">
+				<source>Text2</source>
+				<target>oder</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_finish.text2_link">
+				<source>Text2 link</source>
+				<target>ausdrucken</target>
+			</trans-unit>
+
+
+
+			<!-- #################################################################### -->
+			<!-- Tooltips -->
+			<!-- #################################################################### -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.login">
+				<source>Login with existing RKW account.</source>
+				<target>Hier können Sie sich mit Ihrem bestehendem RKW Login anmelden. Bitte beachten Sie, dass ein Login über Facebook oder Twitter an dieser Stelle vorerst nicht möglich ist.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.register">
+				<source>Register as a new user.</source>
+				<target>Registrieren Sie sich kostenlos als Nutzer. Alles, was Sie dafür brauchen, ist eine E-Mail-Adresse und 30 Sekunden Zeit. Der Account ist für alle Angebote des RKW Kompetenzzentrums nutzbar.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.anonymous">
+				<source>Login as a anonymous user.</source>
+				<target>Klicken Sie hier, um einen anonymen Gast-Login zu erzeugen. Sie erhalten einen individuellen Link, mit dem Sie auf Ihre Ergebnisse zugreifen können. Anonyme Gast-Logins haben eine zeitlich begrenzte Gültigkeit.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0_tooltip.whyplanning">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie Gründe ergänzen (eintragen in Textfeld unten und Klick auf Plussymbol), bearbeiten (Klick ins Textfeld) oder löschen (Klick auf Minussymbol).</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_tooltip.participants">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie die Teilnehmer des Prozesses eintragen. Geben Sie dazu den Namen oder das Kürzel in das Textfeld ein und klicken Sie auf das Plussymbol. Wenn Sie einen Namen bearbeiten wollen, klicken Sie einfach in das betreffende Textfeld. Zum Löschen genügt ein Klick auf das Minussymbol.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1_tooltip.jobfamily">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie die Jobfamilien und Schlüsselpositionen Ihres Unternehmens eintragen. Geben Sie dazu eine möglichst griffige Bezeichnung in das Textfeld ein und klicken Sie auf das Plussymbol. Wenn Sie einen Namen bearbeiten wollen, klicken Sie einfach in das betreffende Textfeld. Zum Löschen genügt ein Klick auf das Minussymbol.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2_tooltip.prioritize">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier priorisiert jeder Teilnehmer alle eben gebildeten Jobfamilien, indem er in dem Auswahlfeld einen für ihn passenden Punkt auf der Skala zwischen niedrig und hoch auswählt und anklickt oder anklicken lässt. Zwischen den Teilnehmern wechseln Sie vertikal über die weinroten Pfeile rechts neben der Skala. Wenn alle Teilnehmer alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_tooltip.select">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie die prioritären Jobfamilien festlegen, indem Sie auf das Kästchen vor der jeweiligen Jobfamilie klicken. Mit Klick auf den Haken entfernen Sie eine Jobfamilie wieder aus der Auswahl.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3_tooltip.horizon">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Über welchen Zeitraum soll sich Ihre strategische Personalplanung erstrecken? Beim Klick in ein Feld öffnet sich ein Kalender und sie können den Start- bzw. Endpunkt auswählen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.salestrend">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie Ihr Gesamt-Umsatzziel in absoluten Zahlen und/oder in Prozenten durch Klick in die jeweiligen Felder eingeben. Diese Angabe ist mindestens erforderlich und deshalb ein Pflichtfeld.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.geographical">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie Ihre Umsatzziele für einzelne Regionen in absoluten Zahlen und/oder in Prozenten angeben. Die Regionen können Sie durch Klick in das Textfeld eingeben und mit dem Plussymbol oder Enter bestätigen. Durch einen Klick ins Textfeld können Sie sie bearbeiten. Entfernen können Sie sie über das Minussymbol. Die Zahlen ergänzen, bearbeiten und löschen Sie einfach über einen Klick in das jeweilige Feld.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_tooltip.product">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie Ihre Umsatzziele für einzelne Geschäftsfelder oder Produktbereiche in absoluten Zahlen und/oder in Prozenten angeben. Die Titel können Sie durch Klick in das Textfeld eingeben und mit dem Plussymbol oder Enter bestätigen. Durch einen Klick ins Textfeld können Sie sie bearbeiten. Entfernen können Sie sie über das Minussymbol. Die Zahlen ergänzen, bearbeiten und löschen Sie einfach über einen Klick in das jeweilige Feld.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_tooltip.performance">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier strukturieren Sie Ihre Innovationsvorhaben nach ihrem Umfang: Handelt es sich um kleinere Anpassungen, größere Änderungen oder gar um komplette Neuentwicklungen? Durch einen Klick in das Textfeld können Sie die Innovationen benennen und anschließend via Klick auf die Buttons angeben, wie hoch der Einfluss auf die Marktziele ist und ob sie das nötige Wissen dafür im Unternehmen haben.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_tooltip.techdev">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Gibt es gesellschaftliche, soziale oder technische Entwicklungen, die Ihre Markt- und Innovationsziele beeinflussen? Dann können Sie sie hier in das Textfeld eingeben und anschließend via Klick auf die Buttons den Einfluss bewerten. Über das Plussymbol können Sie die Liste ergänzen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_tooltip.productivity">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie angeben, welche Kosteneinsparungen insgesamt im Planungszeitraum vorgesehen sind. Durch einen Klick in das Textfeld können Sie die Prozentzahl eingeben.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_tooltip.costsaving">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier können Sie noch einmal genauer angeben, in welchen Bereichen Sie wieviel Kosten reduzieren wollen. Dazu einfach in das Textfeld klicken, den Bereich eingeben und durch Klick in das Feld daneben die Prozentzahl angeben. Weitere Bereiche können Sie über das Plussymbol neben dem ersten Eintrag hinzufügen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4_tooltip.strategical_effects">
+				<source>### Please insert a real tooltip ###</source>
+				<target>Hier legen Sie gemeinsam fest, wie sich die strategischen Ziele (rechts im Bild) auf Ihre prioritären Jobfamilien auswirken. Dazu wählen Sie in den jeweiligen Auswahlfeldern einen passenden Punkt auf der Skala aus und klicken ihn an.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre Einschätzung zu drei personalwirtschaftlichen Risiken ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt. Die Bewertung des Beschaffungsrisikos erfolgt im letzten Teilschritt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>s
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre Einschätzung zu drei personalwirtschaftlichen Risiken ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt. Die Bewertung des Beschaffungsrisikos erfolgt im letzten Teilschritt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre Einschätzung zu drei personalwirtschaftlichen Risiken ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt. Die Bewertung des Beschaffungsrisikos erfolgt im letzten Teilschritt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_tooltip.axis">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+				<target>Durch das Verschieben der Jobfamilien auf der vertikalen Skala geben Sie hier Ihre Einschätzung zum Beschaffungsrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus den vorherigen Schritt.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_tooltip.results">
+				<source>### jobFamily input: Please insert a real tooltip ###</source>
+				<target>Diese Profile wurden automatisch aufgrund Ihrer vorherigen Einschätzungen erstellt.</target>
+			</trans-unit>
+
+
+
+
+			<!-- #################################################################### -->
+			<!-- Guided mode  -->
+			<!-- #################################################################### -->
+
+			<trans-unit id="tx_rkwwepstra_fluid_general_guided.button_forward">
+				<source>### Text Guided Mode ###</source>
+				<target>Mit einem Klick auf diesen Button gelangen Sie zum nächsten Schritt.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Mit der „Strategischen Personalplanung für kleine und mittlere Unternehmen“ bieten wir Ihnen eine einfache und erprobte Methode, mit der Sie Ihre Personalarbeit an den Geschäftszielen ausrichten können.<![CDATA[<br>]]> Es handelt sich dabei um ein Konzept für einen halb- bis eintägigen Workshop mit dem Management und Personalverantwortlichen. Vorbereitet und moderiert wird er i.d.R. von der Personalleitung oder einem/r externen Dritten. Diese App unterstützt Sie bei dieser Aufgabe.<![CDATA[<br><br>]]> Auf wichtige grundsätzliche Fragen zu strategischer Personalplanung sollten Sie sich in jedem Fall vorbereiten. Sie können davon ausgehen, dass Ihnen diese im Prozess begegnen. Klicken Sie dazu auf den Button „Informationen zur Vorbereitung“.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.reasonwhy">
+				<source>### Text Guided Mode ###</source>
+				<target>Zu Beginn des Workshops hat es sich bewährt, die Anwesenden mit einem kurzen Input zu strategischer Personalplanung auf die Methodik und den Ablauf vorzubereiten. Den Ablauf können Sie anhand des horizontalen Menüs oben erklären. Vorschläge für einen sinnvollen Input zu den Gründen finden Sie hier.<![CDATA[<br>]]> Diese können Sie nach Belieben bearbeiten, ergänzen oder löschen. Ergänzungen können Sie einfach ins untere Textfeld eintragen und mit dem Plussymbol oder Enter bestätigen, zum Bearbeiten können Sie einfach ins Textfeld klicken und zum Löschen auf das jeweilige Minussymbol.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.participants">
+				<source>### Text Guided Mode ###</source>
+				<target>Die Verbindung von Geschäft und Personal wird nach unserer Erfahrung nur möglich, wenn neben den Personalverantwortlichen auch das Management, d.h. die Geschäftsführung und die wichtigsten Bereichsleiter sowie ggf. auch der Betriebsrat mitwirken.<![CDATA[<br>]]> Diese tragen Sie im Feld „Teilnehmer“ einzeln untereinander ein und bestätigen mit Enter oder dem Plussymbol.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.print">
+				<source>### Text Guided Mode ###</source>
+				<target>Sie können über diesen Button die Ergebnisse des jeweiligen Schrittes ausdrucken. Am Ende des Prozesses gibt es auch die Möglichkeit, eine Zusammenfassung auszudrucken.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_title">
+				<source>### Text Guided Mode ###</source>
+				<target>In diesem Schritt verständigen Sie sich im Führungskreis auf Ihre Jobfamilien und ggf. Schlüsselpositionen und legen eindeutige Bezeichnungen fest.<![CDATA[<br><br>]]> Zum Bilden der <![CDATA[<strong>Jobfamilien</strong>]]> Ihres Unternehmens fassen Sie „Jobs“ bzw. Stellen mit gleichen oder sehr ähnlichen Anforderungsprofilen zusammen. Das können beispielsweise Konstrukteure, Außendienstmitarbeiter, Einkäufer oder Produktmanager sein. Bei der Frage, ob eine Stelle zu einer Jobfamilie gehört oder nicht, gilt die Faustregel: Können sich die Stelleninhaber gegenseitig (mit geringem Aufwand) vertreten? Dann, ja! Jobfamilien können, aber müssen demzufolge nicht einer Abteilung oder einem Team entsprechen. In mittelständischen Unternehmen gibt es erfahrungsgemäß nicht mehr als zwölf, eher weniger.<![CDATA[<br><br>]]> Gerade in kleineren Unternehmen können neben den Jobfamilien auch einzelne Positionen eine Rolle spielen, die in ihren Anforderungen einzigartig sind und nicht ohne größeren Aufwand vertreten werden könnten. Haben Sie dann auch noch eine hohe Bedeutung für den Unternehmenserfolg, dann sprechen wir von <![CDATA[<strong>„Schlüsselpositionen“</strong>]]>. Sie werden – falls vorhanden – im Folgenden wie die Jobfamilien behandelt. </target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_list">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie die Jobfamilien und Schlüsselpositionen Ihres Unternehmens eintragen. Geben Sie dazu eine möglichst griffige Bezeichnung in das Textfeld ein und bestätigen Sie mit dem Plussymbol oder Enter. Wenn Sie einen Namen bearbeiten wollen, klicken Sie einfach in das betreffende Textfeld. Zum Löschen genügt ein Klick auf das Minussymbol.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.jobfamily_priority">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun werden die Jobfamilien im Führungskreis im Hinblick auf ihre Bedeutung für die Wettbewerbsposition des Unternehmens bewertet und damit priorisiert. Prioritäre Jobfamilien und Schlüsselpositionen sind für den Unternehmenserfolg unverzichtbar.<![CDATA[<br>]]> Die Jobfamilie „Einkäufer“ beispielsweise kann in einem Unternehmen mit wettbewerbsentscheidender Kostenposition und geringer Fertigungstiefe (z. B. Handelsunternehmen) strategisch hoch bedeutsam, und in einem anderen Unternehmen mit wettbewerbsentscheidenden Produktvorteilen (z. B. Maschinenbauer) eher nebensächlich sein – trotz vergleichbaren Kompetenzanforderungen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_list">
+				<source>### Text Guided Mode ###</source>
+				<target>Jeder Teilnehmer priorisiert alle eben gebildeten Jobfamilien, indem er in dem Auswahlfeld einen für ihn passenden Punkt auf der Skala zwischen niedrig und hoch auswählt oder auswählen lässt.<![CDATA[<br>]]> Zwischen den Teilnehmern wechseln Sie in der Spalte rechts, indem Sie die Namen auswählen. Ist die Bewertung eines Teilnehmers abgeschlossen, erscheint ein Häkchen. Wenn alle Teilnehmer alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_priority">
+				<source>### Text Guided Mode ###</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_priority">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun erhalten Sie aus der Summe der Bewertungen automatisch eine Rangfolge der Jobfamilien und müssen gemeinsam entscheiden, wie viele der Jobfamilien Sie als „prioritär“ einstufen. Ausschließlich auf sie konzentrieren sich die weiteren Schritte der strategischen Personalplanung. In mittelständischen Unternehmen gibt es normalerweise nicht mehr als sechs prioritäre Jobfamilien bzw. Schlüsselpositionen, eher weniger.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_select">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie die prioritären Jobfamilien festlegen, indem Sie auf das Kästchen vor der jeweiligen Jobfamilie klicken. Mit Klick auf den Haken entfernen Sie eine Jobfamilie wieder aus der Auswahl.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3_guided.headline">
+				<source>### Text Guided Mode ###</source>
+				<target>Über welchen Zeitraum soll sich Ihre strategische Personalplanung erstrecken? Das legen Sie hier fest.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3_guided.planning_horizont">
+				<source>### Text Guided Mode ###</source>
+				<target>Start- und Endpunkt können über die beiden Felder festgelegt werden. Beim Klick in ein Feld öffnet sich ein Kalender. Hier können Sie die gewünschten Daten auswählen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.defining_objectives">
+				<source>### Text Guided Mode ###</source>
+				<target>Für diesen Schritt brauchen Sie keine ausformulierte Unternehmensstrategie. Es reicht ein „strategischer Input“ der Geschäftsführung, der die zentralen Unternehmensziele benennt. Dabei betrachten wir die <![CDATA[<strong>Markt-, Innovations- und Produktivitätsziele</strong>]]> des Unternehmens, weil seine Überlebensfähigkeit maßgeblich von diesen Größen bestimmt wird.<![CDATA[<br>]]> Hier gilt: Je genauer und klarer die Ziele formuliert sind, umso sichtbarer werden Ihre Auswirkungen auf Ihr Personal – und umso genauer und belastbarer wird Ihre strategische Personalplanung. Somit sind einige Felder dafür vorgesehen, müssen aber nicht zwingend ausgefüllt werden. <![CDATA[<br><br>]]>Wir starten mit den Marktzielen: Auf welchen Märkten wollen Sie sich im Planungszeitraum wie positionieren?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.market_goals">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie Ihr Gesamt-Umsatzziel in absoluten Zahlen und/oder in Prozenten durch Klick in die jeweiligen Felder angeben. Diese Angabe brauchen Sie für die strategische Personalplanung mindestens, deshalb ist sie ein Pflichtfeld.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.geographical_sector">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie Ihre Umsatzziele für einzelne Regionen in absoluten Zahlen und/oder in Prozenten angeben. Die Regionen können Sie durch Klick in das Textfeld eingeben und mit dem Plussymbol oder Enter bestätigen. Durch einen Klick ins Textfeld können Sie sie bearbeiten. Entfernen können Sie sie über das Minussymbol. Die Zahlen ergänzen, bearbeiten und löschen Sie einfach über einen Klick in das jeweilige Feld.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2_guided.product_sector">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie Ihre Umsatzziele für einzelne Geschäftsfelder oder Produktbereiche in absoluten Zahlen und/oder in Prozenten angeben. Die Geschäftsfelder/ Produktbereiche können Sie durch Klick in das Textfeld eingeben und mit dem Plussymbol oder Enter bestätigen. Durch einen Klick ins Textfeld können Sie sie bearbeiten. Entfernen können Sie sie über das Minussymbol. Die Zahlen ergänzen, bearbeiten und löschen Sie einfach über einen Klick in das jeweilige Feld.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.defining_objectives">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun widmen Sie sich den Fragen: Mit welchen Innovationen wollen Sie Ihre Marktziele umsetzen? Wie sind Sie für die Umsetzung Ihrer Innovationsziele aufgestellt?<![CDATA[<br><br>]]>Auch hier gilt: Je genauer und klarer Ihre Angaben sind, umso sichtbarer werden die Auswirkungen auf Ihr Personal. Somit sind einige Felder vorgesehen, müssen aber nicht zwingend ausgefüllt werden.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.performance">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie Ihre Innovationsvorhaben nach Ihrem Umfang strukturieren: Handelt es sich um kleinere Anpassungen, größere Änderungen oder gar um komplette Neuentwicklungen?<![CDATA[<br>]]>Durch einen Klick in das Textfeld können Sie die Innovationen benennen und anschließend via Klick auf die Buttons angeben, wie hoch der Einfluss auf die Marktziele ist und ob sie das nötige Wissen dafür im Unternehmen haben.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.techdev">
+				<source>### Text Guided Mode ###</source>
+				<target>Gibt es gesellschaftliche, soziale oder technische Entwicklungen, die Ihre Markt- und Innovationsziele beeinflussen? Dann können Sie sie hier in das Textfeld eingeben und anschließend via Klick auf die Buttons den Einfluss bewerten. Gibt es mehrere Entwicklungen, von denen Sie betroffen sind? Dann können Sie sie über das Plussymbol hinzufügen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.goals">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun widmen Sie sich dieser Frage: Was sind Ihre Produktivitätsziele im Planungszeitraum?<![CDATA[<br>]]>Auch hier gilt wieder: Je genauer und klarer Ihre Angaben sind, umso sichtbarer werden die Auswirkungen auf Ihr Personal. Somit sind einige Felder vorgesehen, müssen aber nicht zwingend ausgefüllt werden.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.potential">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie angeben, welche Kosteneinsparungen insgesamt im Planungszeitraum vorgesehen sind. Durch einen Klick in das Textfeld können Sie die Prozentzahl eingeben.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub4_guided.costsaving">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie noch einmal genauer angeben, in welchen Bereichen Sie wieviel Kosten reduzieren wollen. Dazu einfach in das Textfeld klicken, den Bereich eingeben und durch Klick in das Feld daneben die Prozentzahl angeben. Weitere Bereiche können Sie über das Plussymbol neben dem ersten Eintrag hinzufügen.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.headline">
+				<source>### Text Guided Mode ###</source>
+				<target>Dieser Schritt ist das Herzstück der strategischen Personalplanung, weil er die Verbindung zur Unternehmensstrategie herstellt: Wie wirken sich Ihre Markt-, Innovations- und Produktivitätsziele auf Ihre prioritären Jobfamilien bzw. Schlüsselpositionen aus?<![CDATA[<br>]]> Diese Übersicht ist vom gesamten Führungskreis gemeinsam auszufüllen, d.h. Sie einigen sich auf eine Einschätzung bezüglich der Betroffenheit der jeweiligen Jobfamilie von den strategischen Zielen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.results">
+				<source>### Text Guided Mode ###</source>
+				<target>Mit einem Klick auf diesen Button können Sie sich die eben festgelegten strategischen Ziele noch einmal in der Gesamtschau ansehen und ggf. ausdrucken.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.effects">
+				<source>### Text Guided Mode ###</source>
+				<target>Mit einem Klick auf den jeweiligen Button geben Sie auf einer Skala von 0 bis 4 an, wie stark die jeweilige Jobfamilie von den strategischen Zielen beeinflusst wird.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun wird für jede prioritäre Jobfamilie ein Risikoprofil erstellt, unterschieden nach dem Alters-, Kapazitäts-, Kompetenz- und Beschaffungsrisiko. Sie werden nacheinander für jede Jobfamilie bewertet und unter Berücksichtigung ihrer strategischen Betroffenheit (Ergebnis wird automatisch übernommen aus dem vorherigen Schritt) in dem Risikoportfolio unten visualisiert.<![CDATA[<br>]]>Sie stellen so z. B. fest, dass Ihr Außendienst knapp besetzt ist (Kapazitätsrisiko). Mit altersbedingten Ausfällen ist zwar nicht zu rechnen (Altersrisiko), aber auf dem Arbeitsmarkt sind geeignete Leute nicht ohne weiteres verfügbar (Beschaffungsrisiko).<![CDATA[<br>]]> Als Ergebnis erhält man eine einfache Übersicht, die den aktuell absehbaren personalwirtschaftlichen Handlungsbedarf des Unternehmens aufzeigt: die Grundlage für strategisch relevante Maßnahmen.<![CDATA[<br><br>]]>Sie starten mit dem Altersrisiko: Lässt die Altersstruktur der jeweiligen Jobfamilie altersbedingte Ausfälle von Mitarbeitern erwarten, die zur Umsetzung der Geschäftsziele ausgeglichen werden müssen?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.graph">
+				<source>### Text Guided Mode ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Altersrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt. Die Jobfamilien sind der Übersichtlichkeit halber nun mit einer Zahlenlegende (siehe rechts) hinterlegt.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun betrachten Sie das Kapazitätsrisiko: Reicht die Anzahl der vorhandenen Mitarbeiter der jeweiligen Jobfamilie zur Umsetzung der Geschäftsziele aus?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wächst der Umsatz proportional zum Personal? Ist mit Rationalisierungs-/Erfahrungs-/Synergieeffekten zu rechnen? Wie hoch ist die Fluktuationsrate? Rücken im Zuge einer Laufbahn-/Karriereplanung Mitarbeiter nach? Ist mit altersbedingten Ausfällen zu rechnen (siehe Ergebnis Altersrisiko)?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.graph">
+				<source>### Text Guided Mode ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Kapazitätsrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun betrachten Sie das Kompetenzrisiko: Reichen die Kompetenzen der Mitarbeiter der jeweiligen Jobfamilie zur Umsetzung der Geschäftsziele aus?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Müssen gänzlich neue Kompetenzen erworben werden? Gibt es ausreichend Wissensquellen und -vermittler? Überwiegt implizites (Erfahrungs-)Wissen, das nicht so leicht weiter gegeben werden kann? Gibt es Verständnisbarrieren? Werden die Kompetenzen gerade an anderen Stellen im Unternehmen entwickelt, beispielsweise im Zuge einer Laufbahn-/Karriereplanung? Ist mit altersbedingten Ausfällen zu rechnen (siehe Ergebnis Altersrisiko)?</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub3_guided.graph">
+				<source>### Text Guided Mode ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Kompetenzrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun betrachten Sie das Beschaffungsrisiko: Wie hoch ist das Risiko, dass neue Mitarbeiter für die jeweilige Jobfamilie im Bedarfsfall auf dem Arbeitsmarkt nicht verfügbar sind?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wie sind Ihre Erfahrungen bei der Rekrutierung? Wie viele Stellenanzeigen gibt es? Was sagt Ihr Verband / das hiesige Arbeitsamt dazu? Wie sind die Ausbildungszahlen? Wie viele Ausbildungsberufe/ Studiengänge für die Jobfamilie gibt es?<![CDATA[<br><br>]]> Noch ein Hinweis: Das Beschaffungsrisiko ist erst dann strategisch relevant, wenn Sie es mit einem Kompetenz- und/oder Kapazitätsrisiko in der jeweiligen Jobfamilie zu tun haben. Deshalb werden ihre vorherigen Angaben dazu automatisch in das vierte Portfolio übernommen und hier mit dem Beschaffungsrisiko in Beziehung gesetzt. Auf der horizontalen Achse findet sich somit nicht mehr die strategische Betroffenheit, sondern das Kompetenz- oder Kapazitätsrisiko. Dabei wird der Wert berücksichtigt, der am höchsten ist (nicht der Mittelwert).</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.graph">
+				<source>### Text Guided Mode ###</source>
+				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Beschaffungsrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_guided.header">
+				<source>### Text Guided Mode ###</source>
+				<target>Nun werden Ihre Einschätzungen zu den personalwirtschaftlichen Risiken zusätzlich automatisch für jede prioritäre Jobfamilie bzw. Schlüsselposition in einem Spinnendiagramm visualisiert. Diese zweite Darstellungsform der personalwirtschaftlichen Risiken kann Sie bei der folgenden Entwicklung der Maßnahmen unterstützen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_guided.graph">
+				<source>### Text Guided Mode ###</source>
+				<target>Die Achsen in dem Spinnendiagramm stehen für die vier personalwirtschaftlichen Risiken, die sie in diesem Schritt bewertet haben. Die Farbfläche markiert die Ergebnisse für die ausgewählte Jobfamilie.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub5_guided.list">
+				<source>### Text Guided Mode ###</source>
+				<target>Hier können Sie zwischen den Jobfamilien wechseln, indem Sie auf den jeweiligen Titel klicken. Die aktuell ausgewählte Jobfamilie ist fett hervorgehoben.</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.headline">
+				<source>### Text Guided Mode ###</source>
+				<target>Sie können nun genau bestimmen, welche kurz-, mittel- und langfristigen personalwirtschaftlichen Maßnahmen strategisch notwendig sind (und welche nicht) und diese planen. Das können Sie, wenn noch genügend Zeit ist, gemeinsam im Workshop tun oder als Personalverantwortlicher nacharbeiten und mit dem Führungskreis abstimmen.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.tasks">
+				<source>### Text Guided Mode ###</source>
+				<target>Um die Ergebnisse Ihrer strategischen Personalplanung zu strukturieren und übersichtlich darzustellen, können Sie diese Tabelle nutzen. Sie basiert auf dem Modell der personalwirtschaftlichen Prozesskette und erfordert eine Zuordnung der Maßnahmen zu den Phasen des personalwirtschaftlichen Prozesses.<![CDATA[<br>]]>Hier können Sie durch Klick in das jeweilige Feld außerdem aktuelle Aktivitäten im Personalbereich eintragen, und dabei ggf. feststellen, dass sie sie nicht (mehr) oder in anderer Form brauchen. Vorschläge für mögliche Maßnahmen finden Sie in den Textfeldern grau hinterlegt.<![CDATA[<br>]]> Für die weitere Planung und spätere Umsetzung ist nun Projektmanagement-Handwerk gefragt: Was? Wer? Bis wann? Diese Fragen sind genau zu beantworten.</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.finish">
+				<source>### Text Guided Mode ###</source>
+				<target>Wenn Ihre Maßnahmenplanung abgeschlossen ist, drücken Sie auf diesen Button. Damit können Sie Ihre Ergebnisse sichern, versenden und ausdrucken.</target>
+			</trans-unit>
+
+
+
+			<!-- Dieser Block überschreibt unkorrekterweise gleichnamige ID's. Schlicht ein Fehler, oder sollte damit noch was gemacht werden?
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.performance.label1">
+				<source>Same</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.performance.label2">
+				<source>Small Changes</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.performance.label3">
+				<source>Big Changes</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.performance.label4">
+				<source>Re-Development</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub2.performance.label5">
+				<source>Part of Wanted Developments</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+
+			-->
+
+			<!-- sollte veraltet sein
+
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.productivity">
+				<source>Define possible cost savings</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.cost_saving">
+				<source>Divide cost savings on company departments</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step3sub3_guided.cost_saving_add">
+				<source>Add new cost saving for company departments</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.strategy_effects">
+				<source>Define strategy effects</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.job_family_effects">
+				<source>Evaluate every job family in market, innovation and productivity</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.proof_job_families">
+				<source>Go back to step 2 and proof the priorities for the defined job families</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step4_guided.accordions">
+				<source>View your entries of previous steps</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.risk_profiles">
+				<source>Risk profiles</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.matrix">
+				<source>Matrix to set graphs</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.graphs">
+				<source>Graphs which can set on the matrix</source>
+				<target>### Text für Guided Mode ###</target>
+			</trans-unit>
+
+			-->
+
+        </body>
+	</file>
+</xliff>

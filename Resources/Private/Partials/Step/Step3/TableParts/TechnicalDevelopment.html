@@ -1,0 +1,147 @@
+<div>
+	<div class="table-head">
+		<div class="table-row">
+			<div class="table-cell no-border-bottom">
+				<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub3_tooltip.techdev' extensionName='RkwWepstra' />">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub3.influence" extensionName="RkwWepstra" />
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="table-body">
+
+		<div class="table-cell no-padding">
+			<div class="fake-table secondary with-checkbox">
+				<div class="table-body">
+
+					<!-- list of existing elements -->
+					<f:for each="{wepstra.technicalDevelopment}" as="techdev" iteration="techdevIter">
+
+						<!-- edit -->
+						<f:form action="updatetechdev" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="technicalDevelopment" object="{techdev}" class="table-row ajax">
+
+							<div class="table-cell">
+								<p class="field">
+									<label>
+										<f:translate key="tx_rkwwepstra_fluid_step3sub3.developments" extensionName="RkwWepstra" />
+									</label>
+									<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+									<f:form.textfield property="description" class="edit-text headline"  />
+								</p>
+							</div>
+
+							<p class="table-cell">
+								<f:if condition="{techdev.value} < 2">
+									<f:then>
+										<f:form.radio checked="true" value="0" id="techdev-{techdevIter.cycle}-1" property="value" class="ajax-send"/>
+									</f:then>
+									<f:else>
+										<f:form.radio value="0" id="techdev-{techdevIter.cycle}-1" property="value" class="ajax-send" />
+									</f:else>
+								</f:if>
+								<label class="text-top" for="techdev-{techdevIter.cycle}-1"><f:translate key="tx_rkwwepstra_fluid_step3sub3.none" extensionName="RkwWepstra" /></label>
+							</p>
+							<p class="table-cell">
+								<f:if condition="{techdev.value} == 1">
+									<f:then>
+										<f:form.radio checked="true" value="1" id="techdev-{techdevIter.cycle}-2" property="value" class="ajax-send"/>
+									</f:then>
+									<f:else>
+										<f:form.radio value="1" id="techdev-{techdevIter.cycle}-2" property="value" class="ajax-send"/>
+									</f:else>
+								</f:if>
+								<label class="text-top" for="techdev-{techdevIter.cycle}-2"><f:translate key="tx_rkwwepstra_fluid_step3sub3.low" extensionName="RkwWepstra" /></label>
+							</p>
+							<p class="table-cell">
+								<f:if condition="{techdev.value} == 2">
+									<f:then>
+										<f:form.radio checked="true" value="2" id="techdev-{techdevIter.cycle}-3" property="value" class="ajax-send"/>
+									</f:then>
+									<f:else>
+										<f:form.radio value="2" id="techdev-{techdevIter.cycle}-3" property="value" class="ajax-send"/>
+									</f:else>
+								</f:if>
+								<label class="text-top" for="techdev-{techdevIter.cycle}-3"><f:translate key="tx_rkwwepstra_fluid_step3sub3.middle" extensionName="RkwWepstra" /></label>
+							</p>
+							<p class="table-cell">
+								<f:if condition="{techdev.value} == 3">
+									<f:then>
+										<f:form.radio checked="true" value="3" id="techdev-{techdevIter.cycle}-4" property="value" class="ajax-send"/>
+									</f:then>
+									<f:else>
+										<f:form.radio  value="3" id="techdev-{techdevIter.cycle}-4" property="value" class="ajax-send"/>
+									</f:else>
+								</f:if>
+								<label class="text-top" for="techdev-{techdevIter.cycle}-4"><f:translate key="tx_rkwwepstra_fluid_step3sub3.serious" extensionName="RkwWepstra" /></label>
+							</p>
+							<p class="table-cell">
+								<f:if condition="{techdev.value} == 4">
+									<f:then>
+										<f:form.radio checked="true" value="4" id="techdev-{techdevIter.cycle}-5" property="value" class="ajax-send"/>
+									</f:then>
+									<f:else>
+										<f:form.radio value="4" id="techdev-{techdevIter.cycle}-5" property="value" class="ajax-send"/>
+									</f:else>
+								</f:if>
+								<label class="text-top" for="techdev-{techdevIter.cycle}-5"><f:translate key="tx_rkwwepstra_fluid_step3sub3.uncertain" extensionName="RkwWepstra" /></label>
+							</p>
+
+							<p class="table-cell radio-button-align">
+								<!-- delete -->
+								<f:link.action action="deletetechdev" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" class="remove-button no-text ajax-override">-</f:link.action>
+							</p>
+						</f:form>
+
+					</f:for>
+
+
+
+
+					<!-- input mask for new elements -->
+
+					<f:form action="createtechdev" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newTechnicalDevelopment" object="{newTechnicalDevelopment}" class="table-row ajax">
+						<div class="table-cell">
+							<p class="field">
+								<label>Entwicklungen</label>
+								<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+								<f:form.textfield property="description" name="description" />
+							</p>
+						</div>
+
+						<p class="table-cell">
+							<f:form.radio value="0" id="techdev-1" property="value" />
+							<label class="text-top" for="techdev-1">Keine</label>
+						</p>
+						<p class="table-cell">
+							<f:form.radio value="1" id="techdev-2" property="value" />
+							<label class="text-top" for="techdev-2">gering</label>
+						</p>
+						<p class="table-cell">
+							<f:form.radio value="2" id="techdev-3" property="value" />
+							<label class="text-top" for="techdev-3">mittel</label>
+						</p>
+						<p class="table-cell">
+							<f:form.radio value="3" id="techdev-4" property="value" />
+							<label class="text-top" for="techdev-4">gravierend</label>
+						</p>
+						<p class="table-cell">
+							<f:form.radio value="4" id="techdev-5" property="value" />
+							<label class="text-top" for="techdev-5">ungewiss</label>
+						</p>
+						<p class="table-cell radio-button-align">
+							<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+						</p>
+
+					</f:form>
+
+				</div>
+			</div>
+		</div>
+
+	<!-- table body close -->
+	</div>
+
+</div>

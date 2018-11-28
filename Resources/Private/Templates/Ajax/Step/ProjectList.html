@@ -1,0 +1,41 @@
+<div>
+	<div class="step-title">
+		<h1>
+			<f:translate key='tx_rkwwepstra_fluid_open.headline' extensionName='RkwWepstra' />
+		</h1>
+	</div>
+
+	<f:link.action action="new" controller="Step" extensionName="RkwWepstra" pluginName="RkwWepstra">
+		<div class="field-action">
+			<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+		</div>
+	</f:link.action>
+
+	<br>
+	<div class="wysiwyg">
+		<ol>
+
+			<f:for each="{allWepstraProjectsOfUser}" as="wepstraOfUser">
+				<li>
+					<f:if condition="{wepstraOfUser.uid} == {wepstra.uid}">
+						<f:then>
+							<b>
+								<f:translate key='tx_rkwwepstra_fluid_open.from' extensionName='RkwWepstra' />
+								&nbsp;
+								<f:format.date date="{wepstraOfUser.lastUpdate}" format="%d.%m.%y %H:%M" /> <f:translate key="tx_rkwwepstra_fluid_header.clock" extensionName="RkwWepstra" />
+								&nbsp;<f:translate key='tx_rkwwepstra_fluid_open.loaded' extensionName='RkwWepstra' />
+							</b>
+						</f:then>
+						<f:else>
+							<f:link.action extensionName="RkwWepstra" action="open" controller="Step" arguments="{wepstraToOpen: wepstraOfUser}" class="link">
+								<f:translate key='tx_rkwwepstra_fluid_open.from' extensionName='RkwWepstra' />
+								&nbsp;
+								<f:format.date date="{wepstraOfUser.lastUpdate}" format="%d.%m.%y %H:%M" /> <f:translate key="tx_rkwwepstra_fluid_header.clock" extensionName="RkwWepstra" />
+							</f:link.action>
+						</f:else>
+					</f:if>
+				</li>
+			</f:for>
+			</ol>
+	</div>
+</div>

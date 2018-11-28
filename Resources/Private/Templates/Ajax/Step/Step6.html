@@ -1,0 +1,36 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div>
+
+	<div class="step-title {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step6_guided.headline' extensionName='RkwWepstra' />" data-step="1">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step6.activities_intend" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+	<p class="step-subtitle"><f:translate key="tx_rkwwepstra_fluid_step6.subtitle" extensionName="RkwWepstra" /></p>
+
+	<div class="accordions" data-intro="<f:translate key='tx_rkwwepstra_fluid_step6_guided.tasks' extensionName='RkwWepstra' />" data-step="2">
+
+		<div id="job-family-list">
+			<f:render partial="Step/Step6/Tasks" arguments="{_all}"/>
+		</div>
+	</div>
+
+	<div class="step-buttons">
+		<p>
+			<f:link.action action="step5sub5" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.back" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p>
+			<f:link.action class="print-button icon-print" noCacheHash="true" arguments="{printPart: 'step6'}" action="printAll" target="_blank" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_step6_guided.finish' extensionName='RkwWepstra' />" data-step="3">
+			<f:link.action class="ajax button secondary" action="finish" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" arguments="{wepstraUid: wepstra.uid}">
+				<f:translate key="tx_rkwwepstra_fluid_step6.planning_finished" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="account-hint">
+
+	<h2>
+		<f:translate key="tx_rkwwepstra_fluid_login.anonymous_hint_text1" extensionName="RkwWepstra" />
+	</h2>
+	<p>
+		<f:uri.action absolute="true" action="index" controller="Step" extensionName="rkwwepstra" pluginName="rkwwepstra" additionalParams="{tx_rkwwepstra_rkwwepstra: {token: anonymousToken}}" />
+	</p>
+	<!-- <p>
+		<f:translate key="tx_rkwwepstra_fluid_login.anonymous_hint_text2" extensionName="RkwWepstra" />
+	</p>-->
+	<div class="button-container">
+		<f:link.action class="button secondary" action="index" controller="Step" extensionName="rkwwepstra" pluginName="rkwwepstra" additionalParams="{tx_rkwwepstra_rkwwepstra: {token: anonymousToken, privacy: 1}}" >
+			<f:translate key="tx_rkwwepstra_fluid_anonymous.understand" extensionName="RkwWepstra" />
+		</f:link.action>
+	</div>
+
+</div>

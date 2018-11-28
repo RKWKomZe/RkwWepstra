@@ -1,0 +1,42 @@
+<ul class="element-list">
+	<!-- already created list elements -->
+	<f:for each="{wepstra.reasonWhy}" as="reasonWhy" iteration="reasonWhyNumber">
+		<li>
+			<div class="element-container">
+
+				<!-- edit-->
+				<f:form action="updatereasonwhy" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="reasonWhy" object="{reasonWhy}" class="ajax">
+					<f:form.textarea rows="3" property="description" class="edit-text"/>
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+				</f:form>
+			</div>
+			<div class="field-action">
+
+				<!-- delete -->
+				<f:form action="deletereasonwhy" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="reasonWhy" object="{reasonWhy}" class="ajax">
+					<button type="submit" class="remove-button no-text" title="<f:translate key='tx_rkwwepstra_fluid_general.remove' extensionName='RkwWepstra' />">-</button>
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+				</f:form>
+
+				<!-- edit
+				<div class="edit-element icon-edit no-text" title="<f:translate key='tx_rkwwepstra_fluid_general.edit' extensionName='RkwWepstra' />"><f:translate key="tx_rkwwepstra_fluid_general.edit" extensionName="RkwWepstra" /></div>
+				-->
+			</div>
+		</li>
+	</f:for>
+
+	<li>
+		<!-- add form -->
+		<f:form action="createreasonwhy" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newReasonWhy" object="{newReasonWhy}" class="ajax">
+			<div class="element-container">
+				<f:form.textarea rows="3" property="description" class="add-text" placeholder="<f:translate key='tx_rkwwepstra_fluid_step0.placeholder_reasonwhy' extensionName='RkwWepstra' />" />
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+			</div>
+			<div class="field-action">
+				<button class="add-button" type="submit" class="field-action icon-plus no-text" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+			</div>
+		</f:form>
+	</li>
+</ul>
+
+

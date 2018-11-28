@@ -1,0 +1,96 @@
+<dl>
+	<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyIter">
+		<f:if condition="{jobFamily.selected}">
+
+			<!-- open the first item -->
+			<f:if condition="{jobFamilyIter.index} == 0" >
+				<f:then>
+					<dt class="open">{jobFamily.title}</dt>
+				</f:then>
+				<f:else>
+					<dt>{jobFamily.title}</dt>
+				</f:else>
+			</f:if>
+
+			<dd>
+				<h2><f:translate key="tx_rkwwepstra_fluid_step6.phases" extensionName="RkwWepstra" /></h2>
+				<ul class="element-list siblings no-buttons">
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_marketing" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personalmarketing" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskMarketing" cols="30" rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_employee_marketing' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_acquisition" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personalbeschaffung" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskSourcing" cols="30"  rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_employee_acquisition' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.integration_training" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personalintegration" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskIntegration" cols="30" rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_integration_training' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_retention" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personalbindung" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskLoyalty" cols="30" rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_employee_retention' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.employee_development" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personalentwicklung" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskTrend" cols="30" rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_employee_development' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+					<li class="field">
+						<f:form action="updatetasks" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step6.end_of_employment_relationship" extensionName="RkwWepstra" />
+								<f:link.external uri="http://www.perso-net.de/rkw/Kategorie:Personaltrennung" target="_blank">
+									<f:translate key="tx_rkwwepstra_fluid_step6.more_infos" extensionName="RkwWepstra" />
+								</f:link.external>
+							</label>
+							<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+							<f:form.textarea class="edit-text" property="taskEndingEmployment" cols="30" rows="4" placeholder="<f:translate key='tx_rkwwepstra_fluid_step6.placeholder_end_of_employment_relationship' extensionName='RkwWepstra' />" />
+						</f:form>
+					</li>
+				</ul>
+
+			</dd>
+
+		</f:if>
+	</f:for>
+</dl>

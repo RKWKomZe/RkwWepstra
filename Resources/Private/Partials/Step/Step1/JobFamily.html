@@ -1,0 +1,32 @@
+<ul class="element-list siblings">
+
+	<f:for each="{wepstra.jobFamily}" as="jobFamily">
+
+		<li>
+			<f:form action="deletejobfamily" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="ajax">
+
+				<!-- Item -->
+				<f:form.textfield property="title" readonly="true" />
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+				<div class="field-action">
+					<button type="submit" class="remove-button field-action icon-minus no-text" title="<f:translate key='tx_rkwwepstra_fluid_general.remove' extensionName='RkwWepstra' />">-</button>
+				</div>
+			</f:form>
+
+		</li>
+	</f:for>
+	<li>
+		<!-- jobFamily create form -->
+
+		<f:form action="createjobfamily" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="newJobFamily" object="{newJobFamily}" class="ajax">
+			<f:form.textfield property="title" class="add-text" placeholder='<f:translate key="tx_rkwwepstra_fluid_step1.placeholder_jobfamilies" extensionName="RkwWepstra" />' />
+			<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+			<div class="field-action">
+				<button type="submit" class="add-button" title="<f:translate key='tx_rkwwepstra_fluid_general.add' extensionName='RkwWepstra' />">+</button>
+			</div>
+		</f:form>
+
+	</li>
+</ul>

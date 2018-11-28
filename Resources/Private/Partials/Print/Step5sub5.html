@@ -1,0 +1,28 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div class="container page-break">
+	<div class="step-title">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step5sub5.riskprofiles_jobfamilies" extensionName="RkwWepstra" /></h1>
+	</div>
+	<p class="step-subtitle"><f:translate key="tx_rkwwepstra_fluid_step5sub5.riskprofiles_create" extensionName="RkwWepstra" /></p>
+
+	<div class="participants-ratings wide">
+		<div class="participant-ratings-container">
+			<div class="participant-ratings">
+
+				<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyIteration">
+					<f:if condition="{jobFamily.selected}">
+						<div class="participant-rating" data-for="radar-{jobFamilyIteration.cycle}">
+
+							<h3>{jobFamily.title}</h3>
+							<div class="radar-chart-container">
+								<canvas class="radar-chart" data-label="Radar chart" data-axes-labels="<f:translate key='tx_rkwwepstra_fluid_step5.age_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.competence_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.procurement_risk' extensionName='RkwWepstra' />,<f:translate key='tx_rkwwepstra_fluid_step5.capacity_risk' extensionName='RkwWepstra' />" data-points="<vh:jobFamilyResult jobFamily='{jobFamily}' />"></canvas>
+							</div>
+
+						</div>
+					</f:if>
+				</f:for>
+
+			</div>
+		</div>
+	</div>
+</div>

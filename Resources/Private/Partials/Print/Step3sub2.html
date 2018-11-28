@@ -1,0 +1,127 @@
+<div class="container page-break">
+	<div class="step-title">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step3sub2.market_goals" extensionName="RkwWepstra" /></h1>
+	</div>
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step3sub2.market_grow" extensionName="RkwWepstra" />
+	</p>
+
+	<div class="main-table-container">
+		<div class="fake-table">
+			<div class="table-head">
+				<div class="table-row">
+					<p class="table-cell no-border">&nbsp;</p>
+
+					<p class="table-cell column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.currently" extensionName="RkwWepstra" />
+						<br>
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+					</p>
+					<p class="table-cell column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.future" extensionName="RkwWepstra" />
+						<br>
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.revenue" extensionName="RkwWepstra" /> (<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> €)
+					</p>
+					<p class="table-cell column-info">
+						<f:translate key="tx_rkwwepstra_fluid_step3sub2.development" extensionName="RkwWepstra" />
+						<br>
+						(<f:translate key="tx_rkwwepstra_fluid_step3sub2.in" extensionName="RkwWepstra" /> %)
+					</p>
+				</div>
+				<div class="table-row">
+					<div class="table-cell no-border-top">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub2.salestrend_total" extensionName="RkwWepstra" />
+						</p>
+					</div>
+					<f:for each="{wepstra.salesTrend}" as="salesTrend">
+						<p class="table-cell text-center">
+							{salesTrend.currentSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{salesTrend.futureSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{salesTrend.percentage}
+						</p>
+					</f:for>
+				</div>
+			</div>
+			<div class="table-body">
+				<div class="table-row">
+					<div class="table-cell">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub2.salestrend_individual_markets" extensionName="RkwWepstra" />
+						</p>
+					</div>
+
+					<p class="table-cell">&nbsp;</p>
+
+					<p class="table-cell">&nbsp;</p>
+
+					<p class="table-cell">&nbsp;</p>
+
+				</div>
+
+				<f:for each="{wepstra.geographicalSector}" as="geographicalSector">
+					<div class="table-row">
+						<p class="table-cell">
+							{geographicalSector.title}
+						</p>
+
+						<p class="table-cell text-center">
+							{geographicalSector.currentSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{geographicalSector.futureSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{geographicalSector.percentage}
+						</p>
+					</div>
+
+				</f:for>
+			</div>
+			<div class="table-body">
+				<div class="table-row">
+					<div class="table-cell">
+						<p class="rows-info">
+							<f:translate key="tx_rkwwepstra_fluid_step3sub2.product_sector" extensionName="RkwWepstra" />
+						</p>
+					</div>
+					<p class="table-cell">&nbsp;</p>
+
+					<p class="table-cell">&nbsp;</p>
+
+					<p class="table-cell">&nbsp;</p>
+				</div>
+
+				<f:for each="{wepstra.productSector}" as="productSector">
+					<div class="table-row">
+						<p class="table-cell">
+							{productSector.title}
+						</p>
+
+						<p class="table-cell text-center">
+							{productSector.currentSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{productSector.futureSales}
+						</p>
+
+						<p class="table-cell text-center">
+							{productSector.percentage}
+						</p>
+					</div>
+				</f:for>
+
+
+			</div>
+		</div>
+	</div>
+</div>

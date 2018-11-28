@@ -1,0 +1,65 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<f:if condition="<vh:readArrayIndex array='{priorityList}' index1='{participant.uid}' index2='{jobFamily.uid}' />">
+	<f:then>
+		<!-- Should be only one object in here, but this way we can use it as object with dot-notation -->
+		<f:for each="<vh:readArrayIndex array='{priorityList}' index1='{participant.uid}' index2='{jobFamily.uid}' />" as="priority">
+			<f:form action="savepriority" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="priority" object="{priority}" class="ajax">
+				<dl class="participant-points">
+					<dt>{jobFamily.title}</dt>
+					<dd>
+						<div class="points">
+
+							<f:for each="{0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10}" as="pointRow" >
+								<p>
+									<f:form.radio checked="{priority.value} >= {pointRow}" property="value" value="{pointRow}" class="ajax-send" id="rating-{jobFamilyNumber.cycle}-{participantNumber.cycle}-{pointRow}" />
+									<label for="rating-{jobFamilyNumber.cycle}-{participantNumber.cycle}-{pointRow}">
+										<span>{pointRow}</span>
+									</label>
+								</p>
+							</f:for>
+
+						</div>
+					</dd>
+				</dl>
+				<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+				<!-- we need to use the property here, since we need to set these values -->
+				<f:form.hidden property="participant" value="{participant}" />
+				<f:form.hidden property="jobFamily" value="{jobFamily}" />
+
+			</f:form>
+		</f:for>
+	</f:then>
+
+	<!-- ====================================================================== -->
+
+	<f:else>
+
+		<f:form action="savepriority" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="priority" class="ajax">
+			<dl>
+				<dt>{jobFamily.title}</dt>
+				<dd>
+					<div class="points">
+
+						<f:for each="{0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10}" as="pointRow" >
+							<p>
+								<f:form.radio property="value" value="{pointRow}" class="ajax-send" id="rating-{jobFamilyNumber.cycle}-{participantNumber.cycle}-{pointRow}" />
+								<label for="rating-{jobFamilyNumber.cycle}-{participantNumber.cycle}-{pointRow}"><span>{pointRow}</span></label>
+							</p>
+						</f:for>
+
+					</div>
+				</dd>
+			</dl>
+			<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+			<!-- we need to use the property here, since we need to set these values -->
+			<f:form.hidden property="participant" value="{participant}" />
+			<f:form.hidden property="jobFamily" value="{jobFamily}" />
+
+		</f:form>
+
+	</f:else>
+
+</f:if>
+

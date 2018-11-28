@@ -1,0 +1,16 @@
+<div class="container page-break">
+	<div class="step-title space-bottom">
+		<h1><f:translate key="tx_rkwwepstra_fluid_step3.planning_horizon" extensionName="RkwWepstra" /></h1>
+	</div>
+	<div class="grid">
+		<div class="datepicker width-full">
+			<p class="datepicker-field text-center">
+				<f:format.date format='d.m.Y'>@{wepstra.crdate}</f:format.date>
+				-
+				<f:if condition='{wepstra.targetDate}'>
+					<f:format.date format='d.m.Y'>@{wepstra.targetDate}</f:format.date>
+				</f:if>
+			</p>
+		</div>
+	</div>
+</div>

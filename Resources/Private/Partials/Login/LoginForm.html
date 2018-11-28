@@ -1,0 +1,48 @@
+{namespace rkwRegistration=RKW\RkwRegistration\ViewHelpers}
+<h2 data-tooltip="<f:translate key='tx_rkwwepstra_fluid_login_tooltip.login' extensionName='RkwWepstra' />"><f:translate key="tx_rkwwepstra_fluid_login.login_with_account" extensionName='RkwWepstra' /></h2>
+
+<f:if condition="{errorMessage}">
+	<p class="error">{errorMessage}</p>
+</f:if>
+
+<f:form name="loginData" action="loginAuthenticate" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra" class="ajax">
+	<!-- name / email of user -->
+	<p class="field">
+		<label>
+			<f:translate key="tx_rkwwepstra_fluid_login.username" extensionName='RkwWepstra' />
+		</label>
+		<f:form.textfield property="username" value="{loginData.username}" />
+	</p>
+	<!-- password input -->
+	<p class="field">
+		<label>
+			<f:translate key="tx_rkwwepstra_fluid_login.password" extensionName='RkwWepstra' />
+		</label>
+		<f:form.textfield type="password" property="password" />
+	</p>
+
+	<p class="field">
+		<f:form.checkbox id="privacy" name="privacy" value="1" />
+		<label for="privacy">
+			<span>
+				<rkwRegistration:privacyText textVersion="registration"/>
+			</span>
+		</label>
+	</p>
+
+	<p class="button-container">
+		<f:form.button class="button secondary">
+			<f:translate key="tx_rkwwepstra_fluid_login.sign_in" extensionName='RkwWepstra' />
+		</f:form.button>
+	</p>
+</f:form>
+
+<!-- password forgotten -->
+<p class="field">
+	<f:link.action controller="Step" action="loginPasswordForgotShow" extensionName="RkwWepstra" pluginName="Rkwwepstra" class="ajax link">
+		<f:translate key="tx_rkwwepstra_fluid_login.password_forgotten" extensionName='RkwWepstra' />
+	</f:link.action>
+</p>
+
+
+

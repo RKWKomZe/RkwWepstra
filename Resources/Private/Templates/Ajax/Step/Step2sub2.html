@@ -1,0 +1,45 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div>
+
+	<div class="step-title {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_priority' extensionName='RkwWepstra' />" data-step="1">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_result" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_order_select" extensionName="RkwWepstra" />
+	</p>
+
+
+	<div class="grid">
+		<div class="full-width" data-intro="<f:translate key='tx_rkwwepstra_fluid_step2sub2_guided.jobfamily_select' extensionName='RkwWepstra' />" data-step="2">
+			<h2 class="fields-name" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step2sub2_tooltip.select' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step2sub2.jobfamily_select" extensionName="RkwWepstra" />
+			</h2>
+			<div id="select-job-family">
+				<f:render partial="Step/Step2/SelectJobFamily" arguments="{_all}"/>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="step-buttons">
+		<p>
+			<f:link.action action="step2" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.back" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p>
+			<f:link.action class="print-button icon-print" noCacheHash="true" arguments="{printPart: 'step2sub2'}" action="printAll" target="_blank" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_general_guided.button_forward' extensionName='RkwWepstra' />" data-step="3">
+			<f:link.action action="step3" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button secondary ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.forward" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+
+</div>

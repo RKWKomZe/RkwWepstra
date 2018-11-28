@@ -1,0 +1,45 @@
+<div class="fake-table secondary no-border long-input">
+
+	<div class="table-head" data-intro="<f:translate key='tx_rkwwepstra_fluid_step3sub4_guided.potential' extensionName='RkwWepstra' />" data-step="2">
+
+		<!-- productivity -->
+
+		<div class="table-row">
+			<!-- td -->
+			<div class="table-cell no-border-bottom">
+				<p class="rows-info" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step3sub4_tooltip.productivity' extensionName='RkwWepstra' />">
+					<f:translate key="tx_rkwwepstra_fluid_step3sub4.costsaving_company" extensionName='RkwWepstra' />
+				</p>
+			</div>
+
+			<!-- td -->
+			<f:for each="{wepstra.productivity}" as="productivity">
+				<f:form action="updateproductivity" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="productivity" object="{productivity}" class="ajax">
+					<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+					<div class="table-cell">
+						<p class="field">
+							<label>
+								<f:translate key="tx_rkwwepstra_fluid_step3sub4.in_percent" extensionName="RkwWepstra" />
+							</label>
+
+							<f:form.textfield property="value" class="edit-text" />
+
+						</p>
+					</div>
+				</f:form>
+			</f:for>
+
+			<!-- td -->
+			<p class="table-cell"> </p>
+
+		</div>
+	</div>
+
+	<!-- ===================================================================================== -->
+
+	<!-- costSaving -->
+	<f:render partial="Step/Step3/TableParts/CostSaving" arguments="{_all}"/>
+
+
+
+</div>

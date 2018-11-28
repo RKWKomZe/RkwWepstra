@@ -1,0 +1,44 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+<div>
+
+	<div class="step-title {f:if(condition: wepstra.guidedMode, then: 'run-intro introjs-showElement introjs-relativePosition')}" data-intro="<f:translate key='tx_rkwwepstra_fluid_step5sub2_guided.header' extensionName='RkwWepstra' />" data-step="1">
+		<h1>
+			<f:translate key="tx_rkwwepstra_fluid_step5.risk_profile" extensionName="RkwWepstra" /><f:translate key="tx_rkwwepstra_fluid_step5.capacity_risk" extensionName="RkwWepstra" />
+		</h1>
+	</div>
+
+	<p class="step-subtitle">
+		<f:translate key="tx_rkwwepstra_fluid_step5.risk_of_job_families" extensionName="RkwWepstra" />
+	</p>
+
+	<!-- Bubble Graphs -->
+	<div class="grid" data-intro="<f:translate key='tx_rkwwepstra_fluid_step5sub2_guided.graph' extensionName='RkwWepstra' />" data-step="2">
+		<div class="bubble-graph-container">
+
+			<h2 class="fields-name" data-tooltip="<f:translate key='tx_rkwwepstra_fluid_step5sub2_tooltip.axis' extensionName='RkwWepstra' />">
+				<f:translate key="tx_rkwwepstra_fluid_step5.capacity_risk" extensionName="RkwWepstra" />
+			</h2>
+			<div id="bubble-graphs">
+				<f:render partial="Step/Step5/BubbleGraph2" arguments="{_all}"/>
+			</div>
+		</div>
+	</div>
+
+	<div class="step-buttons">
+		<p>
+			<f:link.action action="step5" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.back" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p>
+			<f:link.action class="print-button icon-print" noCacheHash="true" arguments="{printPart: 'step5sub2'}" action="printAll" target="_blank" pageType="1470640673" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
+				<f:translate key="tx_rkwwepstra_fluid_header.print" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+		<p data-intro="<f:translate key='tx_rkwwepstra_fluid_general_guided.button_forward' extensionName='RkwWepstra' />" data-step="3">
+			<f:link.action action="step5sub3" controller="Step" extensionName="RkwWepstra" arguments="{wepstraUid: wepstra.uid}" noCacheHash="true" class="button secondary ajax" >
+				<f:translate key="tx_rkwwepstra_fluid_general.forward" extensionName="RkwWepstra" />
+			</f:link.action>
+		</p>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+	<f:for each="{wepstra.participants}" as="participant" iteration="participantNumber">
+
+		<div class="participant-rating" data-for="participant{participantNumber.cycle}">
+			<!--
+			<h2><f:translate key="tx_rkwwepstra_fluid_preparation.participants" extensionName='RkwWepstra' /> #{participantNumber.cycle}</h2>
+			-->
+
+			<div class="ratings">
+				<p class="rating-value min-value"><f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" /></p>
+				<p class="rating-value max-value"><f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" /></p>
+
+				<f:for each="{wepstra.jobFamily}" as="jobFamily" iteration="jobFamilyNumber">
+					<f:render partial="Step/Step2/Ratings/Inner" arguments="{_all}"/>
+				</f:for>
+
+				<p class="rating-value min-value"><f:translate key="tx_rkwwepstra_fluid_general.low" extensionName="RkwWepstra" /></p>
+				<p class="rating-value max-value"><f:translate key="tx_rkwwepstra_fluid_general.high" extensionName="RkwWepstra" /></p>
+			</div>
+		</div>
+	</f:for>
+</div>
+

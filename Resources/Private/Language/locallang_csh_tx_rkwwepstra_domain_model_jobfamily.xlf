@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-11-11T13:43:13Z" product-name="rkw_wepstra">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="market.description">
+				<source>market</source>
+			</trans-unit>
+			<trans-unit id="innovation.description">
+				<source>innovation</source>
+			</trans-unit>
+			<trans-unit id="productivity.description">
+				<source>productivity</source>
+			</trans-unit>
+			<trans-unit id="employee_marketing.description">
+				<source>employeeMarketing</source>
+			</trans-unit>
+			<trans-unit id="employee_sourcing.description">
+				<source>employeeSourcing</source>
+			</trans-unit>
+			<trans-unit id="integration.description">
+				<source>integration</source>
+			</trans-unit>
+			<trans-unit id="employee_loyalty.description">
+				<source>employeeLoyalty</source>
+			</trans-unit>
+			<trans-unit id="employee_trend.description">
+				<source>employeeTrend</source>
+			</trans-unit>
+			<trans-unit id="priority.description">
+				<source>priority</source>
+			</trans-unit>
+			<trans-unit id="graph.description">
+				<source>graph</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

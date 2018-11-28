@@ -1,0 +1,176 @@
+{namespace vh=RKW\RkwWepstra\ViewHelpers}
+
+<div>
+	<div class="fake-table tertiary">
+
+		<!-- head -->
+		<div class="table-head">
+			<div class="table-row">
+				<p class="table-cell"> </p>
+				<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.market" extensionName="RkwWepstra" /></p>
+				<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.innovation" extensionName="RkwWepstra" /></p>
+				<p class="table-cell column-info text-center"><f:translate key="tx_rkwwepstra_fluid_step4.productivity" extensionName="RkwWepstra" /></p>
+				<p class="table-cell sum-column text-center">
+					<strong>Σ</strong>
+				</p>
+			</div>
+		</div>
+
+		<!-- body -->
+		<div class="table-body">
+
+			<f:for each="{wepstra.jobFamily}" as="jobFamily">
+				<f:if condition="{jobFamily.selected}">
+
+					<f:form action="savestrategy" controller="Data" extensionName="RkwWepstra" pluginName="RkwWepstra" name="jobFamily" object="{jobFamily}" class="table-row ajax">
+
+						<p class="table-cell">{jobFamily.title}</p>
+
+						<div class="table-cell">
+							<div class="radio-row">
+								<f:form.hidden name="wepstraUid" value="{wepstra.uid}" />
+
+								<p class="radio-container">
+									<!-- preselect point 1 always (value 0) -->
+									<f:form.radio property="strategicRelevanceMarket" class="checked ajax-send" value="0" id="market-strategic-relevance-{jobFamily.uid}-0" />
+									<label class="text-middle" for="market-strategic-relevance-{jobFamily.uid}-0"><span>0</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceMarket} >= 1">
+										<f:then>
+											<f:form.radio property="strategicRelevanceMarket" class="checked ajax-send" value="1" id="market-strategic-relevance-{jobFamily.uid}-1" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceMarket" class="ajax-send" value="1" id="market-strategic-relevance-{jobFamily.uid}-1" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="market-strategic-relevance-{jobFamily.uid}-1"><span>1</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceMarket} >= 2">
+										<f:then>
+											<f:form.radio property="strategicRelevanceMarket" class="checked ajax-send" value="2" id="market-strategic-relevance-{jobFamily.uid}-2" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceMarket" class="ajax-send" value="2" id="market-strategic-relevance-{jobFamily.uid}-2" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="market-strategic-relevance-{jobFamily.uid}-2"><span>2</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceMarket} >= 3">
+										<f:then>
+											<f:form.radio property="strategicRelevanceMarket" class="checked ajax-send" value="3" id="market-strategic-relevance-{jobFamily.uid}-3" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceMarket" class="ajax-send" value="3" id="market-strategic-relevance-{jobFamily.uid}-3" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="market-strategic-relevance-{jobFamily.uid}-3"><span>3</span></label>
+								</p>
+
+							</div>
+						</div>
+
+
+						<div class="table-cell">
+							<div class="radio-row">
+
+								<p class="radio-container">
+									<!-- preselect point 1 always (value 0) -->
+									<f:form.radio property="strategicRelevanceInnovation" class="checked ajax-send" value="0" id="innovation-strategic-relevance-{jobFamily.uid}-0" />
+									<label class="text-middle" for="innovation-strategic-relevance-{jobFamily.uid}-0"><span>0</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceInnovation} >= 1">
+										<f:then>
+											<f:form.radio property="strategicRelevanceInnovation" class="checked ajax-send" value="1" id="innovation-strategic-relevance-{jobFamily.uid}-1" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceInnovation" class="ajax-send" value="1" id="innovation-strategic-relevance-{jobFamily.uid}-1" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="innovation-strategic-relevance-{jobFamily.uid}-1"><span>1</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceInnovation} >= 2">
+										<f:then>
+											<f:form.radio property="strategicRelevanceInnovation" class="checked ajax-send" value="2" id="innovation-strategic-relevance-{jobFamily.uid}-2" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceInnovation" class="ajax-send" value="2" id="innovation-strategic-relevance-{jobFamily.uid}-2" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="innovation-strategic-relevance-{jobFamily.uid}-2"><span>2</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceInnovation} >= 3">
+										<f:then>
+											<f:form.radio property="strategicRelevanceInnovation" class="checked ajax-send" value="3" id="innovation-strategic-relevance-{jobFamily.uid}-3" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceInnovation" class="ajax-send" value="3" id="innovation-strategic-relevance-{jobFamily.uid}-3" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="innovation-strategic-relevance-{jobFamily.uid}-3"><span>3</span></label>
+								</p>
+
+							</div>
+						</div>
+
+						<div class="table-cell">
+							<div class="radio-row">
+
+								<p class="radio-container">
+									<!-- preselect point 1 always (value 0) -->
+									<f:form.radio property="strategicRelevanceProductivity" class="checked ajax-send"  value="0" id="productivity-strategic-relevance-{jobFamily.uid}-0" />
+									<label class="text-middle" for="productivity-strategic-relevance-{jobFamily.uid}-0"><span>0</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceProductivity} >= 1">
+										<f:then>
+											<f:form.radio property="strategicRelevanceProductivity" class="checked ajax-send" value="1" id="productivity-strategic-relevance-{jobFamily.uid}-1" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceProductivity" class="ajax-send" value="1" id="productivity-strategic-relevance-{jobFamily.uid}-1" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="productivity-strategic-relevance-{jobFamily.uid}-1"><span>1</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceProductivity} >= 2">
+										<f:then>
+											<f:form.radio property="strategicRelevanceProductivity" class="checked ajax-send" value="2" id="productivity-strategic-relevance-{jobFamily.uid}-2" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceProductivity" class="ajax-send" value="2" id="productivity-strategic-relevance-{jobFamily.uid}-2" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="productivity-strategic-relevance-{jobFamily.uid}-2"><span>2</span></label>
+								</p>
+								<p class="radio-container">
+									<f:if condition="{jobFamily.strategicRelevanceProductivity} >= 3">
+										<f:then>
+											<f:form.radio property="strategicRelevanceProductivity" class="checked ajax-send" value="3" id="productivity-strategic-relevance-{jobFamily.uid}-3" />
+										</f:then>
+										<f:else>
+											<f:form.radio property="strategicRelevanceProductivity" class="ajax-send" value="3" id="productivity-strategic-relevance-{jobFamily.uid}-3" />
+										</f:else>
+									</f:if>
+									<label class="text-middle" for="productivity-strategic-relevance-{jobFamily.uid}-3"><span>3</span></label>
+								</p>
+
+							</div>
+						</div>
+
+						<p class="table-cell sum-column text-center">
+							<strong><vh:sum values="{0: '{jobFamily.strategicRelevanceMarket}', 1: '{jobFamily.strategicRelevanceInnovation}', 2: '{jobFamily.strategicRelevanceProductivity}'}" /></strong>
+						</p>
+
+					</f:form>
+
+				</f:if>
+			</f:for>
+		</div>
+	</div>
+</div>
