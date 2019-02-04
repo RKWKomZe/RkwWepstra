@@ -48,10 +48,10 @@ class FrontendUser extends \RKW\RkwRegistration\Domain\Model\FrontendUser
      *
      * @param integer $lastlogin
      * @return void
-     */
+     
     public function setLastlogin($lastlogin)
     {
         $this->lastlogin = $lastlogin;
-    }
+    }*/
 
 }
