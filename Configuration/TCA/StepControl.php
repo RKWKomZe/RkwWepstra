@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_stepcontrol'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, step0, step1, step2, step2sub2, step3, step3sub2, step3sub3, step4sub4, step4, step5, step5sub2, step5sub3, step5sub4, step5sub5, step6',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, step0, step1, step2, step2sub2, step3, step3sub2, step3sub3, step3sub4, step4, step5, step5sub2, step5sub3, step5sub4, step5sub5, step6'),
+		'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, step0, step1, step2, step2sub2, step3, step3sub2, step3sub3, step3sub4, step4, step5, step5sub2, step5sub3, step5sub4, step5sub5, step6'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

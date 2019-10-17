@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_geographicalsector'] = array(
 			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, value, percentage, current_sales, future_sales',
 	),
 	'types' => array(
-			'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, description, value, percentage, current_sales, future_sales'),
+			'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, title, description, value, percentage, current_sales, future_sales'),
 	),
 	'palettes' => array(
 			'1' => array('showitem' => ''),
