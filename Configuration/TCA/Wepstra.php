@@ -25,7 +25,7 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_wepstra'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, guided_mode, guided_asked, knowledge, technical_development_percentage, reason_why, sales_trend, geographical_sector, product_sector, performance, technical_development, productivity, cost_saving, participants, job_family, frontend_user, anonymous_user, last_update, disabled, target_date',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, guided_mode, guided_asked, knowledge, technical_development_percentage, reason_why, sales_trend, geographical_sector, product_sector, performance, technical_development, productivity, cost_saving, participants, job_family, frontend_user, anonymous_user, last_update, disabled, target_date, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, guided_mode, guided_asked, knowledge, technical_development_percentage, reason_why, sales_trend, geographical_sector, product_sector, performance, technical_development, productivity, cost_saving, participants, job_family, frontend_user, anonymous_user, last_update, disabled, target_date, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

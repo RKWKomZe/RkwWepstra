@@ -36,7 +36,7 @@ if (!isset($GLOBALS['TCA']['fe_users']['ctrl']['type'])) {
 			'maxitems' => 1,
 		)
 	);
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $tempColumns, 1);
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $tempColumns);
 }
 
 $tmp_rkw_wepstra_columns = array(

@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_technicaldevelopment'] = array(
 			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, value',
 	),
 	'types' => array(
-			'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, description, valu, percentage'),
+			'1' => array('showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, title, description, valu, percentage'),
 	),
 	'palettes' => array(
 			'1' => array('showitem' => ''),
