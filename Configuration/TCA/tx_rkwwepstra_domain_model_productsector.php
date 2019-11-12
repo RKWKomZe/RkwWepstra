@@ -1,12 +1,6 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_rkwwepstra_domain_model_productsector', 'EXT:rkw_wepstra/Resources/Private/Language/locallang_csh_tx_rkwwepstra_domain_model_productsector.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_rkwwepstra_domain_model_productsector');
-$GLOBALS['TCA']['tx_rkwwepstra_domain_model_productsector'] = array(
-	'ctrl' => array(
+return [
+	'ctrl' => [
 		'hideTable' => 1,
 		'title'	=> 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_productsector',
 		'label' => 'title',
@@ -15,82 +9,82 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_productsector'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'enablecolumns' => array(
-		),
+		'enablecolumns' => [
+		],
 		'searchFields' => 'title,description,value,',
 		'iconfile' => 'EXT:rkw_wepstra/Resources/Public/Icons/tx_rkwwepstra_domain_model_productsector.gif'
-	),
-	'interface' => array(
+	],
+	'interface' => [
 			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, value, percentage, current_sales, future_sales',
-	),
-	'types' => array(
-			'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, description, value, percentage, current_sales, future_sales'),
-	),
-	'palettes' => array(
-			'1' => array('showitem' => ''),
-	),
-	'columns' => array(
+	],
+	'types' => [
+			'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, title, description, value, percentage, current_sales, future_sales'],
+	],
+	'palettes' => [
+			'1' => ['showitem' => ''],
+	],
+	'columns' => [
 
-		'title' => array(
+		'title' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_productsector.title',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'description' => array(
+			],
+		],
+		'description' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_productsector.description',
-			'config' => array(
+			'config' => [
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim'
-			)
-		),
-		'value' => array(
+			],
+		],
+		'value' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_productsector.value',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'percentage' => array(
+			],
+		],
+		'percentage' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_salestrend.percentage',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'current_sales' => array(
+			],
+		],
+		'current_sales' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_salestrend.current_sales',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'future_sales' => array(
+			],
+		],
+		'future_sales' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_salestrend.future_sales',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
+			],
+		],
 
-		'wepstra' => array(
-			'config' => array(
+		'wepstra' => [
+			'config' => [
 				'type' => 'passthrough',
-			),
-		),
-	),
-);
+			],
+		],
+	],
+];

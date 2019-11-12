@@ -1,0 +1,43 @@
+
+plugin.tx_rkwwepstra {
+	view {
+
+		# cat=plugin.tx_rkwwepstra/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:rkw_wepstra/Resources/Private/Templates/
+
+		# cat=plugin.tx_rkwwepstra/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:rkw_wepstra/Resources/Private/Partials/
+
+		# cat=plugin.tx_rkwwepstra/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:rkw_wepstra/Resources/Private/Layouts/
+
+
+	}
+	persistence {
+		# cat=plugin.tx_rkwwepstra//a; type=string; label=Default storage PID
+		storagePid =
+
+        # cat=plugin.tx_rkwwepstra//a; type=string; label=Storage PID for FE-Users
+        storagePidFrontendUser =
+	}
+	settings {
+
+		# cat=plugin.tx_rkwwepstra//a; type=boolean; label=Include Scripts (JS)?
+        includeJavaScripts = 1
+
+		# cat=plugin.tx_rkwwepstra//a; type=boolean; label=Include Styles (CSS)?
+        includeStyles = 1
+
+		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid of Wepstra extension
+        pageUid =
+
+		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid of information page
+		importantInformationPid =
+
+		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid of terms & conditions page
+		termsPid =
+
+		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid for menu
+		menuPid =
+	}
+}

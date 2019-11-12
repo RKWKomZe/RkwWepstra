@@ -1,12 +1,6 @@
 <?php
-if (!defined ('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_rkwwepstra_domain_model_reasonwhy', 'EXT:rkw_wepstra/Resources/Private/Language/locallang_csh_tx_rkwwepstra_domain_model_reasonwhy.xlf');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_rkwwepstra_domain_model_reasonwhy');
-$GLOBALS['TCA']['tx_rkwwepstra_domain_model_reasonwhy'] = array(
-	'ctrl' => array(
+return [
+	'ctrl' => [
 		'hideTable' => 1,
 		'title'	=> 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_reasonwhy',
 		'label' => 'description',
@@ -15,54 +9,54 @@ $GLOBALS['TCA']['tx_rkwwepstra_domain_model_reasonwhy'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 
-		'enablecolumns' => array(
-		),
+		'enablecolumns' => [
+		],
 		'searchFields' => 'title,description,value,',
 		'iconfile' => 'EXT:rkw_wepstra/Resources/Public/Icons/tx_rkwwepstra_domain_model_reasonwhy.gif'
-	),
-	'interface' => array(
+	],
+	'interface' => [
 			'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, value',
-	),
-	'types' => array(
-			'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, description, value'),
-	),
-	'palettes' => array(
-			'1' => array('showitem' => ''),
-	),
-	'columns' => array(
+	],
+	'types' => [
+			'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,--palette--;;1, title, description, value'],
+	],
+	'palettes' => [
+			'1' => ['showitem' => ''],
+	],
+	'columns' => [
 
-		'title' => array(
+		'title' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_reasonwhy.title',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
-		'description' => array(
+			],
+		],
+		'description' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_reasonwhy.description',
-			'config' => array(
+			'config' => [
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim'
-			)
-		),
-		'value' => array(
+			],
+		],
+		'value' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_reasonwhy.value',
-			'config' => array(
+			'config' => [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
-		),
+			],
+		],
 
-		'wepstra' => array(
-			'config' => array(
+		'wepstra' => [
+			'config' => [
 				'type' => 'passthrough',
-			),
-		),
-	),
-);
+			],
+		],
+	],
+];
