@@ -38,7 +38,8 @@ return [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_reasonwhy.description',
 			'config' => [
-				'cols' => 40,
+                'type' => 'text',
+                'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim'
 			],
