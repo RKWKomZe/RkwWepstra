@@ -30,11 +30,19 @@ config.tx_extbase.persistence {
 
 
 plugin.tx_rkwwepstra {
+
 	view {
-		templateRootPath = {$plugin.tx_rkwwepstra.view.templateRootPath}
-		partialRootPath = {$plugin.tx_rkwwepstra.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_rkwwepstra.view.layoutRootPath}
+		layoutRootPaths {
+			0 = {$plugin.tx_rkwwepstra.view.layoutRootPath}
+		}
+		templateRootPaths {
+            0 ={$plugin.tx_rkwwepstra.view.templateRootPath}
+        }
+		partialRootPaths {
+			0 =  {$plugin.tx_rkwwepstra.view.partialRootPath}
+        }
 	}
+
 	persistence {
 		storagePid = {$plugin.tx_rkwwepstra.persistence.storagePid}
 
