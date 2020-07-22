@@ -5,6 +5,7 @@ namespace RKW\RkwWepstra\Controller;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use \RKW\RkwBasics\Helper\Common;
 use RKW\RkwRegistration\Tools\Password;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -51,7 +52,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function initializeAction()
     {
-
         parent::initializeAction();
 
         // Initial / general: Create Helper
@@ -146,6 +146,18 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             // 2.3 else: Popup -> Login with user (a) or anonymous (b)?
         } else {
 
+            // handle OptIn
+            $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
+            if (
+                $registration['user']
+                && ($registration['token_yes'] || $registration['token_no'])
+            ) {
+                // use forward to kept the GET params
+                $this->redirect('loginOptIn', null, null, ['arguments' => $registration]);
+                //===
+            }
+
+            // handle login screen
             $arguments = $this->request->getArguments();
 
             // if NOT a "login.." named action is called, show initial loginChoice screen!
@@ -588,7 +600,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
     /**
      * action optIn
-     *
+     * @param array $arguments
      * @return void
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
@@ -598,12 +610,16 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
-    public function loginOptInAction()
+    public function loginOptInAction($arguments)
     {
 
-        $tokenYes = preg_replace('/[^a-zA-Z0-9]/', '', ($this->request->hasArgument('token_yes') ? $this->request->getArgument('token_yes') : ''));
-        $tokenNo = preg_replace('/[^a-zA-Z0-9]/', '', ($this->request->hasArgument('token_no') ? $this->request->getArgument('token_no') : ''));
-        $userSha1 = preg_replace('/[^a-zA-Z0-9]/', '', $this->request->getArgument('user'));
+    //    $tokenYes = preg_replace('/[^a-zA-Z0-9]/', '', ($this->request->hasArgument('token_yes') ? $this->request->getArgument('token_yes') : ''));
+    //    $tokenNo = preg_replace('/[^a-zA-Z0-9]/', '', ($this->request->hasArgument('token_no') ? $this->request->getArgument('token_no') : ''));
+    //    $userSha1 = preg_replace('/[^a-zA-Z0-9]/', '', $this->request->getArgument('user'));
+
+        $tokenYes = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['token_yes']);
+        $tokenNo = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['token_no']);
+        $userSha1 = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['user']);
 
         /** @var \RKW\RkwRegistration\Tools\Registration $register */
         $register = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');

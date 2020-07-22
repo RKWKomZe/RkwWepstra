@@ -18,7 +18,7 @@ plugin.tx_rkwwepstra {
 		storagePid =
 
         # cat=plugin.tx_rkwwepstra//a; type=string; label=Storage PID for FE-Users
-        storagePidFrontendUser =
+        storagePidFrontendUser = 618
 	}
 	settings {
 
