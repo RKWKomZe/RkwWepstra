@@ -176,6 +176,7 @@ return [
 				'eval' => 'int'
 			],
 		],
+        /*
 		'graph' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_jobfamily.graph',
@@ -193,6 +194,7 @@ return [
 				],
 			],
 		],
+        */
 		'selected' => [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:rkw_wepstra/Resources/Private/Language/locallang_db.xlf:tx_rkwwepstra_domain_model_jobfamily.selected',
