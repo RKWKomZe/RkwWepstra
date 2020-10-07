@@ -95,7 +95,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             }
 
             // create new wepstra if there is no existing wepstra of frontendUser (not for anonymousUser -> see "anonymousStart"-Function)
-            if (!count($this->wepstra)) {
+            if (!$this->wepstra instanceof \RKW\RkwWepstra\Domain\Model\Wepstra) {
 
                 /** @var \RKW\RkwWepstra\Domain\Model\Wepstra wepstra */
                 $this->wepstra = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Wepstra');
