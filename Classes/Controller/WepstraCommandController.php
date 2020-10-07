@@ -193,6 +193,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
 
                 if (
                     ($wepstraList = $this->wepstraRepository->findAbandoned($cleanupTimestamp))
+                    && is_countable($wepstraList)
                     && (count($wepstraList))
                 ) {
 
@@ -223,26 +224,27 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
     {
 
         // 1.1 costSaving
-        $costSavingList = $wepstraToDelete->getCostSaving();
-        if (count($costSavingList)) {
+        if ($wepstraToDelete->getCostSaving()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\CostSaving $costSaving */
-            foreach ($costSavingList as $costSaving) {
+            foreach ($wepstraToDelete->getCostSaving() as $costSaving) {
                 $this->costSavingRepository->removeHard($costSaving);
             }
         }
 
         // 1.2 geographicalSector
-        $geographicalSectorList = $wepstraToDelete->getGeographicalSector();
-        if (count($geographicalSectorList)) {
+        if ($wepstraToDelete->getGeographicalSector()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector */
-            foreach ($geographicalSectorList as $geographicalSector) {
+            foreach ($wepstraToDelete->getGeographicalSector() as $geographicalSector) {
                 $this->geographicalSectorRepository->removeHard($geographicalSector);
             }
         }
 
         // 1.3 jobFamily
         $jobFamilyList = $wepstraToDelete->getJobFamily()->toArray();
-        if (count($jobFamilyList)) {
+        if (
+            is_countable($jobFamilyList)
+            && count($jobFamilyList)
+        ) {
             /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
             foreach ($jobFamilyList as $jobFamily) {
 
@@ -262,65 +264,57 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
         }
 
         // 1.5 participant
-        $participantList = $wepstraToDelete->getParticipants();
-        if (count($participantList)) {
+        if ($wepstraToDelete->getParticipants()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\Participant $participant */
-            foreach ($participantList as $participant) {
+            foreach ($wepstraToDelete->getParticipants() as $participant) {
                 $this->participantRepository->removeHard($participant);
             }
         }
 
         // 1.6 performance
-        $performanceList = $wepstraToDelete->getPerformance();
-
-        if (count($performanceList)) {
+        if ($wepstraToDelete->getPerformance()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\Performance $performance */
-            foreach ($performanceList as $performance) {
+            foreach ($wepstraToDelete->getPerformance() as $performance) {
                 $this->performanceRepository->removeHard($performance);
             }
         }
 
         // 1.7 productivity
-        $productivityList = $wepstraToDelete->getProductivity();
-        if (count($productivityList)) {
+        if ($wepstraToDelete->getProductivity()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\Productivity $productivity */
-            foreach ($productivityList as $productivity) {
+            foreach ($wepstraToDelete->getProductivity() as $productivity) {
                 $this->productivityRepository->removeHard($productivity);
             }
         }
 
         // 1.8 productSector
-        $productSectorList = $wepstraToDelete->getProductSector();
-        if (count($productivityList)) {
+        if ($wepstraToDelete->getProductSector()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\ProductSector $productSector */
-            foreach ($productSectorList as $productSector) {
+            foreach ($wepstraToDelete->getProductSector() as $productSector) {
                 $this->productSectorRepository->removeHard($productSector);
             }
         }
 
         // 1.9 reasonWhy
-        $reasonWhyList = $wepstraToDelete->getReasonWhy();
-        if (count($reasonWhyList)) {
+        if ($wepstraToDelete->getReasonWhy()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\ReasonWhy $reasonWhy */
-            foreach ($reasonWhyList as $reasonWhy) {
+            foreach ($wepstraToDelete->getReasonWhy() as $reasonWhy) {
                 $this->reasonWhyRepository->removeHard($reasonWhy);
             }
         }
 
         // 1.10 salesTrend
-        $salesTrendList = $wepstraToDelete->getSalesTrend();
-        if (count($salesTrendList)) {
+        if ($wepstraToDelete->getSalesTrend()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend */
-            foreach ($salesTrendList as $salesTrend) {
+            foreach ($wepstraToDelete->getSalesTrend() as $salesTrend) {
                 $this->salesTrendRepository->removeHard($salesTrend);
             }
         }
 
         // 1.11 technicalDevelopment
-        $technicalDevelopmentList = $wepstraToDelete->getTechnicalDevelopment();
-        if (count($technicalDevelopmentList)) {
+        if ($wepstraToDelete->getTechnicalDevelopment()->count()) {
             /** @var \RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $technicalDevelopment */
-            foreach ($technicalDevelopmentList as $technicalDevelopment) {
+            foreach ($wepstraToDelete->getTechnicalDevelopment() as $technicalDevelopment) {
                 $this->technicalDevelopmentRepository->removeHard($technicalDevelopment);
             }
         }

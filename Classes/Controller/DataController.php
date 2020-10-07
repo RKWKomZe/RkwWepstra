@@ -13,6 +13,7 @@ namespace RKW\RkwWepstra\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * DataController
@@ -211,7 +212,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             $this->participantRepository->remove($participant);
 
             // step control entry if there is no more participant in project
-            if (count($this->wepstra->getParticipants()) < 1) {
+            if ($this->wepstra->getParticipants()->count() < 1) {
                 $this->wepstra->getStepControl()->setStep0(0);
                 $this->wepstraRepository->update($this->wepstra);
             }
