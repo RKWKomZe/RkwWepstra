@@ -6,16 +6,6 @@ call_user_func(
     {
 
         //=================================================================
-        // Register Plugin
-        //=================================================================
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-            $extKey,
-            'Rkwwepstra',
-            'RKW Wepstra'
-        );
-
-
-        //=================================================================
         // Add Tables
         //=================================================================
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
@@ -70,14 +60,7 @@ call_user_func(
             'tx_rkwwepstra_domain_model_wepstra'
         );
 
-        //=================================================================
-        // Add TypoScript
-        //=================================================================
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-            $extKey,
-            'Configuration/TypoScript',
-            'RKW Wepstra'
-        );
+
 
     },
     $_EXTKEY
