@@ -147,7 +147,13 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         } else {
 
             // handle OptIn
-            $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
+            $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwwepstra_rkwwepstra');
+
+            // Fallback: If someone is using registration prefixes by any reason
+            if (!$registration) {
+                $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
+            }
+
             if (
                 $registration['user']
                 && ($registration['token_yes'] || $registration['token_no'])
