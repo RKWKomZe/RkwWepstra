@@ -71,7 +71,7 @@
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_controller_step.user_already_exists" approved="no">
 				<source>A user with this email already exist. Do you forget your password?</source>
-				<target phase-name="approval-1" state="final">Ein Nutzerndenaccount mit dieser E-Mailadresse existiert bereits. Haben Sie das Passwort vergessen?</target>
+				<target phase-name="approval-1" state="final">Ein Nutzendenaccount mit dieser E-Mailadresse existiert bereits. Haben Sie das Passwort vergessen?</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_controller_step.something_went_wrong" approved="no">
 				<source>Sorry, something went wrong!</source>
