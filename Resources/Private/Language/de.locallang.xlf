@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de"  datatype="plaintext" original="messages" date="2014-06-12T13:49:26Z" product-name="rkw_registration">
-		<header/>
+	<file datatype="plaintext" original="messages" product-name="rkw_registration" source-language="en" target-language="de" date="2014-06-12T13:49:26Z">
+		<header>
+      <phase-group>
+        <phase contact-name="Melanie" contact-email="berberich@rkw.de" process-name="approval" tool-id="lokalize-22.03.70" phase-name="approval-1" date="2022-02-14"/>
+      </phase-group>
+      <tool tool-version="22.03.70" tool-id="lokalize-22.03.70" tool-name="Lokalize"/>
+    </header>
 		<body>
 
 
@@ -64,13 +69,13 @@
 				<source>Please accept the terms.</source>
 				<target>Bitte akzeptieren Sie die Nutzungsbedingungen.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_controller_step.user_already_exists">
+			<trans-unit id="tx_rkwwepstra_controller_step.user_already_exists" approved="no">
 				<source>A user with this email already exist. Do you forget your password?</source>
-				<target>Ein Nutzer mit dieser E-Mailadresse existiert bereits. Haben Sie das Passwort vergessen?</target>
+				<target phase-name="approval-1" state="final">Ein Nutzerndenaccount mit dieser E-Mailadresse existiert bereits. Haben Sie das Passwort vergessen?</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_controller_step.something_went_wrong">
+			<trans-unit id="tx_rkwwepstra_controller_step.something_went_wrong" approved="no">
 				<source>Sorry, something went wrong!</source>
-				<target>Entschuldigen Sie, etwas ist schief gelaufen. Bitte wenden Sie sich an den Betreiber der Webseite.</target>
+				<target phase-name="approval-1" state="final">Entschuldigen Sie, etwas ist schief gelaufen. Bitte wenden Sie sich an die Betreibenden der Webseite.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_controller_step.invalid_session">
 				<source>Your session has expired. Please log in again.</source>
@@ -159,13 +164,13 @@
 				<source>Step %s not complete.</source>
 				<target>Schritt %s ist leider nicht vollständig. Bitte prüfen Sie Ihre Eingaben</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_helper_verifystep.participant_minimum">
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.participant_minimum" approved="no">
 				<source>At least you have to create minimum one participant.</source>
-				<target>Bitte geben Sie mindestens einen Teilnehmer an.</target>
+				<target phase-name="approval-1" state="final">Bitte geben Sie mindestens einen Teilnehmenden an.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_helper_verifystep.priorities">
+			<trans-unit id="tx_rkwwepstra_helper_verifystep.priorities" approved="no">
 				<source>Not all priorities are filled.</source>
-				<target>Nicht alle Teilnehmer haben priorisiert.</target>
+				<target phase-name="approval-1" state="final">Nicht alle Teilnehmenden haben priorisiert.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_helper_verifystep.jobfamily_minimum">
 				<source>At least two job jobfamilies have to be selected.</source>
@@ -577,9 +582,9 @@
 				<source>please type in here</source>
 				<target>Bitte Text einfügen</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_participant">
+			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_participant" approved="no">
 				<source>further participant</source>
-				<target>weiterer Teilnehmer</target>
+				<target phase-name="approval-1" state="final">weiterer Teilnehmenden</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_general.placeholder_measures">
 				<source>enter measures</source>
@@ -647,9 +652,9 @@
 				<target>Ihre Jobjamilien</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_print.jobfamily_prioritise_of_participant">
+			<trans-unit id="tx_rkwwepstra_fluid_print.jobfamily_prioritise_of_participant" approved="no">
 				<source>Prioritise of participant</source>
-				<target>Priorisierung der Teilnehmer</target>
+				<target phase-name="approval-1" state="final">Priorisierung der Teilnehmenden</target>
 			</trans-unit>
 
 
@@ -774,9 +779,9 @@
 				<source>Project from</source>
 				<target>Projekt vom</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_open.error">
+			<trans-unit id="tx_rkwwepstra_fluid_open.error" approved="no">
 				<source>Project open error</source>
-				<target>Ein Problem ist aufgetreten: Das von Ihnen ausgewählte Projekt kann Ihnen nicht zugeordnet werden. Wenden Sie sich im Zweifel an den Betreiber der Webseite.</target>
+				<target phase-name="approval-1" state="final">Ein Problem ist aufgetreten: Das von Ihnen ausgewählte Projekt kann Ihnen nicht zugeordnet werden. Wenden Sie sich im Zweifel an die Betreibenden der Webseite.</target>
 			</trans-unit>
 
 			<trans-unit id="tx_rkwwepstra_fluid_preparation.preparation">
@@ -787,9 +792,9 @@
 				<source>Resons for strategical planning</source>
 				<target>Gründe für strategische Personalplanung</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_preparation.participants">
+			<trans-unit id="tx_rkwwepstra_fluid_preparation.participants" approved="no">
 				<source>Participants</source>
-				<target>Teilnehmer</target>
+				<target phase-name="approval-1" state="final">Teilnehmende</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_preparation.important_informations">
 				<source>Important informations for preparation!</source>
@@ -813,13 +818,13 @@
 				<source>Prioritise job families</source>
 				<target>Jobfamilien priorisieren</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_strategical_meaning">
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_strategical_meaning" approved="no">
 				<source>Prioritise job families in relation of stategical meaning.</source>
-				<target>Alle Teilnehmer gewichten bitte nacheinander die Jobfamilien nach ihrer strategischen Bedeutung.</target>
+				<target phase-name="approval-1" state="final">Alle Teilnehmenden gewichten bitte nacheinander die Jobfamilien nach ihrer strategischen Bedeutung.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_of_participant">
+			<trans-unit id="tx_rkwwepstra_fluid_step2.jobfamily_prioritise_of_participant" approved="no">
 				<source>Prioritise of participant</source>
-				<target>Priorisierung dieses Teilnehmers</target>
+				<target phase-name="approval-1" state="final">Priorisierung dieses Teilnehmenden</target>
 			</trans-unit>
 
 
@@ -1240,9 +1245,9 @@
 				<source>Integration / Training</source>
 				<target>3) Integration / Einarbeitung</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_retention">
+			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_retention" approved="no">
 				<source>Employee retention</source>
-				<target>4) Mitarbeiterbindung</target>
+				<target phase-name="approval-1" state="final">4) Mitarbeitendenbindung</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step6.employee_development">
 				<source>Employee development</source>
@@ -1301,9 +1306,9 @@
 				<source>Login with existing RKW account.</source>
 				<target>Hier können Sie sich mit Ihrem bestehendem RKW Login anmelden. Bitte beachten Sie, dass ein Login über Facebook oder Twitter an dieser Stelle vorerst nicht möglich ist.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.register">
+			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.register" approved="no">
 				<source>Register as a new user.</source>
-				<target>Registrieren Sie sich kostenlos als Nutzer. Alles, was Sie dafür brauchen, ist eine E-Mail-Adresse und 30 Sekunden Zeit. Der Account ist für alle Angebote des RKW Kompetenzzentrums nutzbar.</target>
+				<target phase-name="approval-1" state="final">Registrieren Sie sich mit einem kostenlosen Nutzendenaccount. Alles, was Sie dafür brauchen, ist eine E-Mail-Adresse und 30 Sekunden Zeit. Der Account ist für alle Angebote des RKW Kompetenzzentrums nutzbar.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_login_tooltip.anonymous">
 				<source>Login as a anonymous user.</source>
@@ -1324,9 +1329,9 @@
 				<target>Hier können Sie die Jobfamilien und Schlüsselpositionen Ihres Unternehmens eintragen. Geben Sie dazu eine möglichst griffige Bezeichnung in das Textfeld ein und klicken Sie auf das Plussymbol. Wenn Sie einen Namen bearbeiten wollen, klicken Sie einfach in das betreffende Textfeld. Zum Löschen genügt ein Klick auf das Minussymbol.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step2_tooltip.prioritize">
+			<trans-unit id="tx_rkwwepstra_fluid_step2_tooltip.prioritize" approved="no">
 				<source>### Please insert a real tooltip ###</source>
-				<target>Hier priorisiert jeder Teilnehmer alle eben gebildeten Jobfamilien, indem er in dem Auswahlfeld einen für ihn passenden Punkt auf der Skala zwischen niedrig und hoch auswählt und anklickt oder anklicken lässt. Zwischen den Teilnehmern wechseln Sie vertikal über die weinroten Pfeile rechts neben der Skala. Wenn alle Teilnehmer alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
+				<target phase-name="approval-1" state="final">Hier priorisiert jeder Teilnehmemende alle eben gebildeten Jobfamilien, indem im Auswahlfeld ein passender Punkt auf der Skala zwischen niedrig und hoch auswählt und angeklickt wird. Zwischen den Teilnehmenden wechseln Sie vertikal über die weinroten Pfeile rechts neben der Skala. Wenn alle Teilnehmenden alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
 			</trans-unit>
 
 			<trans-unit id="tx_rkwwepstra_fluid_step2sub2_tooltip.select">
@@ -1416,18 +1421,18 @@
 				<source>### Text Guided Mode ###</source>
 				<target>Zu Beginn des Workshops hat es sich bewährt, die Anwesenden mit einem kurzen Input zu strategischer Personalplanung auf die Methodik und den Ablauf vorzubereiten. Den Ablauf können Sie anhand des horizontalen Menüs oben erklären. Vorschläge für einen sinnvollen Input zu den Gründen finden Sie hier.<![CDATA[<br>]]> Diese können Sie nach Belieben bearbeiten, ergänzen oder löschen. Ergänzungen können Sie einfach ins untere Textfeld eintragen und mit dem Plussymbol oder Enter bestätigen, zum Bearbeiten können Sie einfach ins Textfeld klicken und zum Löschen auf das jeweilige Minussymbol.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.participants">
+			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.participants" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>Die Verbindung von Geschäft und Personal wird nach unserer Erfahrung nur möglich, wenn neben den Personalverantwortlichen auch das Management, d.h. die Geschäftsführung und die wichtigsten Bereichsleiter sowie ggf. auch der Betriebsrat mitwirken.<![CDATA[<br>]]> Diese tragen Sie im Feld „Teilnehmer“ einzeln untereinander ein und bestätigen mit Enter oder dem Plussymbol.</target>
+				<target phase-name="approval-1" state="final">Die Verbindung von Geschäft und Personal wird nach unserer Erfahrung nur möglich, wenn neben den Personalverantwortlichen auch das Management, d.h. die Geschäftsführung und die wichtigsten Bereichsleiter sowie ggf. auch der Betriebsrat mitwirken.<![CDATA[<br>]]> Diese tragen Sie im Feld „Teilnehmende“ einzeln untereinander ein und bestätigen mit Enter oder dem Plussymbol.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step0_guided.print">
 				<source>### Text Guided Mode ###</source>
 				<target>Sie können über diesen Button die Ergebnisse des jeweiligen Schrittes ausdrucken. Am Ende des Prozesses gibt es auch die Möglichkeit, eine Zusammenfassung auszudrucken.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_title">
+			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_title" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>In diesem Schritt verständigen Sie sich im Führungskreis auf Ihre Jobfamilien und ggf. Schlüsselpositionen und legen eindeutige Bezeichnungen fest.<![CDATA[<br><br>]]> Zum Bilden der <![CDATA[<strong>Jobfamilien</strong>]]> Ihres Unternehmens fassen Sie „Jobs“ bzw. Stellen mit gleichen oder sehr ähnlichen Anforderungsprofilen zusammen. Das können beispielsweise Konstrukteure, Außendienstmitarbeiter, Einkäufer oder Produktmanager sein. Bei der Frage, ob eine Stelle zu einer Jobfamilie gehört oder nicht, gilt die Faustregel: Können sich die Stelleninhaber gegenseitig (mit geringem Aufwand) vertreten? Dann, ja! Jobfamilien können, aber müssen demzufolge nicht einer Abteilung oder einem Team entsprechen. In mittelständischen Unternehmen gibt es erfahrungsgemäß nicht mehr als zwölf, eher weniger.<![CDATA[<br><br>]]> Gerade in kleineren Unternehmen können neben den Jobfamilien auch einzelne Positionen eine Rolle spielen, die in ihren Anforderungen einzigartig sind und nicht ohne größeren Aufwand vertreten werden könnten. Haben Sie dann auch noch eine hohe Bedeutung für den Unternehmenserfolg, dann sprechen wir von <![CDATA[<strong>„Schlüsselpositionen“</strong>]]>. Sie werden – falls vorhanden – im Folgenden wie die Jobfamilien behandelt. </target>
+				<target phase-name="approval-1" state="final">In diesem Schritt verständigen Sie sich im Führungskreis auf Ihre Jobfamilien und ggf. Schlüsselpositionen und legen eindeutige Bezeichnungen fest.<![CDATA[<br><br>]]> Zum Bilden der <![CDATA[<strong>Jobfamilien</strong>]]> Ihres Unternehmens fassen Sie „Jobs“ bzw. Stellen mit gleichen oder sehr ähnlichen Anforderungsprofilen zusammen. Das können beispielsweise Konstrukteure, Außendienstmitarbeitende, Einkaufende oder Produktmanager oder Produktmanagerinnen sein. Bei der Frage, ob eine Stelle zu einer Jobfamilie gehört oder nicht, gilt die Faustregel: Können sich die Stelleninhaber gegenseitig (mit geringem Aufwand) vertreten? Dann, ja! Jobfamilien können, aber müssen demzufolge nicht einer Abteilung oder einem Team entsprechen. In mittelständischen Unternehmen gibt es erfahrungsgemäß nicht mehr als zwölf, eher weniger.<![CDATA[<br><br>]]> Gerade in kleineren Unternehmen können neben den Jobfamilien auch einzelne Positionen eine Rolle spielen, die in ihren Anforderungen einzigartig sind und nicht ohne größeren Aufwand vertreten werden könnten. Haben Sie dann auch noch eine hohe Bedeutung für den Unternehmenserfolg, dann sprechen wir von <![CDATA[<strong>„Schlüsselpositionen“</strong>]]>. Sie werden – falls vorhanden – im Folgenden wie die Jobfamilien behandelt. </target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step1_guided.jobfamily_list">
 				<source>### Text Guided Mode ###</source>
@@ -1438,9 +1443,9 @@
 				<source>### Text Guided Mode ###</source>
 				<target>Nun werden die Jobfamilien im Führungskreis im Hinblick auf ihre Bedeutung für die Wettbewerbsposition des Unternehmens bewertet und damit priorisiert. Prioritäre Jobfamilien und Schlüsselpositionen sind für den Unternehmenserfolg unverzichtbar.<![CDATA[<br>]]> Die Jobfamilie „Einkäufer“ beispielsweise kann in einem Unternehmen mit wettbewerbsentscheidender Kostenposition und geringer Fertigungstiefe (z. B. Handelsunternehmen) strategisch hoch bedeutsam, und in einem anderen Unternehmen mit wettbewerbsentscheidenden Produktvorteilen (z. B. Maschinenbauer) eher nebensächlich sein – trotz vergleichbaren Kompetenzanforderungen.</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_list">
+			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_list" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>Jeder Teilnehmer priorisiert alle eben gebildeten Jobfamilien, indem er in dem Auswahlfeld einen für ihn passenden Punkt auf der Skala zwischen niedrig und hoch auswählt oder auswählen lässt.<![CDATA[<br>]]> Zwischen den Teilnehmern wechseln Sie in der Spalte rechts, indem Sie die Namen auswählen. Ist die Bewertung eines Teilnehmers abgeschlossen, erscheint ein Häkchen. Wenn alle Teilnehmer alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
+				<target phase-name="approval-1" state="final">Jeder Teilnehmende priorisiert alle eben gebildeten Jobfamilien, indem er in dem Auswahlfeld einen für ihn passenden Punkt auf der Skala zwischen niedrig und hoch auswählt oder auswählen lässt.<![CDATA[<br>]]> Zwischen den Teilnehmenden wechseln Sie in der Spalte rechts, indem Sie die Namen auswählen. Ist die Bewertung eines Teilnehmenden abgeschlossen, erscheint ein Häkchen. Wenn alle Teilnehmenden alle Jobfamilien priorisiert haben, klicken Sie auf „Weiter“ und erhalten das Gesamtergebnis.</target>
 			</trans-unit>
 
 			<trans-unit id="tx_rkwwepstra_fluid_step2_guided.participant_priority">
@@ -1522,18 +1527,18 @@
 				<target>Mit einem Klick auf den jeweiligen Button geben Sie auf einer Skala von 0 bis 4 an, wie stark die jeweilige Jobfamilie von den strategischen Zielen beeinflusst wird.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.header">
+			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.header" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>Nun wird für jede prioritäre Jobfamilie ein Risikoprofil erstellt, unterschieden nach dem Alters-, Kapazitäts-, Kompetenz- und Beschaffungsrisiko. Sie werden nacheinander für jede Jobfamilie bewertet und unter Berücksichtigung ihrer strategischen Betroffenheit (Ergebnis wird automatisch übernommen aus dem vorherigen Schritt) in dem Risikoportfolio unten visualisiert.<![CDATA[<br>]]>Sie stellen so z. B. fest, dass Ihr Außendienst knapp besetzt ist (Kapazitätsrisiko). Mit altersbedingten Ausfällen ist zwar nicht zu rechnen (Altersrisiko), aber auf dem Arbeitsmarkt sind geeignete Leute nicht ohne weiteres verfügbar (Beschaffungsrisiko).<![CDATA[<br>]]> Als Ergebnis erhält man eine einfache Übersicht, die den aktuell absehbaren personalwirtschaftlichen Handlungsbedarf des Unternehmens aufzeigt: die Grundlage für strategisch relevante Maßnahmen.<![CDATA[<br><br>]]>Sie starten mit dem Altersrisiko: Lässt die Altersstruktur der jeweiligen Jobfamilie altersbedingte Ausfälle von Mitarbeitern erwarten, die zur Umsetzung der Geschäftsziele ausgeglichen werden müssen?</target>
+				<target phase-name="approval-1" state="final">Nun wird für jede prioritäre Jobfamilie ein Risikoprofil erstellt, unterschieden nach dem Alters-, Kapazitäts-, Kompetenz- und Beschaffungsrisiko. Sie werden nacheinander für jede Jobfamilie bewertet und unter Berücksichtigung ihrer strategischen Betroffenheit (Ergebnis wird automatisch übernommen aus dem vorherigen Schritt) in dem Risikoportfolio unten visualisiert.<![CDATA[<br>]]>Sie stellen so z. B. fest, dass Ihr Außendienst knapp besetzt ist (Kapazitätsrisiko). Mit altersbedingten Ausfällen ist zwar nicht zu rechnen (Altersrisiko), aber auf dem Arbeitsmarkt sind geeignete Leute nicht ohne weiteres verfügbar (Beschaffungsrisiko).<![CDATA[<br>]]> Als Ergebnis erhält man eine einfache Übersicht, die den aktuell absehbaren personalwirtschaftlichen Handlungsbedarf des Unternehmens aufzeigt: die Grundlage für strategisch relevante Maßnahmen.<![CDATA[<br><br>]]>Sie starten mit dem Altersrisiko: Lässt die Altersstruktur der jeweiligen Jobfamilie altersbedingte Ausfälle von Mitarbeitenden erwarten, die zur Umsetzung der Geschäftsziele ausgeglichen werden müssen?</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step5_guided.graph">
 				<source>### Text Guided Mode ###</source>
 				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Altersrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt. Die Jobfamilien sind der Übersichtlichkeit halber nun mit einer Zahlenlegende (siehe rechts) hinterlegt.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.header">
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.header" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>Nun betrachten Sie das Kapazitätsrisiko: Reicht die Anzahl der vorhandenen Mitarbeiter der jeweiligen Jobfamilie zur Umsetzung der Geschäftsziele aus?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wächst der Umsatz proportional zum Personal? Ist mit Rationalisierungs-/Erfahrungs-/Synergieeffekten zu rechnen? Wie hoch ist die Fluktuationsrate? Rücken im Zuge einer Laufbahn-/Karriereplanung Mitarbeiter nach? Ist mit altersbedingten Ausfällen zu rechnen (siehe Ergebnis Altersrisiko)?</target>
+				<target phase-name="approval-1" state="final">Nun betrachten Sie das Kapazitätsrisiko: Reicht die Anzahl der vorhandenen Mitarbeitenden der jeweiligen Jobfamilie zur Umsetzung der Geschäftsziele aus?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wächst der Umsatz proportional zum Personal? Ist mit Rationalisierungs-/Erfahrungs-/Synergieeffekten zu rechnen? Wie hoch ist die Fluktuationsrate? Rücken im Zuge einer Laufbahn-/Karriereplanung Mitarbeitenden nach? Ist mit altersbedingten Ausfällen zu rechnen (siehe Ergebnis Altersrisiko)?</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step5sub2_guided.graph">
 				<source>### Text Guided Mode ###</source>
@@ -1549,9 +1554,9 @@
 				<target>Durch das Verschieben der Jobfamilien-Buttons auf der vertikalen Achse geben Sie hier Ihre jeweilige Einschätzung zum Kompetenzrisiko ab. Die Verortung auf der horizontalen Achse ergibt sich automatisch aus dem vorherigen Schritt.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.header">
+			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.header" approved="yes">
 				<source>### Text Guided Mode ###</source>
-				<target>Nun betrachten Sie das Beschaffungsrisiko: Wie hoch ist das Risiko, dass neue Mitarbeiter für die jeweilige Jobfamilie im Bedarfsfall auf dem Arbeitsmarkt nicht verfügbar sind?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wie sind Ihre Erfahrungen bei der Rekrutierung? Wie viele Stellenanzeigen gibt es? Was sagt Ihr Verband / das hiesige Arbeitsamt dazu? Wie sind die Ausbildungszahlen? Wie viele Ausbildungsberufe/ Studiengänge für die Jobfamilie gibt es?<![CDATA[<br><br>]]> Noch ein Hinweis: Das Beschaffungsrisiko ist erst dann strategisch relevant, wenn Sie es mit einem Kompetenz- und/oder Kapazitätsrisiko in der jeweiligen Jobfamilie zu tun haben. Deshalb werden ihre vorherigen Angaben dazu automatisch in das vierte Portfolio übernommen und hier mit dem Beschaffungsrisiko in Beziehung gesetzt. Auf der horizontalen Achse findet sich somit nicht mehr die strategische Betroffenheit, sondern das Kompetenz- oder Kapazitätsrisiko. Dabei wird der Wert berücksichtigt, der am höchsten ist (nicht der Mittelwert).</target>
+				<target phase-name="approval-1" state="signed-off">Nun betrachten Sie das Beschaffungsrisiko: Wie hoch ist das Risiko, dass neue Mitarbeitenden für die jeweilige Jobfamilie im Bedarfsfall auf dem Arbeitsmarkt nicht verfügbar sind?<![CDATA[<br><br>]]>Hilfreiche Erkundungsfragen dazu können sein: Wie sind Ihre Erfahrungen bei der Rekrutierung? Wie viele Stellenanzeigen gibt es? Was sagt Ihr Verband / das hiesige Arbeitsamt dazu? Wie sind die Ausbildungszahlen? Wie viele Ausbildungsberufe/ Studiengänge für die Jobfamilie gibt es?<![CDATA[<br><br>]]> Noch ein Hinweis: Das Beschaffungsrisiko ist erst dann strategisch relevant, wenn Sie es mit einem Kompetenz- und/oder Kapazitätsrisiko in der jeweiligen Jobfamilie zu tun haben. Deshalb werden ihre vorherigen Angaben dazu automatisch in das vierte Portfolio übernommen und hier mit dem Beschaffungsrisiko in Beziehung gesetzt. Auf der horizontalen Achse findet sich somit nicht mehr die strategische Betroffenheit, sondern das Kompetenz- oder Kapazitätsrisiko. Dabei wird der Wert berücksichtigt, der am höchsten ist (nicht der Mittelwert).</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step5sub4_guided.graph">
 				<source>### Text Guided Mode ###</source>
@@ -1571,9 +1576,9 @@
 				<target>Hier können Sie zwischen den Jobfamilien wechseln, indem Sie auf den jeweiligen Titel klicken. Die aktuell ausgewählte Jobfamilie ist fett hervorgehoben.</target>
 			</trans-unit>
 
-			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.headline">
+			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.headline" approved="no">
 				<source>### Text Guided Mode ###</source>
-				<target>Sie können nun genau bestimmen, welche kurz-, mittel- und langfristigen personalwirtschaftlichen Maßnahmen strategisch notwendig sind (und welche nicht) und diese planen. Das können Sie, wenn noch genügend Zeit ist, gemeinsam im Workshop tun oder als Personalverantwortlicher nacharbeiten und mit dem Führungskreis abstimmen.</target>
+				<target phase-name="approval-1" state="final">Sie können nun genau bestimmen, welche kurz-, mittel- und langfristigen personalwirtschaftlichen Maßnahmen strategisch notwendig sind (und welche nicht) und diese planen. Das können Sie, wenn noch genügend Zeit ist, gemeinsam im Workshop tun oder als Personalverantwortliche nacharbeiten und mit dem Führungskreis abstimmen.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_step6_guided.tasks">
 				<source>### Text Guided Mode ###</source>
