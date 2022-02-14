@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-11-11T13:43:13Z" product-name="rkw_wepstra">
-		<header/>
+	<file datatype="plaintext" original="messages" product-name="rkw_wepstra" source-language="en" target-language="de-DE" date="2015-11-11T13:43:13Z">
+		<header>
+      <phase-group>
+        <phase contact-name="Melanie" contact-email="berberich@rkw.de" process-name="approval" tool-id="lokalize-22.03.70" phase-name="approval-1" date="2022-02-14"/>
+      </phase-group>
+      <tool tool-version="22.03.70" tool-id="lokalize-22.03.70" tool-name="Lokalize"/>
+    </header>
 		<body>
 			<trans-unit id="tx_rkwwepstra_domain_model_wepstra">
 				<source>RKW WePstra: Project</source>
@@ -11,9 +16,9 @@
 				<source>Guided Mode</source>
 				<target>Hilfemodus</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_asked">
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.guided_asked" approved="no">
 				<source>Asked to use Guided Mode</source>
-				<target>Wurde nach benutzung des Hilfemodus gefragt</target>
+				<target phase-name="approval-1" state="final">Wurde nach Benutzung des Hilfemodus gefragt</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.knowledge">
 				<source>Knowledge</source>
@@ -55,9 +60,9 @@
 				<source>Cost Saving</source>
 				<target>Kosteneinsparungen in bestimmten Unternehmensbereichen</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.participants">
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.participants" approved="yes">
 				<source>Participants</source>
-				<target>Teilnehmer</target>
+				<target phase-name="approval-1" state="signed-off">Teilnehmende</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.job_family">
 				<source>Job Family</source>
@@ -67,13 +72,13 @@
 				<source>Step Control</source>
 				<target>Schritt-Kontrolle eines Projektes</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.frontend_user">
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.frontend_user" approved="no">
 				<source>Frontend User</source>
-				<target>Frontend-Nutzer</target>
+				<target phase-name="approval-1" state="final">Frontend-Nutzende</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.anonymous_user">
+			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.anonymous_user" approved="no">
 				<source>Anonymous User</source>
-				<target>Anonymer-Nutzer</target>
+				<target phase-name="approval-1" state="final">Anonyme-Nutzende</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_domain_model_wepstra.last_update">
 				<source>Last Update</source>
@@ -209,9 +214,9 @@
 				<source>Job Family</source>
 				<target>Jobfamilie</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_priority.participant">
+			<trans-unit id="tx_rkwwepstra_domain_model_priority.participant" approved="no">
 				<source>Participant</source>
-				<target>Teilnehmer</target>
+				<target phase-name="approval-1" state="final">Teilnehmende</target>
 			</trans-unit>
 
 
@@ -233,9 +238,9 @@
 			</trans-unit>
 
 
-			<trans-unit id="tx_rkwwepstra_domain_model_participant">
+			<trans-unit id="tx_rkwwepstra_domain_model_participant" approved="no">
 				<source>RKW WePstra: Participant</source>
-				<target>RKW WePstra: Teilnehmer</target>
+				<target phase-name="approval-1" state="final">RKW WePstra: Teilnehmende</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_domain_model_participant.first_name">
 				<source>First Name</source>
@@ -245,23 +250,23 @@
 				<source>Last Name</source>
 				<target>Nachname</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_participant.username">
+			<trans-unit id="tx_rkwwepstra_domain_model_participant.username" approved="yes">
 				<source>Username</source>
-				<target>Nutzername / E-Mail-Adresse</target>
+				<target phase-name="approval-1" state="signed-off">Nutzendenname / E-Mail-Adresse</target>
 			</trans-unit>
 
 
-			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer">
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer" approved="no">
 				<source>RKW WePstra: Anonymous User</source>
-				<target>RKW WePstra: Anonymer Nutzer</target>
+				<target phase-name="approval-1" state="final">RKW WePstra: Anonymer Nutzende</target>
 			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.tx_rkwwepstra_is_anonymous">
+			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.tx_rkwwepstra_is_anonymous" approved="no">
 				<source>Anonymous User</source>
-				<target>Anonymer Nutzer</target>
+				<target phase-name="approval-1" state="final">Anonymer Nutzende</target>
 			</trans-unit>
-			<trans-unit id="fe_users.tx_extbase_type.Tx_RkwWepstra_AnonymousUser">
+			<trans-unit id="fe_users.tx_extbase_type.Tx_RkwWepstra_AnonymousUser" approved="no">
 				<source>RKW Wepstra AnonymousUser</source>
-				<target>Rkw Wepstra Anonymer Nutzer</target>
+				<target phase-name="approval-1" state="final">Rkw Wepstra Anonymer Nutzende</target>
 			</trans-unit>
 
 
