@@ -258,15 +258,15 @@
 
 			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer" approved="no">
 				<source>RKW WePstra: Anonymous User</source>
-				<target phase-name="approval-1" state="final">RKW WePstra: Anonymer Nutzende</target>
+				<target phase-name="approval-1" state="final">RKW WePstra: Anonyme Nutzende</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_domain_model_anonymoususer.tx_rkwwepstra_is_anonymous" approved="no">
 				<source>Anonymous User</source>
-				<target phase-name="approval-1" state="final">Anonymer Nutzende</target>
+				<target phase-name="approval-1" state="final">Anonyme Nutzende</target>
 			</trans-unit>
 			<trans-unit id="fe_users.tx_extbase_type.Tx_RkwWepstra_AnonymousUser" approved="no">
 				<source>RKW Wepstra AnonymousUser</source>
-				<target phase-name="approval-1" state="final">Rkw Wepstra Anonymer Nutzende</target>
+				<target phase-name="approval-1" state="final">Rkw Wepstra Anonyme Nutzende</target>
 			</trans-unit>
 
 
