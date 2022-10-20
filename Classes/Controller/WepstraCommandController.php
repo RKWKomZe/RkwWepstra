@@ -38,7 +38,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * objectManager
      *
      * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $persistenceManager;
 
@@ -46,7 +46,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * wepstraRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\WepstraRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $wepstraRepository = null;
 
@@ -54,7 +54,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * participantRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\ParticipantRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $participantRepository = null;
 
@@ -62,7 +62,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * reasonWhyRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\ReasonWhyRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $reasonWhyRepository = null;
 
@@ -70,7 +70,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * jobFamilyRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\JobFamilyRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $jobFamilyRepository = null;
 
@@ -78,7 +78,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * priorityRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\PriorityRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $priorityRepository = null;
 
@@ -86,7 +86,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * salesTrendRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\SalesTrendRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $salesTrendRepository = null;
 
@@ -94,7 +94,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * geographicalSectorRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\GeographicalSectorRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $geographicalSectorRepository = null;
 
@@ -102,7 +102,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * productSectorRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\ProductSectorRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $productSectorRepository = null;
 
@@ -110,7 +110,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * performanceRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\PerformanceRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $performanceRepository = null;
 
@@ -118,7 +118,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * technicalDevelopmentRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\TechnicalDevelopmentRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $technicalDevelopmentRepository = null;
 
@@ -126,7 +126,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * productivityRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\ProductivityRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $productivityRepository = null;
 
@@ -134,7 +134,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * costSavingRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\CostSavingRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $costSavingRepository = null;
 
@@ -142,7 +142,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * graphRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\GraphRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $graphRepository = null;
 
@@ -150,7 +150,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * stepControlRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\StepControlRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $stepControlRepository = null;
 
@@ -158,7 +158,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * frontendUserRepository
      *
      * @var \RKW\RkwWepstra\Domain\Repository\FrontendUserRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $frontendUserRepository;
 

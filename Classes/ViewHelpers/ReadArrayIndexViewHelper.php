@@ -23,21 +23,36 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ReadArrayIndexViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class ReadArrayIndexViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('array', 'array', 'The recursive array.', true);
+        $this->registerArgument('index1', 'array', 'The index on the first level for array.', true);
+        $this->registerArgument('index2', 'array', 'The index on the second level for array.', true);
+    }
+
     /**
      * Returns value of array index
      *
-     * @param array $array
-     * @param integer $index1
-     * @param integer $index2
-     * @return string|integer
+     * @return mixed
      */
-    public function render($array, $index1, $index2)
+    public function render()
     {
+        /** @var array $array */
+        $array = $this->arguments['array'];
+
+        /** @var int $index1 */
+        $index1 = $this->arguments['index1'];
+
+        /** @var int $index2 */
+        $index2 = $this->arguments['index2'];
 
         return $array[$index1][$index2];
-        //===
     }
 
 

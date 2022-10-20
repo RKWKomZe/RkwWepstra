@@ -23,19 +23,29 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class SumViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class SumViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+
     /**
-     * Returns sum of values
-     *
-     * @param array $values
-     * @return string
+     * Initialize arguments
      */
-    public function render($values)
+    public function initializeArguments()
     {
+        parent::initializeArguments();
+        $this->registerArgument('values', 'array', 'The array.', true);
+    }
+
+    /**
+     * Returns value of array index
+     *
+     * @return mixed
+     */
+    public function render()
+    {
+        /** @var array $values*/
+        $values = $this->arguments['values'];
 
         return array_sum($values);
-        //===
     }
 
 

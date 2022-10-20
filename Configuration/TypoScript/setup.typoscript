@@ -12,6 +12,10 @@ config.tx_extbase.persistence {
 
 
 		RKW\RkwWepstra\Domain\Model\FrontendUser {
+
+			// storage for new records in cross-extension-context
+      newRecordStoragePid = {$plugin.tx_rkwregistration.persistence.storagePid}
+
 			mapping {
 
 				# tablename

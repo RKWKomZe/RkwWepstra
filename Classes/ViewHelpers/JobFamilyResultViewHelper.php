@@ -15,6 +15,8 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\JobFamily;
+
 /**
  * Class JobFamilyResultViewHelper
  *
@@ -23,19 +25,29 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class JobFamilyResultViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class JobFamilyResultViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('jobFamily', JobFamily::class, 'The jobFamily-object.', true);
+    }
+
     /**
      * Returns results of relevant values
      *
-     * @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
      * @return string
      */
-    public function render(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function render(): string
     {
+        /** @var  \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
+        $jobFamily = $this->arguments['jobFamily'];
 
         return ($jobFamily->getAgeRisk() / 2.25) . ',' . $jobFamily->getCompetenceRisk() / 2.25 . ',-' . ($jobFamily->getProvisionRisk() / 2.25) . ',-' . ($jobFamily->getCapacityRisk() / 2.25);
-        //===
     }
 
 

@@ -710,7 +710,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * action updateplanninghorizon
      *
      * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
-     * @ignorevalidation $wepstra
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("wepstra")
      */
     public function updateplanninghorizonAction(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
     {
@@ -765,7 +765,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updatesalestrendAction
      * var \RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend
-     * @ignorevalidation $salesTrend
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("salesTrend")
      */
     public function updatesalestrendAction(\RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend)
     {
@@ -834,7 +834,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * creategeographicalsector
      * \RKW\RkwWepstra\Domain\Model\GeographicalSector $newGeographicalSector
-     * @ignorevalidation $newGeographicalSector
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("newGeographicalSector")
      */
     public function creategeographicalsectorAction(\RKW\RkwWepstra\Domain\Model\GeographicalSector $newGeographicalSector)
     {
@@ -909,7 +909,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * updategeographicalsector
      *
      * @param \RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector
-     * @ignorevalidation $geographicalSector
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("geographicalSector")
      */
     public function updategeographicalsectorAction(\RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector)
     {
@@ -1032,7 +1032,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * createproductsectorAction
      *
      * @param \RKW\RkwWepstra\Domain\Model\ProductSector $newProductSector
-     * @ignorevalidation $newProductSector
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("newProductSector")
      */
     public function createproductsectorAction(\RKW\RkwWepstra\Domain\Model\ProductSector $newProductSector)
     {
@@ -1107,7 +1107,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * updateproductsector
      *
      * @param \RKW\RkwWepstra\Domain\Model\ProductSector $productSector
-     * @ignorevalidation $productSector
+     * @TYPO3\CMS\Extbase\Annotation\IgnoreValidation("productSector")
      */
     public function updateproductsectorAction(\RKW\RkwWepstra\Domain\Model\ProductSector $productSector)
     {

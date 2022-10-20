@@ -23,24 +23,34 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class JobFamilySortNormalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class JobFamilySortNormalViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('wepstra', Wepstra::class, 'The wepstra-object.', true);
+    }
+
     /**
      * Returns value of array index
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
-     * @param boolean $odd
      * @return array
      */
-    public function render(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function render(): array
     {
+        /** @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra */
+        $wepstra = $this->arguments['wepstra'];
 
         $jobFamilies = $wepstra->getJobFamily()->toArray();
         usort($jobFamilies, array($this, "sortByAverageValue"));
 
         return $jobFamilies;
-        //===
     }
+
 
     /**
      * Sorting method
@@ -56,10 +66,7 @@ class JobFamilySortNormalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abs
             return 0;
         }
 
-        //===
-
         return ($a->getPriorityAverage() < $b->getPriorityAverage()) ? 1 : -1;
-        //===
     }
 
 

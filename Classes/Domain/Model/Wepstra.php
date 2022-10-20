@@ -100,7 +100,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * reasonWhy
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\ReasonWhy>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $reasonWhy = null;
 
@@ -108,7 +108,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * salesTrend
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\SalesTrend>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $salesTrend = null;
 
@@ -116,7 +116,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * geographicalSector
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\GeographicalSector>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $geographicalSector = null;
 
@@ -124,7 +124,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * productSector
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\ProductSector>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $productSector = null;
 
@@ -132,7 +132,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * performance
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\Performance>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $performance = null;
 
@@ -140,7 +140,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * technicalDevelopment
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\TechnicalDevelopment>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $technicalDevelopment = null;
 
@@ -148,7 +148,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * productivity
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\Productivity>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $productivity = null;
 
@@ -156,7 +156,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * costSaving
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\CostSaving>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $costSaving = null;
 
@@ -164,7 +164,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * participants
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\Participant>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $participants = null;
 
@@ -172,7 +172,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * jobFamily
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\RKW\RkwWepstra\Domain\Model\JobFamily>
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $jobFamily = null;
 
@@ -180,7 +180,7 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * stepControl
      *
      * @var \RKW\RkwWepstra\Domain\Model\StepControl
-     * @cascade remove
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $stepControl = null;
 

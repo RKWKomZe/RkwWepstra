@@ -15,6 +15,8 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\JobFamily;
+
 /**
  * Class JobFamilyStrategicRelevanceCeilViewHelper
  *
@@ -23,16 +25,28 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class JobFamilyStrategicRelevanceCeilViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class JobFamilyStrategicRelevanceCeilViewHelper extends \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper
 {
+
+    /**
+     * Initialize arguments
+     */
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('jobFamily', JobFamily::class, 'The jobFamily-object.', true);
+    }
+
     /**
      * Returns ceil of relevant values
      *
-     * @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
-     * @return string
+     * @return float
      */
-    public function render(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function render(): float
     {
+
+        /** @var  \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
+        $jobFamily = $this->arguments['jobFamily'];
 
         $returnValue = $jobFamily->getCapacityRisk();
         if ($jobFamily->getCompetenceRisk() > $returnValue) {
@@ -40,7 +54,6 @@ class JobFamilyStrategicRelevanceCeilViewHelper extends \TYPO3\CMS\Fluid\Core\Vi
         }
 
         return $returnValue;
-        //===
     }
 
 

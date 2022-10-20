@@ -3,7 +3,7 @@
 namespace RKW\RkwWepstra\Controller;
 
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use \RKW\RkwBasics\Helper\Common;
+use RKW\RkwBasics\Utility\GeneralUtility as Common;
 use RKW\RkwRegistration\Tools\Password;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -245,7 +245,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
     {
         // anonymous privacy agree
         /*
-         * @toDo: Do we really need this?, SK
+         * @todo Do we really need this?, SK
 		if (!$privacy) {
 			$replacements = array(
 				'errorMessage' =>
@@ -267,14 +267,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 		} else {
 
             // add privacy info
-            \RKW\RkwRegistration\Tools\Privacy::addPrivacyData($this->request, $this->getFrontendUser(), null, 'new anonymous login into WePstra-App');
+            \RKW\RkwRegistration\DataProtection\PrivacyHandler::addPrivacyData($this->request, $this->getFrontendUser(), null, 'new anonymous login into WePstra-App');
 		}
 
         */
 
 
         /** @var \RKW\RkwRegistration\Tools\Registration $registration */
-        $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Registration\\FrontendUser\\FrontendUserRegistration');
 
         /** @var \RKW\RkwRegistration\Tools\Authentication $authentication */
         $authentication = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
@@ -397,7 +397,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             $authenticate->loginUser($validateResult);
 
             // add privacy info
-            \RKW\RkwRegistration\Tools\Privacy::addPrivacyData($this->request, $validateResult, null, 'new login into WePstra-App');
+            \RKW\RkwRegistration\DataProtection\PrivacyHandler::addPrivacyData($this->request, $validateResult, null, 'new login into WePstra-App');
 
             $this->jsonHelper->setHtml(
                 'account-modal',
@@ -549,7 +549,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
         // 3. create user
         /** @var \RKW\RkwRegistration\Tools\Registration $rkwRegistrationAuthTool */
-        $rkwRegistrationAuthTool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        $rkwRegistrationAuthTool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Registration\\FrontendUser\\FrontendUserRegistration');
         $feUser = $rkwRegistrationAuthTool->register($registerData, false, null, null, $this->request);
 
         if ($feUser) {
@@ -628,7 +628,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         $userSha1 = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['user']);
 
         /** @var \RKW\RkwRegistration\Tools\Registration $register */
-        $register = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        $register = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Registration\\FrontendUser\\FrontendUserRegistration');
         $check = $register->checkTokens($tokenYes, $tokenNo, $userSha1, $this->request);
 
         if ($check == 1) {

@@ -372,7 +372,7 @@ return [
 		],
 		'crdate' => [
 			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.crdate',
+			'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.crdate',
 			'config' => [
 				'type' => 'input',
                 'renderType' => 'inputDateTime',

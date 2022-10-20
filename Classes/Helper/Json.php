@@ -22,7 +22,7 @@ namespace RKW\RkwWepstra\Helper;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class Json extends \RKW\RkwBasics\Helper\Json
+class Json extends \RKW\RkwAjax\Encoder\JsonTemplateEncoder
 {
     /**
      * @var array message

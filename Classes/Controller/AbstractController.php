@@ -26,7 +26,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * wepstraRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\WepstraRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $wepstraRepository;
 
@@ -34,7 +34,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * participantRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\ParticipantRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $participantRepository;
 
@@ -42,7 +42,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * reasonWhyRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\ReasonWhyRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $reasonWhyRepository;
 
@@ -50,7 +50,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * jobFamilyRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\JobFamilyRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $jobFamilyRepository;
 
@@ -58,7 +58,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * priorityRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\PriorityRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $priorityRepository;
 
@@ -66,7 +66,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * salesTrendRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\SalesTrendRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $salesTrendRepository;
 
@@ -74,7 +74,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * geographicalSectorRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\GeographicalSectorRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $geographicalSectorRepository;
 
@@ -82,7 +82,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * productSectorRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\ProductSectorRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $productSectorRepository;
 
@@ -90,7 +90,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * performanceRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\PerformanceRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $performanceRepository;
 
@@ -98,7 +98,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * technicalDevelopmentRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\TechnicalDevelopmentRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $technicalDevelopmentRepository;
 
@@ -106,7 +106,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * productivityRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\ProductivityRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $productivityRepository;
 
@@ -114,7 +114,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * costSavingRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\CostSavingRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $costSavingRepository;
 
@@ -122,7 +122,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * graphRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\GraphRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $graphRepository;
 
@@ -138,7 +138,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * Persistence Manager
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $persistenceManager;
 
@@ -146,7 +146,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 * frontendUserRepository
 	 *
 	 * @var \RKW\RkwWepstra\Domain\Repository\FrontendUserRepository
-	 * @inject
+	 * @TYPO3\CMS\Extbase\Annotation\Inject
 	 */
 	protected $frontendUserRepository;
 
