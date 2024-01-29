@@ -1,4 +1,16 @@
 #
+# Table structure for table 'fe_users'
+#
+CREATE TABLE fe_users (
+
+    #tx_rkwwepstra_registered_by tinyint(4) DEFAULT '0' NOT NULL,
+    #tx_rkwwepstra_register_remote_ip varchar(255) DEFAULT '' NOT NULL,
+    tx_rkwwepstra_language_key varchar(255) DEFAULT 'default' NOT NULL,
+
+    tx_rkwwepstra_is_anonymous tinyint(4) DEFAULT '0' NOT NULL,
+);
+
+#
 # Table structure for table 'tx_rkwwepstra_domain_model_wepstra'
 #
 CREATE TABLE tx_rkwwepstra_domain_model_wepstra (

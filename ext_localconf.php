@@ -48,20 +48,6 @@ call_user_func(
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'RKW\\RkwWepstra\\Controller\\WepstraCommandController';
 
         //=================================================================
-        // Register SignalSlots
-        //=================================================================
-        /**
-         * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher $signalSlotDispatcher
-         */
-        $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\SignalSlot\\Dispatcher');
-        $signalSlotDispatcher->connect(
-            'RKW\\RkwWepstra\\Controller\\StepController',
-            \RKW\RkwWepstra\Controller\StepController::SIGNAL_AFTER_USER_PASSWORD_RESET,
-            'RKW\\RkwRegistration\\Service\\RkwMailService',
-            'handlePasswordResetEvent'
-        );
-
-        //=================================================================
         // Register Logger
         //=================================================================
         $GLOBALS['TYPO3_CONF_VARS']['LOG']['RKW']['RkwWepstra']['writerConfiguration'] = array(

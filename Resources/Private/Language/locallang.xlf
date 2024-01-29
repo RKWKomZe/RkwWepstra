@@ -575,6 +575,9 @@
 			<trans-unit id="tx_rkwwepstra_fluid_login.register">
 				<source>Register</source>
 			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_fluid_login.headline">
+                <source>Login "WePstra"-App</source>
+            </trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_login.without_login">
 				<source>Onward without login</source>
 			</trans-unit>

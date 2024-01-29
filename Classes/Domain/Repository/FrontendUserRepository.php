@@ -14,6 +14,8 @@ namespace RKW\RkwWepstra\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
 /**
  * FrontendUserRepository
  *
@@ -22,8 +24,27 @@ namespace RKW\RkwWepstra\Domain\Repository;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class FrontendUserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class FrontendUserRepository extends Repository
 {
+    /**
+     * Finds anonymous users
+     *
+     * @param string $username
+     * @return \RKW\RkwWepstra\Domain\Model\FrontendUser
+     */
+    public function findOneByToken($token)
+    {
 
+        $query = $this->createQuery();
 
+        $user = $query->matching(
+            $query->logicalAnd(
+                $query->equals('username', $token),
+                $query->equals('txRkwwepstraIsAnonymous', 1)
+            )
+        )->setLimit(1)
+            ->execute();
+
+        return $user->getFirst();
+    }
 }

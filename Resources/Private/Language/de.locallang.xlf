@@ -688,9 +688,13 @@
 				<source>Register</source>
 				<target>Registrieren</target>
 			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_fluid_login.headline">
+                <source>Login "WePstra"-App</source>
+                <target>Login "WePstra"-App</target>
+            </trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_login.without_login">
 				<source>Onward without login</source>
-				<target>Ohne Anmeldung weitermachen</target>
+				<target>Ein regulärer Login mit "Mein RKW"-Zugangsdaten ist nicht mehr möglich. Damit Sie die App weiterhin nutzen können, stellen wir Ihnen eine anonyme Login-Funktion zur Verfügung.</target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_login.submit">
 				<source>Submit</source>

@@ -25,6 +25,20 @@ namespace RKW\RkwWepstra\Domain\Model;
  */
 class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 {
+    /**
+     * @var integer
+     */
+    protected $crdate;
+
+    /**
+     * @var integer
+     */
+    protected $disable = 1;
+
+    /**
+     * @var integer
+     */
+    protected $endtime;
 
     /**
      * lastlogin
@@ -32,6 +46,126 @@ class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
      * @var integer
      */
     protected $lastlogin = 0;
+
+    /**
+     * @var boolean
+     */
+    protected $txRkwwepstraIsAnonymous = false;
+
+    /**
+     * @var string
+     */
+    protected $txRkwwepstraLanguageKey = '';
+
+    /**
+     * Sets the crdate value
+     *
+     * @param integer $crdate
+     * @api
+     */
+    public function setCrdate($crdate)
+    {
+        $this->crdate = $crdate;
+    }
+
+    /**
+     * Returns the crdate value
+     *
+     * @return integer
+     * @api
+     */
+    public function getCrdate()
+    {
+        return $this->crdate;
+    }
+
+    /**
+     * Sets the disable value
+     *
+     * @param integer $disable
+     * @return void
+     *
+     */
+    public function setDisable($disable)
+    {
+        $this->disable = $disable;
+    }
+
+    /**
+     * Returns the disable value
+     *
+     * @return integer
+     */
+    public function getDisable()
+    {
+        return $this->disable;
+    }
+
+    /**
+     * Sets the endtime value
+     *
+     * @param integer $endtime
+     * @api
+     */
+    public function setEndtime($endtime)
+    {
+        $this->endtime = $endtime;
+    }
+
+    /**
+     * Returns the endtime value
+     *
+     * @return integer
+     * @api
+     */
+    public function getEndtime()
+    {
+        return $this->endtime;
+    }
+
+    /**
+     * Returns the txRkwWepstraIsAnonymous
+     *
+     * @return boolean $txRkwWepstraIsAnonymous
+     */
+    public function getTxRkwWepstraIsAnonymous()
+    {
+        return $this->txRkwWepstraIsAnonymous;
+    }
+
+    /**
+     * Sets the txRkwWepstraIsAnonymous
+     *
+     * @param boolean $txRkwWepstraIsAnonymous
+     * @return void
+     */
+    public function setTxRkwWepstraIsAnonymous($txRkwWepstraIsAnonymous)
+    {
+        $this->txRkwWepstraIsAnonymous = $txRkwWepstraIsAnonymous;
+    }
+
+    /**
+     * Sets the txRkwwepstraLanguageKey value
+     *
+     * @param string $languageKey
+     * @return void
+     *
+     */
+    public function setTxRkwwepstraLanguageKey($languageKey)
+    {
+        $this->txRkwwepstraLanguageKey = $languageKey;
+    }
+
+    /**
+     * Returns the txRkwwepstraLanguageKey value
+     *
+     * @return string
+     *
+     */
+    public function getTxRkwwepstraLanguageKey()
+    {
+        return $this->txRkwwepstraLanguageKey;
+    }
 
     /**
      * Returns the lastlogin

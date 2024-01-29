@@ -2,14 +2,11 @@ config.tx_extbase.persistence {
 
     classes {
 
-
-        RKW\RkwRegistration\Domain\Model\FrontendUser {
+        TYPO3\CMS\Extbase\Domain\Model\BackendUser {
             subclasses {
                 Tx_RkwWepstra_FrontendUser = RKW\RkwWepstra\Domain\Model\FrontendUser
-
             }
         }
-
 
         RKW\RkwWepstra\Domain\Model\FrontendUser {
             mapping {
@@ -20,10 +17,7 @@ config.tx_extbase.persistence {
                 # if we set an value, we filter by it
                 # if do not set anything, all records are found
                 recordType =
-
             }
-
         }
-
     }
 }

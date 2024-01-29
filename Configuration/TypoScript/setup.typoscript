@@ -2,14 +2,11 @@ config.tx_extbase.persistence {
 
 	classes {
 
-
-		RKW\RkwRegistration\Domain\Model\FrontendUser {
+        TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
 			subclasses {
 				Tx_RkwWepstra_FrontendUser = RKW\RkwWepstra\Domain\Model\FrontendUser
-
 			}
 		}
-
 
 		RKW\RkwWepstra\Domain\Model\FrontendUser {
 			mapping {
@@ -20,11 +17,36 @@ config.tx_extbase.persistence {
 				# if we set an value, we filter by it
 				# if do not set anything, all records are found
 				recordType =
-
 			}
-
 		}
 
+        #===============================================
+
+        \TYPO3\CMS\Extbase\Domain\Model\FrontendUserGroup {
+            subclasses {
+                Tx_RkwWepstra_FrontendUserGroup = RKW\RkwWepstra\Domain\Model\FrontendUserGroup
+            }
+        }
+
+        RKW\RkwWepstra\Domain\Model\FrontendUserGroup {
+            mapping {
+
+                # tablename
+                tableName = fe_groups
+
+                # if we set an value, we filter by it
+                # if89657201 do not set anything, all records are found
+                recordType =
+
+                # mapping to properties of class
+                columns {
+                    tstamp.mapOnProperty = tstamp
+                    crdate.mapOnProperty = crdate
+                    hidden.mapOnProperty = hidden
+                    deleted.mapOnProperty = deleted
+                }
+            }
+        }
 	}
 }
 
@@ -270,24 +292,6 @@ txRkwWepstraAjax {
 
         }
     }
-
-
-	15 = USER_INT
-	15 {
-		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-		extensionName = RkwRegistration
-		pluginName = Rkwregistration
-		vendorName = RKW
-		controller = Registration
-		switchableControllerActions {
-
-			# RkwRegistration Extension (password forget)
-			Registration {
-				10 = passwordForgotShow
-				20 = passwordForgot
-			}
-		}
-	}
 
     view < plugin.tx_rkwwepstra.view
     persistence < plugin.tx_rkwwepstra.persistence

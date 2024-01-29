@@ -2,8 +2,8 @@
 
 namespace RKW\RkwWepstra\Controller;
 
-use RKW\RkwRegistration\Tools\Authentication;
-use RKW\RkwRegistration\Tools\Registration;
+use RKW\RkwWepstra\Helper\Register\Authentication;
+use RKW\RkwWepstra\Helper\Register\Registration;
 use RKW\RkwWepstra\Domain\Model\Wepstra;
 use RKW\RkwWepstra\Helper\BasicData;
 use RKW\RkwWepstra\Helper\Json;
@@ -12,8 +12,6 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use \RKW\RkwBasics\Helper\Common;
-use RKW\RkwRegistration\Tools\Password;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /*
@@ -38,7 +36,7 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class StepController extends \RKW\RkwWepstra\Controller\AbstractController
+class StepController extends AbstractController
 {
     /**
      * Signal name for use in ext_localconf.php
@@ -54,7 +52,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * This initialize action is the "brain" of the application. FrontendUser, AnonymousUser (token) and not logged
      * user are filtered here and routed to their targets.
      *
-     * @throws \RKW\RkwRegistration\Exception
+     * @throws \RKW\RkwWepstra\Exception
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
@@ -86,21 +84,23 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
                 if ($this->getFrontendUser()->getUsername() != $token) {
 
-                    $rkwRegistrationAuthTool = GeneralUtility::makeInstance(Authentication::class);
-                    $rkwRegistrationAuthTool->logoutUser();
+                    $authHelper = GeneralUtility::makeInstance(Authentication::class);
+                    $authHelper->logoutUser();
 
                     $this->redirect('index', null, null, $arguments);
                 }
             }
 
             // a) by anonymousUser
-            if ($frontendUser->getTxRkwregistrationIsAnonymous()) {
+            /*
+            if (
+                $frontendUser->getIsAnonymous()) {
                 $this->wepstra = $this->wepstraRepository->findOneEnabledByAnonymousUser($frontendUser);
 
                 // b) by frontendUser
             } else {
-                $this->wepstra = $this->wepstraRepository->findOneEnabledByFrontendUser($frontendUser);
-            }
+            */
+            $this->wepstra = $this->wepstraRepository->findOneEnabledByFrontendUser($frontendUser);
 
             // create new wepstra if there is no existing wepstra of frontendUser (not for anonymousUser -> see "anonymousStart"-Function)
             if (!$this->wepstra instanceof Wepstra) {
@@ -113,11 +113,12 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 // initial: set basic data for project
                 $this->basicDataHelper->createAllBasicData($this->wepstra);
 
-                if ($frontendUser->getTxRkwregistrationIsAnonymous()) {
+                /*
+                if ($frontendUser->getIsAnonymous()) {
                     $this->wepstra->setAnonymousUser($frontendUser);
                 } else {
-                    $this->wepstra->setFrontendUser($frontendUser);
-                }
+                */
+                $this->wepstra->setFrontendUser($frontendUser);
 
                 $this->wepstraRepository->add($this->wepstra);
                 $this->persistenceManager->persistAll();
@@ -155,9 +156,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             $registration = GeneralUtility::_GP('tx_rkwwepstra_rkwwepstra');
 
             // Fallback: If someone is using registration prefixes by any reason
+            /*
             if (!$registration) {
                 $registration = GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
             }
+            */
 
             if (
                 $registration['user']
@@ -240,46 +243,16 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      *
      * @param integer $privacy
      * @return void
-     * @throws \RKW\RkwRegistration\Exception
+     * @throws \RKW\RkwWepstra\Exception
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      */
     public function loginAnonymousAction($privacy = null)
     {
-        // anonymous privacy agree
-        /*
-         * @toDo: Do we really need this?, SK
-		if (!$privacy) {
-			$replacements = array(
-				'errorMessage' =>
-					\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
-						'registrationController.error.accept_privacy', 'rkw_registration'
-					)
-			);
-
-			$this->jsonHelper->setHtml(
-				'anonymous-error-part',
-				$replacements,
-				'replace',
-				'Ajax/Login/AnonymousForm'
-			);
-
-			print (string) $this->jsonHelper;
-			exit();
-			//===
-		} else {
-
-            // add privacy info
-            \RKW\RkwRegistration\Tools\Privacy::addPrivacyData($this->request, $this->getFrontendUser(), null, 'new anonymous login into WePstra-App');
-		}
-
-        */
-
-
         /** @var Registration $registration */
         $registration = GeneralUtility::makeInstance(Registration::class);
 
         /** @var Authentication $authentication */
-        $authentication = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
+        $authentication = GeneralUtility::makeInstance(Authentication::class);
 
         // register anonymous user and login
         $anonymousUser = $registration->registerAnonymous();
@@ -351,7 +324,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      *
      * @param integer $privacy
      * @return void
-     * @throws \RKW\RkwRegistration\Exception
+     * @throws \RKW\RkwWepstra\Exception
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
@@ -386,18 +359,17 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
         // check if there is a user that matches and log him in
         /** @var Authentication $authenticate */
-        $authenticate = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
-        $validateResult = null;
+        $authenticate = GeneralUtility::makeInstance(Authentication::class);
         if (
             ($validateResult = $authenticate->validateUser($loginData['username'], $loginData['password']))
-            && ($validateResult instanceof \RKW\RkwRegistration\Domain\Model\FrontendUser)
+            && ($validateResult instanceof \RKW\RkwWepstra\Domain\Model\FrontendUser)
         ) {
 
             // do login
             $authenticate->loginUser($validateResult);
 
             // add privacy info
-            \RKW\RkwRegistration\Tools\Privacy::addPrivacyData($this->request, $validateResult, null, 'new login into WePstra-App');
+        //    \RKW\RkwRegistration\Tools\Privacy::addPrivacyData($this->request, $validateResult, null, 'new login into WePstra-App');
 
             $this->jsonHelper->setHtml(
                 'account-modal',
@@ -486,8 +458,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      *
      * @param integer|null $privacy
      * @return void
-     * @return \RKW\RkwRegistration\Domain\Model\FrontendUser
-     * @throws \RKW\RkwRegistration\Exception
+     * @return \RKW\RkwWepstra\Domain\Model\FrontendUser
+     * @throws \RKW\RkwWepstra\Exception
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
@@ -543,9 +515,9 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         }
 
         // 3. create user
-        /** @var Registration $rkwRegistrationAuthTool */
-        $rkwRegistrationAuthTool = GeneralUtility::makeInstance(Registration::class);
-        $feUser = $rkwRegistrationAuthTool->register($registerData, false, null, null, $this->request);
+        /** @var Registration $authHelper */
+        $authHelper = GeneralUtility::makeInstance(Registration::class);
+        $feUser = $authHelper->register($registerData, false, null, null, $this->request);
 
         if ($feUser) {
 
@@ -589,9 +561,9 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
     public function logoutUserAction()
     {
 
-        /** @var Authentication $rkwRegistrationAuthTool */
-        $rkwRegistrationAuthTool = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
-        $rkwRegistrationAuthTool->logoutUser();
+        /** @var Authentication $authRegisterHelper */
+        $authRegisterHelper = GeneralUtility::makeInstance(Authentication::class);
+        $authRegisterHelper->logoutUser();
 
         $this->redirect('index');
     }
@@ -769,11 +741,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             ($frontendUser = $this->getFrontendUser())
             && (
                 (
-                    ($frontendUser->getTxRkwregistrationIsAnonymous())
+                    ($frontendUser->getTxRkwWepstraIsAnonymous())
                     && ($frontendUser->getUid() == $wepstraToOpen->getAnonymousUser()->getUid())
                 )
                 || (
-                    (!$frontendUser->getTxRkwregistrationIsAnonymous())
+                    (!$frontendUser->getTxRkwWepstraIsAnonymous())
                     && ($frontendUser->getUid() == $wepstraToOpen->getFrontendUser()->getUid())
                 )
             )
@@ -818,7 +790,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         $allWepstraProjectsOfUser = array();
         if ($this->getFrontendUser()) {
 
-            if ($this->getFrontendUser()->getTxRkwregistrationIsAnonymous()) {
+            if ($this->getFrontendUser()->getTxRkwWepstraIsAnonymous()) {
                 $allWepstraProjectsOfUser = $this->wepstraRepository->findByAnonymousUserAlsoDisabled($this->getFrontendUser());
 
             } else {
@@ -1913,6 +1885,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * Copied from Extension RkwRegistration
      * action forgot password show
      *
+     * @deprecated Kill it
+     *
      * @param string|null $errorMessage
      * @return void
      */
@@ -1937,6 +1911,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * Copied from Extension RkwRegistration
      * action forgot password
+     *
+     * @deprecated Kill it
      *
      * @param string $username
      * @return void

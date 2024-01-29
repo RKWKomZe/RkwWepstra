@@ -14,6 +14,7 @@ namespace RKW\RkwWepstra\Controller;
  */
 
 use RKW\RkwWepstra\Domain\Repository\FrontendUserRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -149,7 +150,7 @@ class AbstractController extends ActionController
 	/**
 	 * frontendUserRepository
 	 *
-	 * @var FrontendUserRepository
+	 * @var \RKW\RkwWepstra\Domain\Repository\FrontendUserRepository
 	 * @inject
 	 */
 	protected $frontendUserRepository;
@@ -213,7 +214,7 @@ class AbstractController extends ActionController
 	protected function getFrontendUser() {
 
 		/** @var FrontendUserRepository $frontendUserRepository */
-		$frontendUserRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(FrontendUserRepository::class);
+		$frontendUserRepository = GeneralUtility::makeInstance(FrontendUserRepository::class);
 		$this->frontendUser = $frontendUserRepository->findByIdentifier($this->getFrontendUserId());
 
 		if ($this->frontendUser instanceof \TYPO3\CMS\Extbase\Domain\Model\FrontendUser) {
