@@ -22,7 +22,7 @@ namespace RKW\RkwWepstra\Domain\Repository;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class FrontendUserRepository extends \RKW\RkwRegistration\Domain\Repository\FrontendUserRepository
+class FrontendUserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
 

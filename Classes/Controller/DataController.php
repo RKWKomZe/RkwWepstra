@@ -13,7 +13,20 @@ namespace RKW\RkwWepstra\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use RKW\RkwWepstra\Domain\Model\CostSaving;
+use RKW\RkwWepstra\Domain\Model\GeographicalSector;
+use RKW\RkwWepstra\Domain\Model\JobFamily;
+use RKW\RkwWepstra\Domain\Model\Participant;
+use RKW\RkwWepstra\Domain\Model\Priority;
+use RKW\RkwWepstra\Domain\Model\ProductSector;
+use RKW\RkwWepstra\Domain\Model\ReasonWhy;
+use RKW\RkwWepstra\Domain\Model\SalesTrend;
+use RKW\RkwWepstra\Domain\Model\TechnicalDevelopment;
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * DataController
@@ -24,7 +37,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class DataController extends \RKW\RkwWepstra\Controller\AbstractController
+class DataController extends AbstractController
 {
     /**
      * initializeAction
@@ -34,13 +47,13 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     {
 
         // create json request object
-        $this->jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $this->jsonHelper = GeneralUtility::makeInstance(\RKW\RkwWepstra\Helper\Json::class);
 
         // Initial: check if user is logged in -> otherwise show login form
         // Because issues can happen, if user reload wepstra via cache
         if (!$GLOBALS['TSFE']->fe_user->user) {
 
-            $errorMessage = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_step.invalid_session', 'rkw_wepstra');
+            $errorMessage = LocalizationUtility::translate('tx_rkwwepstra_controller_step.invalid_session', 'rkw_wepstra');
 
             $replacements = array(
                 'errorMessage' => $errorMessage,
@@ -53,9 +66,8 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Step/LoginChoice.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
         // get arguments
@@ -67,24 +79,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
         } else {
 
             $this->jsonHelper->setDialogue('Error 1460537893: Wepstra UID not set', 1);
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
         // mark this wepstra as updated
         $this->wepstra->setLastUpdate(time());
         $this->wepstraRepository->update($this->wepstra);
-
     }
 
 
     /**
      * action createparticipant
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Participant $newParticipant
+     * @param Participant $newParticipant
      */
-    public function createparticipantAction(\RKW\RkwWepstra\Domain\Model\Participant $newParticipant)
+    public function createparticipantAction(Participant $newParticipant)
     {
 
         try {
@@ -120,31 +130,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
-
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
 
@@ -154,9 +161,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updateparticipantAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Participant $participant
+     * @param Participant $participant
      */
-    public function updateparticipantAction(\RKW\RkwWepstra\Domain\Model\Participant $participant)
+    public function updateparticipantAction(Participant $participant)
     {
 
         try {
@@ -177,24 +184,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step0/Participants.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -202,9 +207,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action deleteparticipant
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Participant $participant
+     * @param Participant $participant
      */
-    public function deleteparticipantAction(\RKW\RkwWepstra\Domain\Model\Participant $participant)
+    public function deleteparticipantAction(Participant $participant)
     {
 
         try {
@@ -231,25 +236,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step0/Participants.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
-
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -257,11 +259,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action createreasonwhy
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ReasonWhy $newReasonWhy
+     * @param ReasonWhy $newReasonWhy
      */
-    public function createreasonwhyAction(\RKW\RkwWepstra\Domain\Model\ReasonWhy $newReasonWhy)
+    public function createreasonwhyAction(ReasonWhy $newReasonWhy)
     {
-
         try {
 
             if ($newReasonWhy->getDescription()) {
@@ -289,30 +290,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -320,11 +319,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updatereasonwhyAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ReasonWhy $reasonWhy
+     * @param ReasonWhy $reasonWhy
      */
-    public function updatereasonwhyAction(\RKW\RkwWepstra\Domain\Model\ReasonWhy $reasonWhy)
+    public function updatereasonwhyAction(ReasonWhy $reasonWhy)
     {
-
         try {
 
             $this->reasonWhyRepository->update($reasonWhy);
@@ -343,24 +341,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step0/ReasonWhy.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -368,11 +364,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action deletereasonwhy
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ReasonWhy $reasonWhy
+     * @param ReasonWhy $reasonWhy
      */
-    public function deletereasonwhyAction(\RKW\RkwWepstra\Domain\Model\ReasonWhy $reasonWhy)
+    public function deletereasonwhyAction(ReasonWhy $reasonWhy)
     {
-
         try {
 
             $this->wepstra->removeReasonWhy($reasonWhy);
@@ -391,24 +386,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step0/ReasonWhy.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -417,7 +410,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * action createjobfamily
      * var \RKW\RkwWepstra\Domain\Model\JobFamily $newJobFamily
      */
-    public function createjobfamilyAction(\RKW\RkwWepstra\Domain\Model\JobFamily $newJobFamily)
+    public function createjobfamilyAction(JobFamily $newJobFamily)
     {
 
         try {
@@ -447,30 +440,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -479,9 +470,8 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * action deletejobfamily
      * var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
      */
-    public function deletejobfamilyAction(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function deletejobfamilyAction(JobFamily $jobFamily)
     {
-
         try {
 
             $this->wepstra->removeJobFamily($jobFamily);
@@ -500,24 +490,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step1/JobFamily.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -525,9 +513,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action savepriority
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Priority $priority
+     * @var Priority $priority
      */
-    public function savepriorityAction(\RKW\RkwWepstra\Domain\Model\Priority $priority)
+    public function savepriorityAction(Priority $priority)
     {
 
         try {
@@ -547,12 +535,12 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             // 1. add if not persist yet
             $priorityFromDb = $this->priorityRepository->findByParticipantAndJobFamily($priority->getParticipant(), $priority->getJobFamily());
 
-            if ($priorityFromDb instanceof \RKW\RkwWepstra\Domain\Model\Priority && !$priority->getUid()) {
+            if ($priorityFromDb instanceof Priority && !$priority->getUid()) {
                 // workaround because of identity problems
                 $priorityFromDb->setValue($priority->getValue());
                 $this->priorityRepository->update($priorityFromDb);
 
-            } elseif ($priority instanceof \RKW\RkwWepstra\Domain\Model\Priority && $priority->getUid()) {
+            } elseif ($priority instanceof Priority && $priority->getUid()) {
 
                 $this->priorityRepository->update($priority);
 
@@ -567,7 +555,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             $priorityList = $this->priorityRepository->findByJobFamily($priority->getJobFamily());
             $fullValue = 0;
 
-            /** @var \RKW\RkwWepstra\Domain\Model\Priority $priorityFromList */
+            /** @var Priority $priorityFromList */
             foreach ($priorityList as $priorityFromList) {
                 $fullValue += $priorityFromList->getValue();
             }
@@ -626,25 +614,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
 
 
             // print muss drinbleiben, damit Ajax-Api den Schritt im Frontend fertig verarbeitet (auch wenn nichts geschieht)
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
-
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -654,7 +639,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * action selectfamily
      * var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
      */
-    public function selectjobfamilyAction(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function selectjobfamilyAction(JobFamily $jobFamily)
     {
 
         try {
@@ -684,24 +669,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step2/SelectJobFamily.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -709,10 +692,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action updateplanninghorizon
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @param Wepstra $wepstra
      * @ignorevalidation $wepstra
      */
-    public function updateplanninghorizonAction(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function updateplanninghorizonAction(Wepstra $wepstra)
     {
 
         try {
@@ -739,24 +722,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             );
             */
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -767,7 +748,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * var \RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend
      * @ignorevalidation $salesTrend
      */
-    public function updatesalestrendAction(\RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend)
+    public function updatesalestrendAction(SalesTrend $salesTrend)
     {
 
         try {
@@ -775,23 +756,21 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($salesTrend->getCurrentSales()) || !is_numeric($salesTrend->getFutureSales()) || !is_numeric($salesTrend->getPercentage())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             if ($salesTrend->getPercentage() < 0 || $salesTrend->getPercentage() > 100) {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.salestrend_percentage', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.salestrend_percentage', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             $this->salesTrendRepository->update($salesTrend);
@@ -809,24 +788,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub2Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -836,7 +813,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * \RKW\RkwWepstra\Domain\Model\GeographicalSector $newGeographicalSector
      * @ignorevalidation $newGeographicalSector
      */
-    public function creategeographicalsectorAction(\RKW\RkwWepstra\Domain\Model\GeographicalSector $newGeographicalSector)
+    public function creategeographicalsectorAction(GeographicalSector $newGeographicalSector)
     {
 
         try {
@@ -844,12 +821,11 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($newGeographicalSector->getCurrentSales()) || !is_numeric($newGeographicalSector->getFutureSales()) || !is_numeric($newGeographicalSector->getPercentage())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             if ($newGeographicalSector->getTitle()) {
@@ -877,30 +853,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -908,10 +882,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updategeographicalsector
      *
-     * @param \RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector
+     * @param GeographicalSector $geographicalSector
      * @ignorevalidation $geographicalSector
      */
-    public function updategeographicalsectorAction(\RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector)
+    public function updategeographicalsectorAction(GeographicalSector $geographicalSector)
     {
 
         try {
@@ -920,26 +894,24 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($geographicalSector->getCurrentSales()) || !is_numeric($geographicalSector->getFutureSales()) || !is_numeric($geographicalSector->getPercentage())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             // proof title
             if (!$geographicalSector->getTitle()) {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
 
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             $this->geographicalSectorRepository->update($geographicalSector);
@@ -957,24 +929,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub2Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
 
@@ -985,7 +955,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
      * deletegeographicalsector
      * \RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector
      */
-    public function deletegeographicalsectorAction(\RKW\RkwWepstra\Domain\Model\GeographicalSector $geographicalSector)
+    public function deletegeographicalsectorAction(GeographicalSector $geographicalSector)
     {
 
         try {
@@ -1006,24 +976,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub2Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1031,10 +999,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * createproductsectorAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ProductSector $newProductSector
+     * @param ProductSector $newProductSector
      * @ignorevalidation $newProductSector
      */
-    public function createproductsectorAction(\RKW\RkwWepstra\Domain\Model\ProductSector $newProductSector)
+    public function createproductsectorAction(ProductSector $newProductSector)
     {
 
         try {
@@ -1042,12 +1010,11 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($newProductSector->getCurrentSales()) || !is_numeric($newProductSector->getFutureSales()) || !is_numeric($newProductSector->getPercentage())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             if ($newProductSector->getTitle()) {
@@ -1075,30 +1042,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1106,10 +1071,10 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updateproductsector
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ProductSector $productSector
+     * @param ProductSector $productSector
      * @ignorevalidation $productSector
      */
-    public function updateproductsectorAction(\RKW\RkwWepstra\Domain\Model\ProductSector $productSector)
+    public function updateproductsectorAction(ProductSector $productSector)
     {
 
         try {
@@ -1117,26 +1082,24 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($productSector->getCurrentSales()) || !is_numeric($productSector->getFutureSales()) || !is_numeric($productSector->getPercentage())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             // proof title
             if (!$productSector->getTitle()) {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
 
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             $this->productSectorRepository->update($productSector);
@@ -1154,24 +1117,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub2Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1179,9 +1140,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * deleteproductsector
      *
-     * @param \RKW\RkwWepstra\Domain\Model\ProductSector $productSector
+     * @param ProductSector $productSector
      */
-    public function deleteproductsectorAction(\RKW\RkwWepstra\Domain\Model\ProductSector $productSector)
+    public function deleteproductsectorAction(ProductSector $productSector)
     {
 
         try {
@@ -1202,24 +1163,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub2Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1253,24 +1212,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub3Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1279,7 +1236,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updateknowledge
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @param Wepstra $wepstra
      */
     /*	public function updateknowledgeAction(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra) {
 
@@ -1331,9 +1288,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * createtechdevAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $newTechnicalDevelopment
+     * @param TechnicalDevelopment $newTechnicalDevelopment
      */
-    public function createtechdevAction(\RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $newTechnicalDevelopment)
+    public function createtechdevAction(TechnicalDevelopment $newTechnicalDevelopment)
     {
 
         try {
@@ -1363,30 +1320,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -1395,9 +1350,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updatetechdevAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $technicalDevelopment
+     * @param TechnicalDevelopment $technicalDevelopment
      */
-    public function updatetechdevAction(\RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $technicalDevelopment)
+    public function updatetechdevAction(TechnicalDevelopment $technicalDevelopment)
     {
 
         try {
@@ -1406,14 +1361,13 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!$technicalDevelopment->getDescription()) {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
 
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             $this->technicalDevelopmentRepository->update($technicalDevelopment);
@@ -1433,24 +1387,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             );
             */
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1458,9 +1410,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * deletetechdev
      *
-     * @param \RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $technicalDevelopment
+     * @param TechnicalDevelopment $technicalDevelopment
      */
-    public function deletetechdevAction(\RKW\RkwWepstra\Domain\Model\TechnicalDevelopment $technicalDevelopment)
+    public function deletetechdevAction(TechnicalDevelopment $technicalDevelopment)
     {
 
         try {
@@ -1481,24 +1433,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub3Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1516,12 +1466,11 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($productivity->getValue()) || $productivity->getValue() > 100 || $productivity->getValue() < 0) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             $this->productivityRepository->update($productivity);
@@ -1541,24 +1490,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             );
             */
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1566,9 +1513,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * createcostsavingAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\CostSaving $newCostSaving
+     * @param CostSaving $newCostSaving
      */
-    public function createcostsavingAction(\RKW\RkwWepstra\Domain\Model\CostSaving $newCostSaving)
+    public function createcostsavingAction(CostSaving $newCostSaving)
     {
 
         try {
@@ -1576,12 +1523,11 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($newCostSaving->getValue())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             if ($newCostSaving->getTitle()) {
@@ -1609,30 +1555,28 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             } else {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
             }
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
 
@@ -1642,9 +1586,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * deletecostsaving
      *
-     * @param \RKW\RkwWepstra\Domain\Model\CostSaving $costSaving
+     * @param CostSaving $costSaving
      */
-    public function deletecostsavingAction(\RKW\RkwWepstra\Domain\Model\CostSaving $costSaving)
+    public function deletecostsavingAction(CostSaving $costSaving)
     {
 
         try {
@@ -1665,24 +1609,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub4Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1690,9 +1632,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updatecostsavingAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\CostSaving $costSaving
+     * @param CostSaving $costSaving
      */
-    public function updatecostsavingAction(\RKW\RkwWepstra\Domain\Model\CostSaving $costSaving)
+    public function updatecostsavingAction(CostSaving $costSaving)
     {
 
         try {
@@ -1701,26 +1643,24 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
             if (!is_numeric($costSaving->getValue())) {
                 $this->jsonHelper->setStatus(99);
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_controller_data.error_numeric', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
             // proof title
             if (!$costSaving->getTitle()) {
 
                 $this->jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.message_enter_text', 'rkw_wepstra'
                     ), 1
                 );
 
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
 
 
@@ -1739,24 +1679,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step3/Step3sub4Table.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1764,9 +1702,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * action savestrategyAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
+     * @param JobFamily $jobFamily
      */
-    public function savestrategyAction(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function savestrategyAction(JobFamily $jobFamily)
     {
 
         try {
@@ -1788,24 +1726,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step4/Strategy.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -1814,9 +1750,9 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     /**
      * updategraphAction
      *
-     * @param \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
+     * @param JobFamily $jobFamily
      */
-    public function updategraphAction(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function updategraphAction(JobFamily $jobFamily)
     {
 
         try {
@@ -1839,24 +1775,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 $template
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1866,7 +1800,7 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
     *
      * @param \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
     */
-    public function updatetasksAction(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function updatetasksAction(JobFamily $jobFamily)
     {
         try {
 
@@ -1886,24 +1820,22 @@ class DataController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/List/Step6/Tasks.html'
             );
             */
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 }

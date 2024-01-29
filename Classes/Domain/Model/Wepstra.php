@@ -922,10 +922,10 @@ class Wepstra extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the frontendUser
      *
-     * @param \RKW\RkwRegistration\Domain\Model\FrontendUser $frontendUser
+     * @param \RKW\RkwWepstra\Domain\Model\FrontendUser $frontendUser
      * @return void
      */
-    public function setFrontendUser(\RKW\RkwRegistration\Domain\Model\FrontendUser $frontendUser)
+    public function setFrontendUser(\RKW\RkwWepstra\Domain\Model\FrontendUser $frontendUser)
     {
         $this->frontendUser = $frontendUser;
     }

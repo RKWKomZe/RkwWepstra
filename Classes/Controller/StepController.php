@@ -2,10 +2,19 @@
 
 namespace RKW\RkwWepstra\Controller;
 
+use RKW\RkwRegistration\Tools\Authentication;
+use RKW\RkwRegistration\Tools\Registration;
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use RKW\RkwWepstra\Helper\BasicData;
+use RKW\RkwWepstra\Helper\Json;
+use RKW\RkwWepstra\Helper\VerifyStep;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use \RKW\RkwBasics\Helper\Common;
 use RKW\RkwRegistration\Tools\Password;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -55,14 +64,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         parent::initializeAction();
 
         // Initial / general: Create Helper
-        /** @var \RKW\RkwWepstra\Helper\Json jsonHelper */
-        $this->jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        /** @var Json jsonHelper */
+        $this->jsonHelper = GeneralUtility::makeInstance(Json::class);
 
-        /** @var \RKW\RkwWepstra\Helper\VerifyStep verifyStepHelper */
-        $this->verifyStepHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\VerifyStep');
+        /** @var VerifyStep verifyStepHelper */
+        $this->verifyStepHelper = GeneralUtility::makeInstance(VerifyStep::class);
 
-        /** @var \RKW\RkwWepstra\Helper\BasicData basicDataHelper */
-        $this->basicDataHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\BasicData');
+        /** @var BasicData basicDataHelper */
+        $this->basicDataHelper = GeneralUtility::makeInstance(BasicData::class);
 
         // get arguments (if any)
         $arguments = $this->request->getArguments();
@@ -77,11 +86,10 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
                 if ($this->getFrontendUser()->getUsername() != $token) {
 
-                    $rkwRegistrationAuthTool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
+                    $rkwRegistrationAuthTool = GeneralUtility::makeInstance(Authentication::class);
                     $rkwRegistrationAuthTool->logoutUser();
 
                     $this->redirect('index', null, null, $arguments);
-                    //===
                 }
             }
 
@@ -95,10 +103,10 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             }
 
             // create new wepstra if there is no existing wepstra of frontendUser (not for anonymousUser -> see "anonymousStart"-Function)
-            if (!$this->wepstra instanceof \RKW\RkwWepstra\Domain\Model\Wepstra) {
+            if (!$this->wepstra instanceof Wepstra) {
 
-                /** @var \RKW\RkwWepstra\Domain\Model\Wepstra wepstra */
-                $this->wepstra = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Wepstra');
+                /** @var Wepstra wepstra */
+                $this->wepstra = GeneralUtility::makeInstance(Wepstra::class);
                 $this->wepstra->setCrdate(time());
                 $this->wepstra->setLastUpdate(time());
 
@@ -113,7 +121,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
                 $this->wepstraRepository->add($this->wepstra);
                 $this->persistenceManager->persistAll();
-
             }
 
 
@@ -124,8 +131,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         ) {
 
             // find anonymous user by token and login
-            /** @var \RKW\RkwRegistration\Tools\Authentication $authentication */
-            $authentication = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
+            /** @var Authentication $authentication */
+            $authentication = GeneralUtility::makeInstance(Authentication::class);
             if ($anonymousUser = $authentication->validateAnonymousUser($token)) {
                 $authentication::loginUser($anonymousUser);
 
@@ -133,25 +140,23 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
                 $this->controllerContext = $this->buildControllerContext();
                 $this->addFlashMessage(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_step.invalid_token', 'rkw_wepstra'
                     )
                 );
             }
 
             $this->redirect('index');
-            //===
-
 
             // 2.3 else: Popup -> Login with user (a) or anonymous (b)?
         } else {
 
             // handle OptIn
-            $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwwepstra_rkwwepstra');
+            $registration = GeneralUtility::_GP('tx_rkwwepstra_rkwwepstra');
 
             // Fallback: If someone is using registration prefixes by any reason
             if (!$registration) {
-                $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
+                $registration = GeneralUtility::_GP('tx_rkwregistration_rkwregistration');
             }
 
             if (
@@ -160,7 +165,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             ) {
                 // use forward to kept the GET params
                 $this->redirect('loginOptIn', null, null, ['arguments' => $registration]);
-                //===
             }
 
             // handle login screen
@@ -169,7 +173,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             // if NOT a "login.." named action is called, show initial loginChoice screen!
             if (!strpos($arguments['action'], 'login') === 0) {
                 $this->redirect('loginChoice');
-                //===
             }
         }
 
@@ -184,7 +187,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             // use only if ajax is active!! (otherwise the JS is shown on a white page)
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 
-                $errorMessage = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_controller_step.invalid_session', 'rkw_wepstra');
+                $errorMessage = LocalizationUtility::translate('tx_rkwwepstra_controller_step.invalid_session', 'rkw_wepstra');
 
                 $replacements = array(
                     'errorMessage' => $errorMessage,
@@ -197,9 +200,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                     'Step/LoginChoice.html'
                 );
 
-                print (string)$this->jsonHelper;
+                print $this->jsonHelper;
                 exit();
-                //===
             }
         }
 
@@ -273,11 +275,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         */
 
 
-        /** @var \RKW\RkwRegistration\Tools\Registration $registration */
-        $registration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        /** @var Registration $registration */
+        $registration = GeneralUtility::makeInstance(Registration::class);
 
-        /** @var \RKW\RkwRegistration\Tools\Authentication $authentication */
-        $authentication = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
+        /** @var Authentication $authentication */
+        $authentication = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
 
         // register anonymous user and login
         $anonymousUser = $registration->registerAnonymous();
@@ -295,9 +297,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             'Ajax/Login/AnonymousHint.html'
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
     }
 
 
@@ -337,15 +338,16 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 		');
 
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
     }
 
 
     /**
      * action loginAuthenticate
      * (1.4 login) Authenticate login data from "loginFormAction"
+     *
+     * @deprecated Based on RkwRegistration functions
      *
      * @param integer $privacy
      * @return void
@@ -364,29 +366,27 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         if (!$loginData['username'] || !$loginData['password']) {
 
             $this->loginFormAction($loginData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.login_error', 'rkw_wepstra'
                 )
             );
             exit;
-            //===
         }
 
 
         if (!$privacy) {
             $this->loginFormAction($loginData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'registrationController.error.accept_privacy', 'rkw_registration'
                 )
             );
             exit;
-            //===
         }
 
 
         // check if there is a user that matches and log him in
-        /** @var \RKW\RkwRegistration\Tools\Authentication $authenticate */
-        $authenticate = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
+        /** @var Authentication $authenticate */
+        $authenticate = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
         $validateResult = null;
         if (
             ($validateResult = $authenticate->validateUser($loginData['username'], $loginData['password']))
@@ -406,9 +406,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/Login/LoginAuthenticate.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
 
@@ -416,35 +415,32 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         if ($validateResult == 2) {
 
             $this->loginFormAction($loginData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.login_blocked', 'rkw_wepstra'
                 )
             );
             exit;
-            //===
 
             // wrong login
         } else {
             if ($validateResult == 1) {
 
                 $this->loginFormAction($loginData,
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_step.login_error', 'rkw_wepstra'
                     )
                 );
                 exit;
-                //===
 
                 // user not found
             } else {
 
                 $this->loginFormAction($loginData,
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_step.login_notfound', 'rkw_wepstra'
                     )
                 );
                 exit;
-                //===
             }
         }
     }
@@ -454,11 +450,13 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * loginRegisterForm
      * (1.5 login) returns a register form
      *
-     * @param array $registerData
-     * @param string $errorMessage
+     * @deprecated Implements RkwRegistration functions
+     *
+     * @param array|null  $registerData
+     * @param string|null $errorMessage
      * @return void
      */
-    public function loginRegisterFormAction($registerData = null, $errorMessage = null)
+    public function loginRegisterFormAction(array $registerData = null, string $errorMessage = null)
     {
 
         $replacements = array(
@@ -474,9 +472,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             'Ajax/Login/RegisterForm.html'
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
 
     }
 
@@ -485,7 +482,9 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * loginRegisterUser
      * (1.6 login) register process
      *
-     * @param integer $privacy
+     * @deprecated Based on RkwRegistration functions
+     *
+     * @param integer|null $privacy
      * @return void
      * @return \RKW\RkwRegistration\Domain\Model\FrontendUser
      * @throws \RKW\RkwRegistration\Exception
@@ -495,7 +494,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
      */
-    public function loginRegisterUserAction($privacy = null)
+    public function loginRegisterUserAction(int $privacy = null)
     {
 
         $registerData = (array)$this->request->getArgument('registerData');
@@ -504,34 +503,31 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         if (!filter_var($registerData['email'], FILTER_VALIDATE_EMAIL)) {
 
             $this->loginRegisterFormAction($registerData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.invalid_email', 'rkw_wepstra'
                 )
             );
             exit;
-            //===
         }
 
         // 2. if terms are accepted
         if (!$registerData['terms']) {
 
             $this->loginRegisterFormAction($registerData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.invalid_term', 'rkw_wepstra'
                 )
             );
             exit;
-            //===
         }
 
         if (!$privacy) {
             $this->loginRegisterFormAction($registerData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'registrationController.error.accept_privacy', 'rkw_registration'
                 )
             );
             exit;
-            //===
         }
 
 
@@ -539,17 +535,16 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         if ($this->frontendUserRepository->findOneByEmailOrUsernameInactive($registerData['email'])) {
 
             $this->loginRegisterFormAction($registerData,
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.user_already_exists', 'rkw_wepstra'
                 )
             );
             exit;
-            //===
         }
 
         // 3. create user
-        /** @var \RKW\RkwRegistration\Tools\Registration $rkwRegistrationAuthTool */
-        $rkwRegistrationAuthTool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        /** @var Registration $rkwRegistrationAuthTool */
+        $rkwRegistrationAuthTool = GeneralUtility::makeInstance(Registration::class);
         $feUser = $rkwRegistrationAuthTool->register($registerData, false, null, null, $this->request);
 
         if ($feUser) {
@@ -565,21 +560,18 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/Login/RegisterUser.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
 
         // 4. else: Something went wrong
         $this->loginRegisterFormAction($registerData,
-            \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+            LocalizationUtility::translate(
                 'tx_rkwwepstra_controller_step.something_went_wrong', 'rkw_wepstra'
             )
         );
         exit;
-        //===
-
 
     }
 
@@ -588,6 +580,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * Logout
      * (1.7 login) Logout a user
      *
+     * @deprecated Based on RkwRegistration functions
+     *
      * @return void
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
@@ -595,17 +589,19 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
     public function logoutUserAction()
     {
 
-        /** @var \RKW\RkwRegistration\Tools\Authentication $rkwRegistrationAuthTool */
-        $rkwRegistrationAuthTool = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Authentication');
+        /** @var Authentication $rkwRegistrationAuthTool */
+        $rkwRegistrationAuthTool = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Authentication::class);
         $rkwRegistrationAuthTool->logoutUser();
 
         $this->redirect('index');
-        //===
     }
 
 
     /**
      * action optIn
+     *
+     * @deprecated Based on RkwRegistration functions
+     *
      * @param array $arguments
      * @return void
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException
@@ -627,14 +623,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         $tokenNo = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['token_no']);
         $userSha1 = preg_replace('/[^a-zA-Z0-9]/', '', $arguments['user']);
 
-        /** @var \RKW\RkwRegistration\Tools\Registration $register */
-        $register = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwRegistration\\Tools\\Registration');
+        /** @var Registration $register */
+        $register = GeneralUtility::makeInstance(\RKW\RkwRegistration\Tools\Registration::class);
         $check = $register->checkTokens($tokenYes, $tokenNo, $userSha1, $this->request);
 
         if ($check == 1) {
 
             $this->addFlashMessage(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.registration_successfull', $this->extensionName
                 )
             );
@@ -643,7 +639,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         } elseif ($check == 2) {
 
             $this->addFlashMessage(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.registration_canceled', $this->extensionName
                 )
             );
@@ -652,23 +648,23 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         } else {
 
             $this->addFlashMessage(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_controller_step.registration_error', $this->extensionName
                 ),
                 '',
-                \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR
+                AbstractMessage::ERROR
             );
         }
 
         $this->redirect('loginChoice');
-        //===
-
     }
 
 
     /**
      * action anonymousLink
      * (2.1 misc) info page without specific user context
+     *
+     * @deprecated Based on RkwRegistration functions
      *
      * @return void
      */
@@ -686,9 +682,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             ->build();
 
         $this->jsonHelper->setDialogue($uri, 1);
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
 
     }
 
@@ -721,17 +716,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             //	$this->jsonHelper->setJavaScript('jQuery(".overlay").detach();');
             $this->jsonHelper->setJavaScript('location.reload(true);');
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit;
-            //===
 
         } else {
 
             // redirect necessary (to reload the header-pulldown menu -> Switch between "Hilfemodus" and "Normalmodus")
             $this->redirect('index');
         }
-
-
     }
 
 
@@ -755,7 +747,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
         // 2. redirect to index (a new wepstra-project will created there)
         $this->redirect('index');
-        //===
     }
 
 
@@ -763,14 +754,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * action open
      * (2.4 misc)
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstraToOpen
+     * @param Wepstra $wepstraToOpen
      * @return void
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
-    public function openAction(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstraToOpen)
+    public function openAction(Wepstra $wepstraToOpen)
     {
 
         // 1. Security: Check if user is owner of given Wepstra (normal user, or anonymous)
@@ -803,7 +794,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             // No Ajax request possible here (is not a API call!)
             // User is not owner of the given project
             $this->addFlashMessage(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                LocalizationUtility::translate(
                     'tx_rkwwepstra_fluid_open.error', 'rkw_wepstra'
                 )
             );
@@ -811,8 +802,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
         // 4. redirect to index (the activated wepstra should be shown now)
         $this->redirect('index');
-        //===
-
     }
 
 
@@ -862,9 +851,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             'Ajax/Navigation.html'
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
     }
 
 
@@ -883,7 +871,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
         if (!$this->getFrontendUser()) {
 
             $this->redirect('loginChoice');
-            //===
 
         } else {
 
@@ -893,8 +880,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             $replacements = array(
                 'wepstra'                 => $this->wepstra,
                 'importantInformationPid' => $this->settings['importantInformationPid'],
-                'newParticipant'          => \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Participant'),
-                'newReasonWhy'            => \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\ReasonWhy'),
+                'newParticipant'          => GeneralUtility::makeInstance(\RKW\RkwWepstra\Domain\Model\Participant::class),
+                'newReasonWhy'            => GeneralUtility::makeInstance(\RKW\RkwWepstra\Domain\Model\ReasonWhy::class),
             );
 
             // create HTML via JSON ViewHelper
@@ -924,7 +911,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step0Action()
     {
-
         try {
 
             $replacements = array(
@@ -953,24 +939,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -982,7 +966,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step1Action()
     {
-
         try {
 
             // 1. verify step0
@@ -1014,24 +997,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1043,8 +1024,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step2Action()
     {
-
-
         try {
 
             // 1. verify step1
@@ -1093,26 +1072,23 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
-
     }
 
 
@@ -1123,7 +1099,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step2sub2Action()
     {
-
         try {
 
             // 1. verify step2
@@ -1144,11 +1119,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             if ($countSelectedJobFamilies < 1) {
 
                 /** @var \RKW\RkwWepstra\ViewHelpers\JobFamilySortViewHelper $jobFamilySortViewHelper */
-                $jobFamilySortViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\ViewHelpers\\JobFamilySortNormalViewHelper');
+                $jobFamilySortViewHelper = GeneralUtility::makeInstance(\RKW\RkwWepstra\ViewHelpers\JobFamilySortNormalViewHelper::class);
                 $sortedJobFamilies = $jobFamilySortViewHelper->render($this->wepstra);
 
                 /** @var \RKW\RkwWepstra\ViewHelpers\JobFamilySortViewHelper $jobFamilySortViewHelper */
-                //$jobFamilySortViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\ViewHelpers\\JobFamilySortNormalViewHelper');
+                //$jobFamilySortViewHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\RKW\RkwWepstra\ViewHelpers\JobFamilySortNormalViewHelper::class);
                 //$sortedJobFamilies = $jobFamilySortViewHelper->render($this->wepstra);
 
                 /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
@@ -1157,7 +1132,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                     if ($countSelectedJobFamilies == 1) {
                         break;
                     }
-                    //===
 
                     if (!$jobFamily->getSelected()) {
 
@@ -1195,24 +1169,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1224,7 +1196,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step3Action()
     {
-
         try {
 
             // 1. verify step2sub2
@@ -1257,24 +1228,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1286,7 +1255,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step3sub2Action()
     {
-
         try {
 
             // 1. verify step3 ~ NOTHING TO PROOF YET
@@ -1318,24 +1286,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -1348,7 +1314,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step3sub3Action()
     {
-
         try {
 
             // 1. verify step3
@@ -1380,24 +1345,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1409,7 +1372,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step3sub4Action()
     {
-
         try {
 
             // 1. verify step3sub3
@@ -1440,24 +1402,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
     }
@@ -1470,7 +1430,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step4Action()
     {
-
         try {
 
             // 1. verify step3sub3
@@ -1501,24 +1460,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1538,10 +1495,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             , 1
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
-
     }
 
 
@@ -1552,7 +1507,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step5Action()
     {
-
         try {
 
             // 1. verify step4
@@ -1583,24 +1537,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1612,7 +1564,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step5sub2Action()
     {
-
         try {
 
             // 1. verify step5
@@ -1643,24 +1594,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1672,7 +1621,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step5sub3Action()
     {
-
         try {
 
             // 1. verify step5sub2
@@ -1703,24 +1651,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1732,7 +1678,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step5sub4Action()
     {
-
         try {
 
             // 1. verify step5sub3
@@ -1763,24 +1708,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1792,7 +1735,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step5sub5Action()
     {
-
         try {
 
             // 1. verify step5sub4
@@ -1827,27 +1769,23 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
-
-
     }
 
 
@@ -1858,7 +1796,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     public function step6Action()
     {
-
         try {
 
             // 1. verify step5sub5
@@ -1889,24 +1826,22 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
             $this->jsonHelper->setJavaScript('jQuery("body,html").animate({scrollTop:0},300);');
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
 
         } catch (\Exception $e) {
 
             $this->jsonHelper->setDialogue(
                 sprintf(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate(
+                    LocalizationUtility::translate(
                         'tx_rkwwepstra_controller_data.error_unexpected', 'rkw_wepstra'
                     ),
                     $e->getMessage()
                 ), 99
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
     }
 
@@ -1919,7 +1854,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      */
     protected function getSettings($which = ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS)
     {
-
         return Common::getTyposcriptConfiguration('Rkwwepstra', $which);
         //===
     }
@@ -1929,12 +1863,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * action printAll
      * Possible to print only one part of it (step0, step1, step2, step2sub2, step3 etc)
      *
-     * @param string $printPart
+     * @param string|null $printPart
      * @return void
      */
-    public function printAllAction($printPart = null)
+    public function printAllAction(string $printPart = null)
     {
-
         // filter optional printPart
         $printPart = preg_replace('/[^stepub0-6]/', '', $printPart);
 
@@ -1951,7 +1884,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 $j = 0;
                 foreach ($jobFamilyList as $jobFamily) {
 
-                    $priority = $this->priorityRepository->findByParticipantAndJobFamily($participant, $jobFamily);
+                    $priority = $this->priorityRepository->findByParticipantAndJobFamily($participant->getUid(), $jobFamily->getUid());
                     if ($priority) {
                         $priorityList[$participant->getUid()][$jobFamily->getUid()] = $priority->getValue();
                     } else {
@@ -1973,7 +1906,6 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
 
         $this->view->assign('wepstra', $this->wepstra);
         $this->view->assign('printPart', $printPart);
-        //===
     }
 
 
@@ -1981,12 +1913,11 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * Copied from Extension RkwRegistration
      * action forgot password show
      *
-     * @param string $errorMessage
+     * @param string|null $errorMessage
      * @return void
      */
-    public function loginPasswordForgotShowAction($errorMessage = null)
+    public function loginPasswordForgotShowAction(string $errorMessage = null)
     {
-
         $replacements = array(
             'errorMessage' => $errorMessage,
         );
@@ -1998,10 +1929,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             'Ajax/Login/PasswordForgotShow.html'
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
-
     }
 
 
@@ -2016,14 +1945,14 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotException
      * @throws \TYPO3\CMS\Extbase\SignalSlot\Exception\InvalidSlotReturnException
      */
-    public function loginPasswordForgotAction($username)
+    public function loginPasswordForgotAction(string $username)
     {
 
         // 1. check if username is given
         if (!$username) {
 
             $replacements = array(
-                'errorMessage' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('registrationController.error.login_no_username', 'rkw_registration'),
+                'errorMessage' => LocalizationUtility::translate('registrationController.error.login_no_username', 'rkw_registration'),
             );
 
             $this->jsonHelper->setHtml(
@@ -2033,9 +1962,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/Login/PasswordForgotShow.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
         }
 
         // 2. check if user exists
@@ -2049,7 +1977,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             $this->signalSlotDispatcher->dispatch(__CLASS__, self::SIGNAL_AFTER_USER_PASSWORD_RESET, array($registeredUser, $plaintextPassword));
 
             $replacements = array(
-                'errorMessage' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('registrationController.message.new_password', 'rkw_registration'),
+                'errorMessage' => LocalizationUtility::translate('registrationController.message.new_password', 'rkw_registration'),
             );
 
             $this->jsonHelper->setHtml(
@@ -2059,15 +1987,13 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
                 'Ajax/Login/LoginForm.html'
             );
 
-            print (string)$this->jsonHelper;
+            print $this->jsonHelper;
             exit();
-            //===
-
         }
 
         // 3. If username does not exists (point 2.)
         $replacements = array(
-            'errorMessage' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('registrationController.error.invalid_username', 'rkw_registration'),
+            'errorMessage' => LocalizationUtility::translate('registrationController.error.invalid_username', 'rkw_registration'),
         );
 
         $this->jsonHelper->setHtml(
@@ -2077,9 +2003,8 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             'Ajax/Login/PasswordForgotShow.html'
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
     }
 
 
@@ -2096,9 +2021,7 @@ class StepController extends \RKW\RkwWepstra\Controller\AbstractController
             , 1
         );
 
-        print (string)$this->jsonHelper;
+        print $this->jsonHelper;
         exit();
-        //===
-
     }
 }

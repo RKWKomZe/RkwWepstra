@@ -15,6 +15,12 @@ namespace RKW\RkwWepstra\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use TYPO3\CMS\Core\Log\Logger;
+use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
+
 /**
  * WepstraCommandController
  *
@@ -23,7 +29,7 @@ namespace RKW\RkwWepstra\Controller;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\CommandController
+class WepstraCommandController extends CommandController
 {
 
     /**
@@ -164,7 +170,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
 
 
     /**
-     * @var \TYPO3\CMS\Core\Log\Logger
+     * @var Logger
      */
     protected $logger;
 
@@ -173,7 +179,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      */
     protected function initializeController()
     {
-        $this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+        $this->objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
     }
 
 
@@ -184,7 +190,7 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
      * @param integer $daysFromNow Defines which datasets (in days from now) will be deleted (crdate is reference)
      * @return void
      */
-    public function cleanupAbandonedCommand($daysFromNow = 730)
+    public function cleanupAbandonedCommand(int $daysFromNow = 730)
     {
 
         try {
@@ -197,19 +203,19 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
                     && (count($wepstraList))
                 ) {
 
-                    /** @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstraToDelete */
+                    /** @var Wepstra $wepstraToDelete */
                     foreach ($wepstraList as $wepstra) {
                         $this->deleteWepstra($wepstra);
-                        $this->getLogger()->log(\TYPO3\CMS\Core\Log\LogLevel::INFO, sprintf('Successfully deleted WePstra-project %s and all its sub-objects.', $wepstra->getUid()));
+                        $this->getLogger()->log(LogLevel::INFO, sprintf('Successfully deleted WePstra-project %s and all its sub-objects.', $wepstra->getUid()));
                     }
 
                 } else {
-                    $this->getLogger()->log(\TYPO3\CMS\Core\Log\LogLevel::INFO, 'Nothing to clean up in database (AbandonedCleanup).');
+                    $this->getLogger()->log(LogLevel::INFO, 'Nothing to clean up in database (AbandonedCleanup).');
                 }
             }
 
         } catch (\Exception $e) {
-            $this->getLogger()->log(\TYPO3\CMS\Core\Log\LogLevel::ERROR, sprintf('An error occured: %s', $e->getMessage()));
+            $this->getLogger()->log(LogLevel::ERROR, sprintf('An error occured: %s', $e->getMessage()));
         }
     }
 
@@ -217,10 +223,10 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
     /**
      * Deletes a Wepstra-project with all of its sub-objects
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstraToDelete
+     * @param Wepstra $wepstraToDelete
      * @return void
      */
-    protected function deleteWepstra(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstraToDelete)
+    protected function deleteWepstra(Wepstra $wepstraToDelete)
     {
 
         // 1.1 costSaving
@@ -332,17 +338,15 @@ class WepstraCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Command
     /**
      * Returns logger instance
      *
-     * @return \TYPO3\CMS\Core\Log\Logger
+     * @return Logger
      */
     protected function getLogger()
     {
-
-        if (!$this->logger instanceof \TYPO3\CMS\Core\Log\Logger) {
-            $this->logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Log\\LogManager')->getLogger(__CLASS__);
+        if (!$this->logger instanceof Logger) {
+            $this->logger = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
         }
 
         return $this->logger;
-        //===
     }
 
 }

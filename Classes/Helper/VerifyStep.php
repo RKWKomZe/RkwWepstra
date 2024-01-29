@@ -14,6 +14,14 @@ namespace RKW\RkwWepstra\Helper;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use RKW\RkwWepstra\Domain\Repository\JobFamilyRepository;
+use RKW\RkwWepstra\Domain\Repository\PriorityRepository;
+use RKW\RkwWepstra\Domain\Repository\WepstraRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+
 /**
  * VerifyStep
  *
@@ -30,28 +38,27 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step0(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step0(Wepstra $wepstra)
     {
 
         if (count($wepstra->getParticipants()) < 1) {
 
-            $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+            $jsonHelper = GeneralUtility::makeInstance(Json::class);
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.participant_minimum', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.participant_minimum', 'rkw_wepstra')
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep0(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -62,29 +69,27 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step1(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step1(Wepstra $wepstra)
     {
-
         // 1. proof step1
         if (count($wepstra->getJobFamily()) < 1) {
 
-            $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+            $jsonHelper = GeneralUtility::makeInstance(Json::class);
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_minimum_create', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_minimum_create', 'rkw_wepstra')
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep1(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
         // 2. proof step0 (participants) and step1 (jobFamilies)
@@ -100,7 +105,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step2(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step2(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -119,7 +124,7 @@ class VerifyStep
             $j = 0;
             foreach ($jobFamilyList as $jobFamily) {
 
-                $priorityRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\PriorityRepository');
+                $priorityRepository = GeneralUtility::makeInstance(PriorityRepository::class);
                 $priority = $priorityRepository->findByParticipantAndJobFamily($participant, $jobFamily);
                 if (!$priority) {
                     $allParticipantsHaveDefinedPriority = false;
@@ -132,23 +137,22 @@ class VerifyStep
         // proof wepstra on minimum one participant
         if (!$allParticipantsHaveDefinedPriority) {
 
-            $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+            $jsonHelper = GeneralUtility::makeInstance(Json::class);
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.priorities', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.priorities', 'rkw_wepstra')
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep2(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -159,7 +163,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step2sub2(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step2sub2(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -167,8 +171,8 @@ class VerifyStep
         $this->proofSteps($wepstra, 1);
 
         // 2. proof step 2sub2
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
-        $jobFamilyRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\JobFamilyRepository');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
+        $jobFamilyRepository = GeneralUtility::makeInstance(JobFamilyRepository::class);
         $selectedJobFamilies = $jobFamilyRepository->findSelectedByWepstra($wepstra->getUid());
 
         // at least 2 job jobfamilies have to be selected
@@ -176,13 +180,12 @@ class VerifyStep
 
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_minimum', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_minimum', 'rkw_wepstra')
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // only 8 jobfamilies can selected at once
@@ -190,20 +193,19 @@ class VerifyStep
 
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_maximum', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.jobfamily_maximum', 'rkw_wepstra')
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep2sub2(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
     }
@@ -215,7 +217,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step3(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step3(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -223,24 +225,23 @@ class VerifyStep
         $this->proofSteps($wepstra);
 
         // 2. proof step3
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         if (!$wepstra->getTargetDate()) {
 
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.target_date', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.target_date', 'rkw_wepstra')
                 , 1
             );
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep3(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -251,15 +252,14 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step3sub2(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step3sub2(Wepstra $wepstra)
     {
-
         // 1. proof step0 (participants) and step1 (jobFamilies)
         // necessary datasets could be deleted afterwards
         $this->proofSteps($wepstra);
 
         // 2. proof step3sub2
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         // check percentage salestrend
         /** @var \RKW\RkwWepstra\Domain\Model\SalesTrend $salesTrend */
@@ -268,12 +268,11 @@ class VerifyStep
             if ($salesTrend->getPercentage() < 1 || $salesTrend->getPercentage() > 100) {
 
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.salestrend_percentage', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.salestrend_percentage', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
         }
 
@@ -292,12 +291,11 @@ class VerifyStep
 
             if (!$valueIsSet) {
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.geographical_sector_set_value', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.geographical_sector_set_value', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
 
         }
@@ -318,12 +316,11 @@ class VerifyStep
 
             if (!$valueIsSet) {
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.product_sector_set_value', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.product_sector_set_value', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
 
 
@@ -392,9 +389,9 @@ class VerifyStep
         */
         // mark step as verified
         $wepstra->getStepControl()->setStep3sub2(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -405,7 +402,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step3sub3(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step3sub3(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -413,7 +410,7 @@ class VerifyStep
         $this->proofSteps($wepstra);
 
         // 2. proof step3sub3
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         $minimumOneIsSelected = false;
         $constantIsSelected = false;
@@ -431,12 +428,11 @@ class VerifyStep
         }
         if (!$minimumOneIsSelected) {
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.performance_select_one', 'rkw_wepstra')
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.performance_select_one', 'rkw_wepstra')
                 , 1
             );
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
 
@@ -456,21 +452,17 @@ class VerifyStep
                     if (!$performance->getDescription() || !$performance->getInfluence() || !$performance->getKnowledge()) {
                         $valueIsSet = false;
                     }
-
                 }
-
             }
-
 
             // throw error if a non-constant value is selected, but no values are set
             if (!$valueIsSet) {
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.performance_set_value', 'rkw_wepstra')
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.performance_set_value', 'rkw_wepstra')
                     , 1
                 );
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
         } else {
 
@@ -479,16 +471,13 @@ class VerifyStep
 
                 if ($performance->getType() && $performance->getValue() == 1) {
                     $jsonHelper->setDialogue(
-                        \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.select_constant_or_other', 'rkw_wepstra')
+                        LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.select_constant_or_other', 'rkw_wepstra')
                         , 1
                     );
-                    print (string)$jsonHelper;
+                    print $jsonHelper;
                     exit();
-                    //===
                 }
             }
-
-
         }
 
         /*
@@ -514,9 +503,9 @@ class VerifyStep
         */
         // mark step as verified
         $wepstra->getStepControl()->setStep3sub3(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -527,7 +516,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step3sub4(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step3sub4(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -538,9 +527,9 @@ class VerifyStep
 
         // mark step as verified
         $wepstra->getStepControl()->setStep3sub4(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -551,7 +540,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step4(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step4(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -562,9 +551,9 @@ class VerifyStep
 
         // mark step as verified
         $wepstra->getStepControl()->setStep4(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -575,7 +564,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step5(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step5(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -583,7 +572,7 @@ class VerifyStep
         $this->proofSteps($wepstra);
 
         // 2. proof step5
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
         foreach ($wepstra->getJobFamily() as $jobFamily) {
@@ -597,12 +586,11 @@ class VerifyStep
 
                 } else {
                     $jsonHelper->setDialogue(
-                        \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
+                        LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
                         , 1
                     );
-                    print (string)$jsonHelper;
+                    print $jsonHelper;
                     exit();
-                    //===
                 }
             }
 
@@ -610,9 +598,9 @@ class VerifyStep
 
         // mark step as verified
         $wepstra->getStepControl()->setStep5(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
     }
@@ -624,7 +612,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step5sub2(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step5sub2(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -632,7 +620,7 @@ class VerifyStep
         $this->proofSteps($wepstra);
 
         // 2. proof step5
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
         foreach ($wepstra->getJobFamily() as $jobFamily) {
@@ -646,22 +634,20 @@ class VerifyStep
 
                 } else {
                     $jsonHelper->setDialogue(
-                        \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
+                        LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
                         , 1
                     );
-                    print (string)$jsonHelper;
+                    print $jsonHelper;
                     exit();
-                    //===
                 }
             }
-
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep5sub2(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
     }
@@ -673,15 +659,14 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step5sub3(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step5sub3(Wepstra $wepstra)
     {
-
         // 1. proof step0 (participants) and step1 (jobFamilies)
         // necessary datasets could be deleted afterwards
         $this->proofSteps($wepstra);
 
         // 2. proof step5
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
         foreach ($wepstra->getJobFamily() as $jobFamily) {
@@ -695,22 +680,20 @@ class VerifyStep
 
                 } else {
                     $jsonHelper->setDialogue(
-                        \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
+                        LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
                         , 1
                     );
-                    print (string)$jsonHelper;
+                    print $jsonHelper;
                     exit();
-                    //===
                 }
             }
-
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep5sub3(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
     }
@@ -722,7 +705,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step5sub4(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step5sub4(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -730,7 +713,7 @@ class VerifyStep
         $this->proofSteps($wepstra);
 
         // 2. proof step5sub2
-        $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+        $jsonHelper = GeneralUtility::makeInstance(Json::class);
 
         /** @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily */
         foreach ($wepstra->getJobFamily() as $jobFamily) {
@@ -744,21 +727,20 @@ class VerifyStep
 
                 } else {
                     $jsonHelper->setDialogue(
-                        \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
+                        LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.place_element', 'rkw_wepstra')
                         , 1
                     );
-                    print (string)$jsonHelper;
+                    print $jsonHelper;
                     exit();
-                    //===
                 }
             }
         }
 
         // mark step as verified
         $wepstra->getStepControl()->setStep5sub4(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
 
     }
@@ -770,7 +752,7 @@ class VerifyStep
      * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    public function step5sub5(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function step5sub5(Wepstra $wepstra)
     {
 
         // 1. proof step0 (participants) and step1 (jobFamilies)
@@ -781,9 +763,9 @@ class VerifyStep
 
         // mark step as verified
         $wepstra->getStepControl()->setStep5sub5(1);
-        $wepstraRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\WepstraRepository');
+        $wepstraRepository = GeneralUtility::makeInstance(WepstraRepository::class);
         $wepstraRepository->update($wepstra);
-        $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $persistenceManager->persistAll();
     }
 
@@ -802,38 +784,36 @@ class VerifyStep
      * @var boolean $checkJobFamily
      * @return RKW\RkwWepstra\Helper\Json|void
      */
-    private function proofSteps(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra, $checkFromStep = 2)
+    private function proofSteps(Wepstra $wepstra, $checkFromStep = 2)
     {
 
         // 1.1 proof step0 (participants)
         // necessary datasets could be deleted afterwards
         if (!$wepstra->getStepControl()->getStep0()) {
-            $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+            $jsonHelper = GeneralUtility::makeInstance(Json::class);
             $jsonHelper->setStatus(99);
             $jsonHelper->setDialogue(
-                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(0))
+                LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(0))
                 , 1
             );
 
-            print (string)$jsonHelper;
+            print $jsonHelper;
             exit();
-            //===
         }
 
         if ($checkFromStep >= 1) {
             // 1.2 proof step1 (jobFamilies)
             // necessary datasets could be deleted afterwards
             if (!$wepstra->getStepControl()->getStep1()) {
-                $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+                $jsonHelper = GeneralUtility::makeInstance(Json::class);
                 $jsonHelper->setStatus(99);
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(1))
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(1))
                     , 1
                 );
 
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
         }
 
@@ -841,20 +821,17 @@ class VerifyStep
             // 1.2 proof step1 (jobFamilies)
             // necessary datasets could be deleted afterwards
             if (!$wepstra->getStepControl()->getStep2() || !$wepstra->getStepControl()->getStep2sub2()) {
-                $jsonHelper = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Helper\\Json');
+                $jsonHelper = GeneralUtility::makeInstance(Json::class);
                 $jsonHelper->setStatus(99);
                 $jsonHelper->setDialogue(
-                    \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(2))
+                    LocalizationUtility::translate('tx_rkwwepstra_helper_verifystep.step_incomplete', 'rkw_wepstra', array(2))
                     , 1
                 );
 
-                print (string)$jsonHelper;
+                print $jsonHelper;
                 exit();
-                //===
             }
         }
-
     }
-
 
 }

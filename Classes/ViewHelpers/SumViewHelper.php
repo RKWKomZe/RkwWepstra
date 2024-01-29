@@ -15,6 +15,8 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * Class SumViewHelper
  *
@@ -23,7 +25,7 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class SumViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class SumViewHelper extends AbstractViewHelper
 {
     /**
      * Returns sum of values
@@ -33,10 +35,7 @@ class SumViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
      */
     public function render($values)
     {
-
         return array_sum($values);
-        //===
     }
-
 
 }

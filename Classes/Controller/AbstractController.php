@@ -12,6 +12,10 @@ namespace RKW\RkwWepstra\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
+use RKW\RkwWepstra\Domain\Repository\FrontendUserRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
 /**
  * AbstractController
  *
@@ -20,7 +24,7 @@ namespace RKW\RkwWepstra\Controller;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class AbstractController extends ActionController
 {
 	/**
 	 * wepstraRepository
@@ -145,7 +149,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	/**
 	 * frontendUserRepository
 	 *
-	 * @var \RKW\RkwWepstra\Domain\Repository\FrontendUserRepository
+	 * @var FrontendUserRepository
 	 * @inject
 	 */
 	protected $frontendUserRepository;
@@ -194,11 +198,9 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 			&& ($GLOBALS['TSFE']->fe_user->user['uid'])
 		) {
 			return intval($GLOBALS['TSFE']->fe_user->user['uid']);
-			//===
 		}
 
 		return FALSE;
-		//===
 	}
 
 
@@ -210,15 +212,14 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 */
 	protected function getFrontendUser() {
 
-		/** @var \RKW\RkwWepstra\Domain\Repository\FrontendUserRepository $frontendUserRepository */
-		$frontendUserRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\FrontendUserRepository');
+		/** @var FrontendUserRepository $frontendUserRepository */
+		$frontendUserRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(FrontendUserRepository::class);
 		$this->frontendUser = $frontendUserRepository->findByIdentifier($this->getFrontendUserId());
 
-		if ($this->frontendUser instanceof \TYPO3\CMS\Extbase\Domain\Model\FrontendUser)
-			return $this->frontendUser;
-			//===
+		if ($this->frontendUser instanceof \TYPO3\CMS\Extbase\Domain\Model\FrontendUser) {
+            return $this->frontendUser;
+        }
 
 		return NULL;
-		//===
 	}
 }

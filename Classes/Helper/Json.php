@@ -38,56 +38,50 @@ class Json extends \RKW\RkwBasics\Helper\Json
     /**
      * Sets dialogue
      *
-     * @param string $message
+     * @param string  $message
      * @param integer $type
      * @return $this
      */
-    public function setDialogue($message, $type = 1)
+    public function setDialogue(string $message, int $type = 1): Json
     {
-
         if (!$message) {
             return $this;
         }
-        //===
 
         $finalType = 99;
-        if (in_array(intval($type), array(1, 2, 99))) {
-            $finalType = intval($type);
+        if (in_array($type, array(1, 2, 99))) {
+            $finalType = $type;
         }
 
         $this->dialogue['message'] = $message;
         $this->dialogue['type'] = $finalType;
 
         return $this;
-        //===
     }
 
 
     /**
      * Sets Modal
      *
-     * @param string $message
+     * @param string  $message
      * @param integer $type
      * @return $this
      */
-    public function setModal($message, $type = 1)
+    public function setModal(string $message, int $type = 1): Json
     {
-
         if (!$message) {
             return $this;
         }
-        //===
 
         $finalType = 99;
-        if (in_array(intval($type), array(1, 2, 99))) {
-            $finalType = intval($type);
+        if (in_array($type, array(1, 2, 99))) {
+            $finalType = $type;
         }
 
         $this->modal['message'] = $message;
         $this->modal['type'] = $finalType;
 
         return $this;
-        //===
     }
 
 
@@ -98,7 +92,6 @@ class Json extends \RKW\RkwBasics\Helper\Json
      */
     public function __toString()
     {
-
         $returnArray = array();
         $returnArray['status'] = $this->status;
 
@@ -137,7 +130,6 @@ class Json extends \RKW\RkwBasics\Helper\Json
         }
 
         return json_encode($returnArray);
-        //===
     }
 
 }

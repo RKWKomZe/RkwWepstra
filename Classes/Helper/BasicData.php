@@ -14,6 +14,22 @@ namespace RKW\RkwWepstra\Helper;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\GeographicalSector;
+use RKW\RkwWepstra\Domain\Model\Performance;
+use RKW\RkwWepstra\Domain\Model\Productivity;
+use RKW\RkwWepstra\Domain\Model\ProductSector;
+use RKW\RkwWepstra\Domain\Model\ReasonWhy;
+use RKW\RkwWepstra\Domain\Model\SalesTrend;
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use RKW\RkwWepstra\Domain\Repository\GeographicalSectorRepository;
+use RKW\RkwWepstra\Domain\Repository\PerformanceRepository;
+use RKW\RkwWepstra\Domain\Repository\ProductivityRepository;
+use RKW\RkwWepstra\Domain\Repository\ProductSectorRepository;
+use RKW\RkwWepstra\Domain\Repository\ReasonWhyRepository;
+use RKW\RkwWepstra\Domain\Repository\SalesTrendRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+
 /**
  * BasicData
  *
@@ -27,10 +43,10 @@ class BasicData
     /**
      * createAllBasicData
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function createAllBasicData(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function createAllBasicData(Wepstra $wepstra)
     {
 
         // Step0
@@ -74,25 +90,25 @@ class BasicData
     /**
      * reasonWhy
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function reasonWhy(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function reasonWhy(Wepstra $wepstra)
     {
-        $reasonWhyRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\ReasonWhyRepository');
+        $reasonWhyRepository = GeneralUtility::makeInstance(ReasonWhyRepository::class);
 
-        $reasonWhy = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\ReasonWhy');
-        $reasonWhy->setDescription(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why1', 'rkw_wepstra'));
+        $reasonWhy = GeneralUtility::makeInstance(ReasonWhy::class);
+        $reasonWhy->setDescription(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why1', 'rkw_wepstra'));
         $reasonWhyRepository->add($reasonWhy);
         $wepstra->addReasonWhy($reasonWhy);
 
-        $reasonWhy = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\ReasonWhy');
-        $reasonWhy->setDescription(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why2', 'rkw_wepstra'));
+        $reasonWhy = GeneralUtility::makeInstance(ReasonWhy::class);
+        $reasonWhy->setDescription(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why2', 'rkw_wepstra'));
         $reasonWhyRepository->add($reasonWhy);
         $wepstra->addReasonWhy($reasonWhy);
 
-        $reasonWhy = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\ReasonWhy');
-        $reasonWhy->setDescription(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why3', 'rkw_wepstra'));
+        $reasonWhy = GeneralUtility::makeInstance(ReasonWhy::class);
+        $reasonWhy->setDescription(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.reason_why3', 'rkw_wepstra'));
         $reasonWhyRepository->add($reasonWhy);
         $wepstra->addReasonWhy($reasonWhy);
 
@@ -102,26 +118,25 @@ class BasicData
     /**
      * geographicalSector
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function geographicalSector(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function geographicalSector(Wepstra $wepstra)
     {
+        $geographicalSectorRepository = GeneralUtility::makeInstance(GeographicalSectorRepository::class);
 
-        $geographicalSectorRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\GeographicalSectorRepository');
-
-        $geographicalSector = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\GeographicalSector');
-        $geographicalSector->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.regions_germany', 'rkw_wepstra'));
+        $geographicalSector = GeneralUtility::makeInstance(GeographicalSector::class);
+        $geographicalSector->setTitle(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.regions_germany', 'rkw_wepstra'));
         $geographicalSectorRepository->add($geographicalSector);
         $wepstra->addGeographicalSector($geographicalSector);
 
-        $geographicalSector = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\GeographicalSector');
-        $geographicalSector->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.europe', 'rkw_wepstra'));
+        $geographicalSector = GeneralUtility::makeInstance(GeographicalSector::class);
+        $geographicalSector->setTitle(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.europe', 'rkw_wepstra'));
         $geographicalSectorRepository->add($geographicalSector);
         $wepstra->addGeographicalSector($geographicalSector);
 
-        $geographicalSector = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\GeographicalSector');
-        $geographicalSector->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.worldwide', 'rkw_wepstra'));
+        $geographicalSector = GeneralUtility::makeInstance(GeographicalSector::class);
+        $geographicalSector->setTitle(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.worldwide', 'rkw_wepstra'));
         $geographicalSectorRepository->add($geographicalSector);
         $wepstra->addGeographicalSector($geographicalSector);
     }
@@ -130,16 +145,15 @@ class BasicData
     /**
      * productSector
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function productSector(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function productSector(Wepstra $wepstra)
     {
+        $productSectorRepository = GeneralUtility::makeInstance(ProductSectorRepository::class);
 
-        $productSectorRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\ProductSectorRepository');
-
-        $productSector = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\ProductSector');
-        $productSector->setTitle(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.product_sector_1', 'rkw_wepstra'));
+        $productSector = GeneralUtility::makeInstance(ProductSector::class);
+        $productSector->setTitle(LocalizationUtility::translate('tx_rkwwepstra_helper_basicdata.product_sector_1', 'rkw_wepstra'));
         $productSectorRepository->add($productSector);
         $wepstra->addProductSector($productSector);
     }
@@ -148,15 +162,14 @@ class BasicData
     /**
      * salesTrend
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function salesTrend(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function salesTrend(Wepstra $wepstra)
     {
+        $salesTrendRepository = GeneralUtility::makeInstance(SalesTrendRepository::class);
 
-        $salesTrendRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\SalesTrendRepository');
-
-        $salesTrend = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\SalesTrend');
+        $salesTrend = GeneralUtility::makeInstance(SalesTrend::class);
         $salesTrendRepository->add($salesTrend);
         $wepstra->addSalesTrend($salesTrend);
     }
@@ -165,30 +178,29 @@ class BasicData
     /**
      * performance
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function performance(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function performance(Wepstra $wepstra)
     {
+        $performanceRepository = GeneralUtility::makeInstance(PerformanceRepository::class);
 
-        $performanceRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\PerformanceRepository');
-
-        $performance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Performance');
+        $performance = GeneralUtility::makeInstance(Performance::class);
         $performance->setType(0);
         $performanceRepository->add($performance);
         $wepstra->addPerformance($performance);
 
-        $performance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Performance');
+        $performance = GeneralUtility::makeInstance(Performance::class);
         $performance->setType(1);
         $performanceRepository->add($performance);
         $wepstra->addPerformance($performance);
 
-        $performance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Performance');
+        $performance = GeneralUtility::makeInstance(Performance::class);
         $performance->setType(2);
         $performanceRepository->add($performance);
         $wepstra->addPerformance($performance);
 
-        $performance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Performance');
+        $performance = GeneralUtility::makeInstance(Performance::class);
         $performance->setType(3);
         $performanceRepository->add($performance);
         $wepstra->addPerformance($performance);
@@ -199,10 +211,10 @@ class BasicData
     /**
      * technicalDevelopment
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function technicalDevelopment(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function technicalDevelopment(Wepstra $wepstra)
     {
 
         /*
@@ -219,15 +231,15 @@ class BasicData
     /**
      * productivity
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function productivity(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function productivity(Wepstra $wepstra)
     {
 
-        $productivityRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Repository\\ProductivityRepository');
+        $productivityRepository = GeneralUtility::makeInstance(ProductivityRepository::class);
 
-        $productivity = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('RKW\\RkwWepstra\\Domain\\Model\\Productivity');
+        $productivity = GeneralUtility::makeInstance(Productivity::class);
         $productivity->setValue(0);
         $productivityRepository->add($productivity);
         $wepstra->addProductivity($productivity);
@@ -237,10 +249,10 @@ class BasicData
     /**
      * costSaving
      *
-     * @var \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @var Wepstra $wepstra
      * @return void
      */
-    public function costSaving(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function costSaving(Wepstra $wepstra)
     {
 
         /*

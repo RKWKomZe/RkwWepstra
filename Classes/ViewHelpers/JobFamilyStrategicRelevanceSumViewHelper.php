@@ -15,6 +15,9 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\JobFamily;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * Class JobFamilyStrategicRelevanceSumViewHelper
  *
@@ -23,25 +26,22 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class JobFamilyStrategicRelevanceSumViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class JobFamilyStrategicRelevanceSumViewHelper extends AbstractViewHelper
 {
     /**
      * Returns sum of relevant values
      *
-     * @var \RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily
+     * @var JobFamily $jobFamily
      * @return string
      */
-    public function render(\RKW\RkwWepstra\Domain\Model\JobFamily $jobFamily)
+    public function render(JobFamily $jobFamily)
     {
-
         $sum = $jobFamily->getStrategicRelevanceMarket() + $jobFamily->getStrategicRelevanceInnovation() + $jobFamily->getStrategicRelevanceProductivity();
         if ($sum > 9) {
             $sum = 9;
         }
 
         return $sum;
-        //===
     }
-
 
 }

@@ -23,7 +23,7 @@ namespace RKW\RkwWepstra\Domain\Model;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class FrontendUser extends \RKW\RkwRegistration\Domain\Model\FrontendUser
+class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 {
 
     /**
@@ -42,16 +42,5 @@ class FrontendUser extends \RKW\RkwRegistration\Domain\Model\FrontendUser
     {
         return $this->lastlogin;
     }
-
-    /**
-     * Sets the lastlogin
-     *
-     * @param integer $lastlogin
-     * @return void
-     
-    public function setLastlogin($lastlogin)
-    {
-        $this->lastlogin = $lastlogin;
-    }*/
 
 }

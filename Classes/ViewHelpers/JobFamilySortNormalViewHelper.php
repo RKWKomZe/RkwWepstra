@@ -15,6 +15,10 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
+use RKW\RkwWepstra\Domain\Model\JobFamily;
+use RKW\RkwWepstra\Domain\Model\Wepstra;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+
 /**
  * Class JobFamilySortNormalViewHelper
  *
@@ -23,44 +27,37 @@ namespace RKW\RkwWepstra\ViewHelpers;
  * @package RKW_RkwWepstra
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class JobFamilySortNormalViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class JobFamilySortNormalViewHelper extends AbstractViewHelper
 {
     /**
      * Returns value of array index
      *
-     * @param \RKW\RkwWepstra\Domain\Model\Wepstra $wepstra
+     * @param Wepstra $wepstra
      * @param boolean $odd
      * @return array
      */
-    public function render(\RKW\RkwWepstra\Domain\Model\Wepstra $wepstra)
+    public function render(Wepstra $wepstra)
     {
-
         $jobFamilies = $wepstra->getJobFamily()->toArray();
         usort($jobFamilies, array($this, "sortByAverageValue"));
 
         return $jobFamilies;
-        //===
     }
 
     /**
      * Sorting method
      *
-     * @var \RKW\RkwWepstra\Domain\Model\JobFamily $a
-     * @var \RKW\RkwWepstra\Domain\Model\JobFamily $b
-     * @return array
+     * @var JobFamily $a
+     * @var JobFamily $b
+     * @return int
      */
-    private function sortByAverageValue(\RKW\RkwWepstra\Domain\Model\JobFamily $a, \RKW\RkwWepstra\Domain\Model\JobFamily $b)
+    private function sortByAverageValue(JobFamily $a, JobFamily $b)
     {
-
         if ($a->getPriorityAverage() == $b->getPriorityAverage()) {
             return 0;
         }
 
-        //===
-
         return ($a->getPriorityAverage() < $b->getPriorityAverage()) ? 1 : -1;
-        //===
     }
-
 
 }
