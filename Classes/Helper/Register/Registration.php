@@ -10,6 +10,7 @@ use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -104,21 +105,9 @@ class Registration implements \TYPO3\CMS\Core\SingletonInterface
             $anonymousUser->setTxRkwwepstraLanguageKey($settings['users']['languageKeyOnRegister']);
         }
 
-        // set users server ip-address
-        $remoteAddr = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
-        if ($_SERVER['HTTP_X_FORWARDED_FOR']) {
-            $ips = GeneralUtility::trimExplode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-            if ($ips[0]) {
-                $remoteAddr = filter_var($ips[0], FILTER_VALIDATE_IP);
-            }
-        }
-
-        // @toDo: Privacy??
-        //$anonymousUser->setTxRkwregistrationRegisterRemoteIp($remoteAddr);
-
         // set password
-        /** @var \RKW\RkwWepstra\Helper\Register\Password $passwordTool */
-        $passwordTool = GeneralUtility::makeInstance(\RKW\RkwWepstra\Helper\Register\Password::class);
+        /** @var Password $passwordTool */
+        $passwordTool = GeneralUtility::makeInstance(Password::class);
         $passwordTool->generatePassword($anonymousUser);
 
         // set groups - this is needed - otherwise the user won't be able to login at all!
@@ -146,13 +135,12 @@ class Registration implements \TYPO3\CMS\Core\SingletonInterface
     public function setUserGroupsOnRegister(FrontendUser $frontendUser, string $userGroups = '')
     {
 
-        if (!$userGroups) {
+        if (
+            !$userGroups
+            && $frontendUser->getTxRkwwepstraIsAnonymous()
+        ) {
             $settings = $this->getSettings();
-            $userGroups = $settings['users']['groupsOnRegister'];
-
-            if ($frontendUser->getTxRkwwepstraIsAnonymous()) {
-                $userGroups = $settings['users']['groupsOnRegisterAnonymous'];
-            }
+            $userGroups = $settings['users']['groupsOnRegisterAnonymous'];
         }
 
         $userGroupIds = GeneralUtility::trimExplode(',', $userGroups);
@@ -226,7 +214,7 @@ class Registration implements \TYPO3\CMS\Core\SingletonInterface
     {
 
         if (!$this->settings) {
-            $this->settings = Common::getTyposcriptConfiguration('Rkwregistration');
+            $this->settings = Common::getTyposcriptConfiguration('Rkwwepstra');
         }
 
         if (!$this->settings) {

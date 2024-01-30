@@ -9,14 +9,6 @@
 			</p>
 			<ul>
 
-				<!-- Not seen in html-template - so not here ;-)
-				<li>
-					<a href="">
-						<f:translate key="tx_rkwwepstra_fluid_header.home" extensionName="RkwWepstra" />
-					</a>
-				</li>
-				-->
-
 				<li>
 					<f:link.action class="ajax" action="projectList" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">
 						<f:translate key="tx_rkwwepstra_fluid_header.open" extensionName="RkwWepstra" />
@@ -41,8 +33,24 @@
 					</f:if>
 				</li>
 
-				<!-- get rest of menu here -->
-				<f:cObject typoscriptObjectPath="lib.txRkwWepstraMenu" />
+                <f:comment><!-- terms --></f:comment>
+                <li class="small">
+                    <f:link.external uri="{settings.legal.privacy}" target="_blank">
+                        &gt; <f:translate key="tx_rkwwepstra_fluid_header.privacy" extensionName="RkwWepstra" />
+                    </f:link.external>
+                </li>
+
+                <li class="small">
+                    <f:link.external uri="{settings.legal.disclaimer}" target="_blank">
+                        &gt; <f:translate key="tx_rkwwepstra_fluid_header.disclaimer" extensionName="RkwWepstra" />
+                    </f:link.external>
+                </li>
+
+                <li class="small">
+                    <f:link.external uri="{settings.legal.imprint}" target="_blank">
+                        &gt; <f:translate key="tx_rkwwepstra_fluid_header.imprint" extensionName="RkwWepstra" />
+                    </f:link.external>
+                </li>
 
 				<li class="small">
 					<f:link.action action="logoutUser" controller="Step" extensionName="RkwWepstra" pluginName="Rkwwepstra">

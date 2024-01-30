@@ -413,6 +413,9 @@
 			<trans-unit id="tx_rkwwepstra_fluid_header.disclaimer">
 				<source>Disclaimer</source>
 			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_fluid_header.privacy">
+                <source>Privacy</source>
+            </trans-unit>
 
 
 			<!-- navigation -->

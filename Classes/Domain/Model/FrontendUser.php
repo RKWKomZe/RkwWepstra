@@ -130,7 +130,7 @@ class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
      */
     public function getTxRkwWepstraIsAnonymous()
     {
-        return $this->txRkwWepstraIsAnonymous;
+        return $this->txRkwwepstraIsAnonymous;
     }
 
     /**
@@ -141,7 +141,7 @@ class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
      */
     public function setTxRkwWepstraIsAnonymous($txRkwWepstraIsAnonymous)
     {
-        $this->txRkwWepstraIsAnonymous = $txRkwWepstraIsAnonymous;
+        $this->txRkwwepstraIsAnonymous = $txRkwWepstraIsAnonymous;
     }
 
     /**
@@ -175,6 +175,19 @@ class FrontendUser extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
     public function getLastlogin()
     {
         return $this->lastlogin;
+    }
+
+    /**
+     * Sets the username value
+     * ! Important: We need to lowercase it !
+     *
+     * @param string $username
+     * @return void
+     * @api
+     */
+    public function setUsername($username)
+    {
+        $this->username = strtolower($username);
     }
 
 }

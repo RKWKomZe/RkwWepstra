@@ -17,6 +17,17 @@ config.tx_extbase.persistence {
 				# if we set an value, we filter by it
 				# if do not set anything, all records are found
 				recordType =
+
+                # mapping to properties of class
+                columns {
+                    tstamp.mapOnProperty = tstamp
+                    starttime.mapOnProperty = starttime
+                    endtime.mapOnProperty = endtime
+                    crdate.mapOnProperty = crdate
+                    disable.mapOnProperty = disable
+                    deleted.mapOnProperty = deleted
+                    password.mapOnProperty = password
+                }
 			}
 		}
 
@@ -84,8 +95,19 @@ plugin.tx_rkwwepstra {
 
 		pageUid = {$plugin.tx_rkwwepstra.settings.pageUid}
 		importantInformationPid = {$plugin.tx_rkwwepstra.settings.importantInformationPid}
-		termsPid = {$plugin.tx_rkwwepstra.settings.termsPid}
-		menuPid = {$plugin.tx_rkwwepstra.settings.menuPid}
+		#termsPid = {$plugin.tx_rkwwepstra.settings.termsPid}
+		#menuPid = {$plugin.tx_rkwwepstra.settings.menuPid}
+        users {
+            storagePid = {$plugin.tx_rkwwepstra.settings.users.storagePid}
+            lifetimeAnonymous = {$plugin.tx_rkwwepstra.settings.users.lifetimeAnonymous}
+            languageKeyOnRegister = {$plugin.tx_rkwwepstra.settings.users.languageKeyOnRegister}
+            groupsOnRegisterAnonymous = {$plugin.tx_rkwwepstra.settings.users.groupsOnRegisterAnonymous}
+        }
+        legal {
+            privacy = {$plugin.tx_rkwwepstra.settings.legal.privacy}
+            disclaimer = {$plugin.tx_rkwwepstra.settings.legal.disclaimer}
+            imprint = {$plugin.tx_rkwwepstra.settings.legal.imprint}
+        }
 	}
 }
 
@@ -119,7 +141,7 @@ plugin.tx_rkwwepstra {
 	}
 
 [global]
-
+/*
 plugin.tx_rkwwepstra._CSS_DEFAULT_STYLE (
 	textarea.f3-form-error {
 		background-color:#FF9F9F;
@@ -153,9 +175,10 @@ plugin.tx_rkwwepstra._CSS_DEFAULT_STYLE (
 	}
 
 )
+*/
 
 # =========================================================================================
-
+/*
 lib {
 	txRkwWepstraMenu = HMENU
 	txRkwWepstraMenu {
@@ -188,7 +211,7 @@ lib {
 		}
 	}
 }
-
+*/
 
 
 # =========================================================================================

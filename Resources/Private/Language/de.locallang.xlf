@@ -481,6 +481,10 @@
 				<source>Disclaimer</source>
 				<target>Disclaimer</target>
 			</trans-unit>
+            <trans-unit id="tx_rkwwepstra_fluid_header.privacy">
+                <source>Privacy</source>
+                <target>Datenschutz</target>
+            </trans-unit>
 
 
 
@@ -1280,15 +1284,7 @@
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_finish.text1">
 				<source>Text1</source>
-				<target>Sie können Ihre Ergebnisse jetzt per E-Mail</target>
-			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_finish.text1_link">
-				<source>Text1 link</source>
-				<target>weiterleiten</target>
-			</trans-unit>
-			<trans-unit id="tx_rkwwepstra_fluid_finish.text2">
-				<source>Text2</source>
-				<target>oder</target>
+				<target>Sie können Ihre Ergebnisse jetzt </target>
 			</trans-unit>
 			<trans-unit id="tx_rkwwepstra_fluid_finish.text2_link">
 				<source>Text2 link</source>

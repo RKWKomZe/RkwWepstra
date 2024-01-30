@@ -3,6 +3,7 @@
 namespace RKW\RkwWepstra\Controller;
 
 use RKW\RkwWepstra\Helper\Register\Authentication;
+use RKW\RkwWepstra\Helper\Register\Password;
 use RKW\RkwWepstra\Helper\Register\Registration;
 use RKW\RkwWepstra\Domain\Model\Wepstra;
 use RKW\RkwWepstra\Helper\BasicData;
@@ -12,6 +13,8 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use \RKW\RkwBasics\Helper\Common;
+use TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /*
@@ -134,6 +137,7 @@ class StepController extends AbstractController
             // find anonymous user by token and login
             /** @var Authentication $authentication */
             $authentication = GeneralUtility::makeInstance(Authentication::class);
+
             if ($anonymousUser = $authentication->validateAnonymousUser($token)) {
                 $authentication::loginUser($anonymousUser);
 
@@ -245,6 +249,7 @@ class StepController extends AbstractController
      * @return void
      * @throws \RKW\RkwWepstra\Exception
      * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws InvalidConfigurationTypeException
      */
     public function loginAnonymousAction($privacy = null)
     {
@@ -1827,7 +1832,6 @@ class StepController extends AbstractController
     protected function getSettings($which = ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS)
     {
         return Common::getTyposcriptConfiguration('Rkwwepstra', $which);
-        //===
     }
 
 
@@ -1835,11 +1839,12 @@ class StepController extends AbstractController
      * action printAll
      * Possible to print only one part of it (step0, step1, step2, step2sub2, step3 etc)
      *
-     * @param string|null $printPart
+     * @param string $printPart
      * @return void
      */
-    public function printAllAction(string $printPart = null)
+    public function printAllAction($printPart = null)
     {
+
         // filter optional printPart
         $printPart = preg_replace('/[^stepub0-6]/', '', $printPart);
 
@@ -1850,22 +1855,15 @@ class StepController extends AbstractController
 
             $priorityList = null;
 
-            $i = 0;
             foreach ($participantList as $participant) {
-
-                $j = 0;
                 foreach ($jobFamilyList as $jobFamily) {
-
                     $priority = $this->priorityRepository->findByParticipantAndJobFamily($participant->getUid(), $jobFamily->getUid());
                     if ($priority) {
                         $priorityList[$participant->getUid()][$jobFamily->getUid()] = $priority->getValue();
                     } else {
                         $priorityList[$participant->getUid()][$jobFamily->getUid()] = '0';
                     }
-
-                    $j++;
                 }
-                $i++;
             }
 
             // for step 2.2

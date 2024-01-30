@@ -4,6 +4,7 @@ namespace RKW\RkwWepstra\Helper\Register;
 
 use \RKW\RkwBasics\Helper\Common;
 use RKW\RkwWepstra\Domain\Repository\FrontendUserRepository;
+use RKW\RkwWepstra\Exception;
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -89,12 +90,10 @@ class Authentication implements \TYPO3\CMS\Core\SingletonInterface
         ) {
 
             $this->getLogger()->log(LogLevel::INFO, sprintf('Successfully authenticated anonymous user with token "%s".', trim($token)));
-
             return $anonymousUser;
         }
 
         $this->getLogger()->log(LogLevel::WARNING, sprintf('Anonymous user with token "%s" not found.', trim($token)));
-
         return false;
     }
 
@@ -106,12 +105,12 @@ class Authentication implements \TYPO3\CMS\Core\SingletonInterface
      *
      * @param FrontendUser $frontendUser
      * @return void
-     * @throws \RKW\RkwWepstra\Exception
+     * @throws Exception
      */
     public static function loginUser(FrontendUser $frontendUser)
     {
         if (!$frontendUser->getUid()) {
-            throw new \RKW\RkwWepstra\Exception('No valid uid for user given.', 1435002338);
+            throw new Exception('No valid uid for user given.', 1435002338);
         }
 
         $userArray = array(
@@ -123,30 +122,13 @@ class Authentication implements \TYPO3\CMS\Core\SingletonInterface
         $GLOBALS['TSFE']->fe_user->is_permanent = 0; //set 1 for a permanent cookie, 0 for session cookie
         $GLOBALS['TSFE']->fe_user->checkPid = 0;
         $GLOBALS['TSFE']->fe_user->dontSetCookie = false;
-
-        $version = VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version);
-        if ($version >=  8000000) {
-
-            $GLOBALS['TSFE']->fe_user->start(); // set cookie and initiate login
-            $GLOBALS['TSFE']->fe_user->createUserSession($userArray);  // create user session in database
-            $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession(); // get user session from database
-            $GLOBALS['TSFE']->fe_user->loginSessionStarted = true; // set session as started equal to a successful login
-            $GLOBALS['TSFE']->initUserGroups(); // Initializes the front-end user groups based on all fe_groups records that the current fe_user is member of
-            $GLOBALS['TSFE']->loginUser = true; //  Global flag indicating that a frontend user is logged in. Should already by set by \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::initUserGroups();
-            $GLOBALS['TSFE']->storeSessionData(); // store session in database
-
-            // re-set data for redirect
-            CookieService::copyCookieDataToFeUserSession();
-
-        } else {
-            $GLOBALS['TSFE']->fe_user->createUserSession($userArray);
-            $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession();
-            $GLOBALS['TSFE']->fe_user->fetchGroupData();
-            $GLOBALS['TSFE']->loginUser = true;
-
-            // set a dummy cookie
-            $GLOBALS['TSFE']->fe_user->setAndSaveSessionData('dummy', true);
-        }
+        $GLOBALS['TSFE']->fe_user->start(); // set cookie and initiate login
+        $GLOBALS['TSFE']->fe_user->createUserSession($userArray);  // create user session in database
+        $GLOBALS['TSFE']->fe_user->user = $GLOBALS['TSFE']->fe_user->fetchUserSession(); // get user session from database
+        $GLOBALS['TSFE']->fe_user->loginSessionStarted = true; // set session as started equal to a successful login
+        $GLOBALS['TSFE']->initUserGroups(); // Initializes the front-end user groups based on all fe_groups records that the current fe_user is member of
+        $GLOBALS['TSFE']->loginUser = true; //  Global flag indicating that a frontend user is logged in. Should already by set by \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::initUserGroups();
+        $GLOBALS['TSFE']->storeSessionData(); // store session in database
 
         self::getLogger()->log(LogLevel::INFO, sprintf('Logging in User "%s" with uid %s.', strtolower($frontendUser->getUsername()), $frontendUser->getUid()));
     }

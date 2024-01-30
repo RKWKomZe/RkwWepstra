@@ -35,9 +35,29 @@ plugin.tx_rkwwepstra {
 		importantInformationPid =
 
 		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid of terms & conditions page
-		termsPid =
+		#termsPid =
 
 		# cat=plugin.tx_rkwwepstra//a; type=integer; label=PageUid for menu
-		menuPid =
+		#menuPid =
+
+        users {
+            # cat=plugin.tx_rkwwepstra//a; type=integer; label=Storage Pid
+            storagePid = 2857
+            # cat=plugin.tx_rkwwepstra//a; type=integer; label=Lifetime of registered anonymous users (default = 7776000 = 90 days)
+            lifetimeAnonymous = 7776000
+            # cat=plugin.tx_rkwwepstra//a; type=string; label=Language-key on registering (default:default)
+            languageKeyOnRegister =
+            # cat=plugin.tx_rkwwepstra//a; type=string; label=Groups a user is added to when registering anonymous
+            groupsOnRegisterAnonymous = 2
+        }
+
+        legal {
+            # cat=plugin.tx_rkwwepstra//a; type=string; label=absolute link to privacy conditions
+            privacy = www.rkw-kompetenzzentrum.de/datenschutz/
+            # cat=plugin.tx_rkwwepstra//a; type=string; label=absolute link to disclaimer
+            disclaimer = www.rkw-kompetenzzentrum.de/disclaimer/
+            # cat=plugin.tx_rkwwepstra//a; type=string; label=absolute link to imprint
+            imprint = www.rkw-kompetenzzentrum.de/impressum/
+        }
 	}
 }

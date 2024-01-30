@@ -376,6 +376,14 @@
 			</trans-unit>
 
 
+            <trans-unit id="tx_rkwwepstra_domain_model_frontenduser">
+                <source>RKW WePstra: Anonymous User</source>
+            </trans-unit>
+            <trans-unit id="tx_rkwwepstra_domain_model_frontenduser.tx_rkwwepstra_is_anonymous">
+                <source>Anonymous User</source>
+            </trans-unit>
+
+
 		</body>
 	</file>
 </xliff>
